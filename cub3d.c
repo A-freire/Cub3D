@@ -6,11 +6,12 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:02:35 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/20 14:18:57 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:07:36 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes"
+
 void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y)
 {
 	img_data[(x + y * 500) * 4] = (char)b;
