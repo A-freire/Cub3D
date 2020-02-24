@@ -6,13 +6,14 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/02/20 11:06:52 by afreire-         ###   ########.fr        #
+#    Updated: 2020/02/24 11:38:08 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-SRCS =	cub3d.c
+SRCS =	cub3d.c \
+		maths.c
 
 OBJS = ${SRCS:.c=.o}
 

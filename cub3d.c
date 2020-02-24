@@ -6,11 +6,11 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:02:35 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/20 16:07:36 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/24 14:08:19 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes"
+#include "cub3d_lib.h"
 
 void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y)
 {
@@ -30,10 +30,26 @@ int main()
     int x = 0;
     int y = 0;
     
-    mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, x, y, "YOLO");
-	img_ptr = mlx_new_image(mlx_ptr, x, y);
+
+	t_res res;
+	res.x = 500;
+	res.y = 500;
+    
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, res.x, res.y, "YOLO");
+	img_ptr = mlx_new_image(mlx_ptr, res.x, res.y);
 	img_data = mlx_get_data_addr(img_ptr, &osef, &osef, &osef);
+
+	t_cam cam;
+	cam.position = init_vec(0,0,0);
+	cam.direction = init_vec(-1,0,0);
+	cam.fov = init_vec(0,0.66,0);
+
+
+
+
+
+
 
 
     
