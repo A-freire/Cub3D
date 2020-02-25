@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/24 14:28:30 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/24 15:36:47 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_vec
 {
 	float x;
 	float y;
-	float z;
 }				t_vec;
 
 typedef struct s_csol
@@ -42,15 +41,27 @@ typedef struct s_cpl
 	t_color pl;
 }				t_cpl;
 
-typedef struct s_cam
+typedef struct s_start
 {
 	t_vec pos;
 	t_vec dir;
 	t_vec fov;//plane sur le site 
-}				t_cam;
+}				t_start;
 
 typedef struct s_timeframe
 {
 	float current;
 	float previous;
 }				t_timeframe;
+
+typedef struct s_cam
+{
+	t_vec pos;
+	t_vec dir;	
+}				t_cam;
+
+typedef struct s_map
+{
+	int x;
+	int y;
+}				t_map;
