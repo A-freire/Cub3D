@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:02:35 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/24 16:32:36 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:10:44 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int main()
 	int osef = 250;
     char *img_data;
     int x = 0;
-    int y = 0;
     
 
 	t_res res;
@@ -61,19 +60,17 @@ int main()
 	img_data = mlx_get_data_addr(img_ptr, &osef, &osef, &osef);
 
 	t_start start;
-	start.pos = init_vec(0,0);
+	start.pos = init_vec(22,12);
 	start.dir = init_vec(-1,0);
 	start.fov = init_vec(0,0.66);
 
-	t_timeframe tf;
+	t_tf tf;
 	tf.current = 0;
 	tf.previous = 0;
 	
 	t_cam cam;
 	
 
-	while (1)
-	{
 		while (x < res.x)
 		{
 			cam.pos.x = 2 * res.x - 1;
@@ -189,10 +186,10 @@ int main()
 			}
 
 			//draw the pixels of the stripe as a vertical line
-			verLine(x, drawStart, drawEnd, color, img_data);
-			}
+			display(x, drawStart, drawEnd, color, img_data);
+			x++;
 		}
-	}
+
 
     mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, 0, 0);
 	mlx_loop(mlx_ptr);

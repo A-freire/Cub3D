@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/24 16:28:46 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:10:43 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data,
 	img_data[(x + y * 500) * 4 + 3] = 0;
 }
 
-void    verline(int x, float bas, float haut, t_color color, char *img_data)
+void    display(int x, float bas, float haut, t_color color, char *img_data)
 {
     while (bas < haut)
     {

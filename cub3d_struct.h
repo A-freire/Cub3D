@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/24 15:36:47 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:10:45 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ typedef struct s_start
 	t_vec fov;//plane sur le site 
 }				t_start;
 
-typedef struct s_timeframe
+typedef struct s_tf
 {
 	float current;
 	float previous;
-}				t_timeframe;
+}				t_tf;
 
 typedef struct s_cam
 {

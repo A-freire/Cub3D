@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/24 16:29:17 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:10:45 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_vec	prod_vec(t_vec u, t_vec v);
 float	val_abs(float t);
 
 //display
-void    verline(int x, float bas, float haut, t_color color, char *img_data);
+void    display(int x, float bas, float haut, t_color color, char *img_data);
 void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y);
 
 
