@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/03/02 15:08:20 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/02 15:51:04 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int deal_key(int key, void *param)
 		exit(1);
 	if (key == 123)
 	{
+		mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
 		printf("gauche\n");
 		//both camera direction and camera plane must be rotated
 		double oldDirX = all->start.dir.x;
@@ -70,6 +71,8 @@ int deal_key(int key, void *param)
 	}
 	if (key == 124)
 	{
+		mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
+
 		printf("droite\n");
 		//both camera direction and camera plane must be rotated
 		double oldDirX = all->start.dir.x;
@@ -87,5 +90,5 @@ int deal_key(int key, void *param)
 		 if(worldMap[(int)(all->start.pos.x)][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] == 0) 
 			 	all->start.pos.y += all->start.dir.y * all->moveSpeed;
 	}
-return (key);
+	return (key);
 }
