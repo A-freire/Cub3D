@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:02:35 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/25 15:10:44 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/27 15:46:56 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int main()
     
 
 	t_res res;
-	res.x = 500;
-	res.y = 500;
+	res.x = 1920;
+	res.y = 1200;
     
 	mlx_ptr = mlx_init();
 	win_ptr = mlx_new_window(mlx_ptr, res.x, res.y, "YOLO");
@@ -65,8 +65,8 @@ int main()
 	start.fov = init_vec(0,0.66);
 
 	t_tf tf;
-	tf.current = 0;
-	tf.previous = 0;
+	tf.time = 0;
+	tf.oldtime = 0;
 	
 	t_cam cam;
 	
@@ -103,7 +103,7 @@ int main()
 				step.x = 1;
 				sidedist.x = (start.pos.x + 1 - map.x) * deltadist.x;
 			}
-			if (cam.dir.x < 0)
+			if (cam.dir.y < 0)
 			{
 				step.y = -1;
 				sidedist.y = (start.pos.y - map.y) * deltadist.y;
@@ -187,6 +187,55 @@ int main()
 
 			//draw the pixels of the stripe as a vertical line
 			display(x, drawStart, drawEnd, color, img_data);
+
+
+
+			// mlx_key_hook(win_ptr, )
+			// //speed modifiers
+			// double moveSpeed = frameTime * 5.0; //the constant value is in squares/second
+			// double rotSpeed = frameTime * 3.0; //the constant value is in radians/second
+			// readKeys();
+			// //move forward if no wall in front of you
+			// if(keyDown(SDLK_UP))
+			// {
+			// 	if(worldMap[int(posX + dirX * moveSpeed)][int(posY)] == false)
+			// 		posX += dirX * moveSpeed;
+			// 	if(worldMap[int(posX)][int(posY + dirY * moveSpeed)] == false)
+			// 		posY += dirY * moveSpeed;
+			// }
+			// //move backwards if no wall behind you
+			// if(keyDown(SDLK_DOWN))
+			// {
+			// 	if(worldMap[int(posX - dirX * moveSpeed)][int(posY)] == false)
+			// 		posX -= dirX * moveSpeed;
+			// 	if(worldMap[int(posX)][int(posY - dirY * moveSpeed)] == false)
+			// 		posY -= dirY * moveSpeed;
+			// }
+			// //rotate to the right
+			// if(keyDown(SDLK_RIGHT))
+			// {
+			// 	//both camera direction and camera plane must be rotated
+			// 	double oldDirX = dirX;
+			// 	dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
+			// 	dirY = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
+			// 	double oldPlaneX = planeX;
+			// 	planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);
+			// 	planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);
+			// }
+			// //rotate to the left
+			// if(keyDown(SDLK_LEFT))
+			// {
+			// 	//both camera direction and camera plane must be rotated
+			// 	double oldDirX = dirX;
+			// 	dirX = dirX * cos(rotSpeed) - dirY * sin(rotSpeed);
+			// 	dirY = oldDirX * sin(rotSpeed) + dirY * cos(rotSpeed);
+			// 	double oldPlaneX = planeX;
+			// 	planeX = planeX * cos(rotSpeed) - planeY * sin(rotSpeed);
+			// 	planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
+			// }
+
+
+
 			x++;
 		}
 

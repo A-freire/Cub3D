@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 16:04:08 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/25 15:10:42 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:32:30 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_vec   sub_vec(t_vec vec1, t_vec vec2)
 	return(vec3);
 }
 
-t_vec   init_vec(float x, float y)
+t_vec   init_vec(double x, double y)
 {
 	t_vec vec;
 	vec.x = x;
@@ -37,7 +37,7 @@ t_vec   init_vec(float x, float y)
 	return(vec);
 }
 
-t_vec   vec_float(t_vec vec1, float a)
+t_vec   vec_float(t_vec vec1, double a)
 {
 	t_vec vec;
 	vec.x = vec1.x * a;
@@ -100,7 +100,7 @@ float eq_car_pl(t_vec vec, t_vec point)
 // 	return (pv);
 // }
 
-float	val_abs(float t)
+double	val_abs(double t)
 {
 	if (t < 0)
 		t = -t;

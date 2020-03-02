@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/25 15:10:45 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/02 14:45:06 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 typedef struct s_res
 {
-	float x;
-	float y;
+	double x;
+	double y;
 }				t_res;
 
 typedef struct s_color
@@ -27,8 +27,8 @@ typedef struct s_color
 
 typedef struct s_vec
 {
-	float x;
-	float y;
+	double x;
+	double y;
 }				t_vec;
 
 typedef struct s_csol
@@ -50,8 +50,8 @@ typedef struct s_start
 
 typedef struct s_tf
 {
-	float current;
-	float previous;
+	double time;
+	double oldtime;
 }				t_tf;
 
 typedef struct s_cam
@@ -65,3 +65,40 @@ typedef struct s_map
 	int x;
 	int y;
 }				t_map;
+
+typedef struct s_step
+{
+	int x;
+	int y;
+}				t_step;
+
+typedef struct s_mlx
+{
+	int key;
+	void *mlx_ptr;
+	void *win_ptr;
+	void *img_ptr;
+	char *img_data;
+}				t_mlx;
+
+typedef struct s_all
+{
+	t_res res;
+	t_mlx mlx;
+	t_start start;
+	t_tf tf;
+	t_cam cam;
+	t_map map;
+	t_vec sideDist;
+	t_vec deltaDist;
+	double perpWallDist;
+	t_step step;
+	int hit;
+	int side;
+	int lineHeight;
+	int drawStart;
+	int drawEnd;
+	t_color color;
+	double moveSpeed;
+	double rotSpeed;
+}				t_all;
