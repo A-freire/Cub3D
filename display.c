@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/28 13:58:21 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/03 14:43:10 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,21 @@ void    display(int x, double haut, double bas, t_color color, char *img_data, i
 		 putPixel(color.r, color.g, color.b, img_data, x, bas, res);
 		bas++;
 	}
+}
+
+t_all	*clear_image(t_all *all)
+{
+	int x = 0;
+	int y = 0;
+	while (x < all->res.x)
+	{
+		while (y < all->res.y)
+		{
+			putPixel(0, 0, 0, all->mlx.img_data, x, y, all->res.x);
+			y++;
+		}
+		y=0;
+		x++;
+	}
+	return (all);
 }

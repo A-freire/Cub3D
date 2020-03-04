@@ -148,7 +148,7 @@ int game_on(void* param)
 	}
 	mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
 	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
-
+	all = clear_image(all);
 	return (0);
 }
 

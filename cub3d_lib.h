@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/03/02 15:00:40 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/03 14:37:14 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ double	val_abs(double t);
 //display
 void    display(int x, double haut, double bas, t_color color, char *img_data, int res);
 void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y, int res);
+t_all	*clear_image(t_all *all);
 
 //move
 int deal_key(int key, void *param);
