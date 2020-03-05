@@ -6,13 +6,13 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/03/02 15:07:53 by afreire-         ###   ########.fr        #
+#    Updated: 2020/03/05 14:32:41 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-SRCS =	test.c \
+SRCS =	cub3d.c \
 		maths.c \
 		display.c \
 		move.c
