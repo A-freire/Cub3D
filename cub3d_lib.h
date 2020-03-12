@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/03/03 14:37:14 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:44:09 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+
+
+
+t_texture		ft_putt(char *texture_addr, t_all *all);
 
 //maths
 t_vec   add_vec(t_vec vec1, t_vec vec2);

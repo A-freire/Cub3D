@@ -6,23 +6,43 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/03/05 16:04:56 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/12 15:46:36 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_lib.h"
 
+// static int worldMap[24][24]=
+// 	{
+// 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+// 	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
+// 	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+// 	};
+
 static int worldMap[24][24]=
 	{
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
-	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
-	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -30,44 +50,82 @@ static int worldMap[24][24]=
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0}
 	};
 
+t_texture		ft_putt(char *texture_addr, t_all *all)
+{
+	t_texture texture;
+
+	if (!(texture.ptr = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
+		texture_addr, &texture.w, &texture.h)))
+	{
+		printf("Error\nThe texture path isn't correct");
+		exit(0);
+	}
+	if (!(texture.data = (int *)mlx_get_data_addr(texture.ptr,
+		&texture.bpp, &texture.line_size, &texture.endian)))
+	{
+		printf("Error\nmlx_get_data_addr texture");
+		exit(0);
+	}
+	return (texture);
+}
 
 int game_on(void* param)
 {
 	t_all *all;
 	all = param;
 	int x = 0;
+
+	// int texWidth = 64;
+	// int texHeight = 64;
+	// int texture[8][2147483647];
 	
+/*	for(int x = 0; x < texWidth; x++)
+	for(int y = 0; y < texHeight; y++)
+	{
+		int xorcolor = (x * 256 / texWidth) ^ (y * 256 / texHeight);
+		//int xcolor = x * 256 / texWidth;
+		int ycolor = y * 256 / texHeight;
+		int xycolor = y * 128 / texHeight + x * 128 / texWidth;
+		texture[0][texWidth * y + x] = 65536 * 254 * (x != y && x != texWidth - y); //flat red texture with black cross
+		texture[1][texWidth * y + x] = xycolor + 256 * xycolor + 65536 * xycolor; //sloped greyscale
+		texture[2][texWidth * y + x] = 256 * xycolor + 65536 * xycolor; //sloped yellow gradient
+		texture[3][texWidth * y + x] = xorcolor + 256 * xorcolor + 65536 * xorcolor; //xor greyscale
+		texture[4][texWidth * y + x] = 256 * xorcolor; //xor green
+		texture[5][texWidth * y + x] = 65536 * 192 * (x % 16 && y % 16); //red bricks
+		texture[6][texWidth * y + x] = 65536 * ycolor; //red gradient
+		texture[7][texWidth * y + x] = 128 + 256 * 128 + 65536 * 128; //flat grey texture
+	}
+*/
+
+	all->tn = ft_putt("./texture/eagle.xpm", all);
 	while(x < all->res.x)
 	{
-		//calculate ray position and direction
 		all->cam.pos.x = 2 * x / all->res.x - 1; //x-coordinate in camera space // camerax
 		all->cam.dir.x = all->start.dir.x + all->start.fov.x * all->cam.pos.x;//raydirx
 		all->cam.dir.y = all->start.dir.y + all->start.fov.y * all->cam.pos.x;//raydiry
-		//which box of the map we're in
 		all->map.x = (int)all->start.pos.x;//mapx
 		all->map.y = (int)all->start.pos.y;//mapy
-		//length of ray from current position to next x or y-side
-		// t_vec sideDist;//sideDistx et sideDisty
-		//length of ray from one x or y-side to next x or y-side
-		// t_vec deltaDist;
 		all->deltaDist.x = val_abs(1 / all->cam.dir.x);
 		all->deltaDist.y = val_abs(1 / all->cam.dir.y);
-		// double perpWallDist;
-		//what direction to step in x or y-direction (either +1 or -1)
-		// t_step step;//step.x step.y
 		all->hit = 0; //was there a wall hit?
-		// int side; //was a NS or a EW wall hit?
-		//calculate step and initial sideDist
 		if(all->cam.dir.x < 0)
 		{
 			all->step.x = -1;
@@ -88,10 +146,8 @@ int game_on(void* param)
 			all->step.y = 1;
 			all->sideDist.y = (all->map.y + 1.0 - all->start.pos.y) * all->deltaDist.y;
 		}
-		//perform DDA
 		while (all->hit == 0)
 		{
-			//jump to next map square, OR in x-direction, OR in y-direction
 			if(all->sideDist.x < all->sideDist.y)
 			{
 				all->sideDist.x += all->deltaDist.x;
@@ -104,34 +160,27 @@ int game_on(void* param)
 				all->map.y += all->step.y;
 				all->side = 1;
 			}
-			//Check if ray has hit a wall
 			if(worldMap[all->map.x][all->map.y] > 0) 
 				all->hit = 1;
 		}
-		//Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
 		if(all->side == 0)
 			all->perpWallDist = (all->map.x - all->start.pos.x + (1 - all->step.x) / 2) / all->cam.dir.x;
 		else
 			all->perpWallDist = (all->map.y - all->start.pos.y + (1 - all->step.y) / 2) / all->cam.dir.y;
-
-		//Calculate height of line to draw on screen
 		all->lineHeight = (int)(all->res.x / all->perpWallDist);
-		//calculate lowest and highest pixel to fill in current stripe
 		all->drawStart = -all->lineHeight / 2 + all->res.x / 2;
 		if(all->drawStart < 0)
 			all->drawStart = 0;
 		all->drawEnd = all->lineHeight / 2 + all->res.x / 2;
 		if(all->drawEnd >= all->res.x)
 			all->drawEnd = all->res.x - 1;
-
-		//choose wall color
 		if (worldMap[all->map.x][all->map.y] == 1)
 		{
 			all->color.r = 255;
 			all->color.g = 0;
 			all->color.b = 0;
 		}
-		else if (worldMap[all->map.x][all->map.y] == 2)
+	/*	else if (worldMap[all->map.x][all->map.y] == 2)
 		{
 			all->color.r = 0;
 			all->color.g = 255;
@@ -155,93 +204,90 @@ int game_on(void* param)
 			all->color.g = 127;
 			all->color.b = 127;
 		}
+	*/	
+		//  mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr,	all->tn.ptr, all->res.x, all->res.y);
+		//  mlx_destroy_image(all->mlx.mlx_ptr, all->tn.ptr);
 		display(x, all->drawEnd, all->drawStart, all->color, all->mlx.img_data, all->res.x);
 		x++;		
 	}
-	mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
+	// mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
 	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
 	all = clear_image(all);
 	return (0);
 }
 
+/*
+	void	text_floor(t_all *all)
+	{
+		for(int y = 0; y < all->res.x; y++)
+		{
+			// rayDir for leftmost ray (x = 0) and rightmost ray (x = w)
+			float rayDirX0 = all->start.dir.x - all->start.fov.x;
+			float rayDirY0 = all->start.dir.y - all->start.fov.y;
+			float rayDirX1 = all->start.dir.x + all->start.fov.x;
+			float rayDirY1 = all->start.dir.y + all->start.fov.y;
 
-  //generate some textures
-#if 0
-  for(int x = 0; x < texWidth; x++)
-  for(int y = 0; y < texHeight; y++)
-  {
-    int xorcolor = (x * 256 / texWidth) ^ (y * 256 / texHeight);
-    //int xcolor = x * 256 / texWidth;
-    int ycolor = y * 256 / texHeight;
-    int xycolor = y * 128 / texHeight + x * 128 / texWidth;
-    texture[0][texWidth * y + x] = 65536 * 254 * (x != y && x != texWidth - y); //flat red texture with black cross
-    texture[1][texWidth * y + x] = xycolor + 256 * xycolor + 65536 * xycolor; //sloped greyscale
-    texture[2][texWidth * y + x] = 256 * xycolor + 65536 * xycolor; //sloped yellow gradient
-    texture[3][texWidth * y + x] = xorcolor + 256 * xorcolor + 65536 * xorcolor; //xor greyscale
-    texture[4][texWidth * y + x] = 256 * xorcolor; //xor green
-    texture[5][texWidth * y + x] = 65536 * 192 * (x % 16 && y % 16); //red bricks
-    texture[6][texWidth * y + x] = 65536 * ycolor; //red gradient
-    texture[7][texWidth * y + x] = 128 + 256 * 128 + 65536 * 128; //flat grey texture
-  }
-#else
- //generate some textures
-  unsigned long tw, th;
-  loadImage(texture[0], tw, th, "pics/eagle.png");
-  loadImage(texture[1], tw, th, "pics/redbrick.png");
-  loadImage(texture[2], tw, th, "pics/purplestone.png");
-  loadImage(texture[3], tw, th, "pics/greystone.png");
-  loadImage(texture[4], tw, th, "pics/bluestone.png");
-  loadImage(texture[5], tw, th, "pics/mossy.png");
-  loadImage(texture[6], tw, th, "pics/wood.png");
-  loadImage(texture[7], tw, th, "pics/colorstone.png");
-#endif
+			// Current y position compared to the center of the screen (the horizon)
+			int p = y - all->res.y / 2;
 
-mlx_xpm_file_to_image(all->mlx.mlx_ptr, ,all->res.x, all->res.y)
+			// Vertical position of the camera.
+			float posZ = 0.5 * all->res.y;
 
+			// Horizontal distance from the camera to the floor for the current row.
+			// 0.5 is the z position exactly in the middle between floor and ceiling.
+			float rowDistance = posZ / p;
 
-      //texturing calculations
-      int texNum = worldMap[mapX][mapY] - 1; //1 subtracted from it so that texture 0 can be used!
+			// calculate the real world step vector we have to add for each x (parallel to camera plane)
+			// adding step by step avoids multiplications with a weight in the inner loop
+			t_vec floorStep;
+			floorStep.x = rowDistance * (rayDirX1 - rayDirX0) / all->res.x;
+			floorStep.y = rowDistance * (rayDirY1 - rayDirY0) / all->res.x;
 
-      //calculate value of wallX
-      double wallX; //where exactly the wall was hit
-      if(side == 0) wallX = posY + perpWallDist * rayDirY;
-      else          wallX = posX + perpWallDist * rayDirX;
-      wallX -= floor((wallX));
+			// real world coordinates of the leftmost column. This will be updated as we step to the right.
+			t_vec floor;
+			floor.x = all->start.pos.x + rowDistance * rayDirX0;
+			floor.y = all->start.pos.y + rowDistance * rayDirY0;
 
-      //x coordinate on the texture
-      int texX = int(wallX * double(texWidth));
-      if(side == 0 && rayDirX > 0) texX = texWidth - texX - 1;
-      if(side == 1 && rayDirY < 0) texX = texWidth - texX - 1;
+			for(int x = 0; x < all->res.x; ++x)
+			{
+				// the cell coord is simply got from the integer parts of floorX and floorY
+				t_vec cell;
+				cell.x = (int)(floor.x);
+				cell.y = (int)(floor.y);
 
-      // TODO: an integer-only bresenham or DDA like algorithm could make the texture coordinate stepping faster
-      // How much to increase the texture coordinate per screen pixel
-      double step = 1.0 * texHeight / lineHeight;
-      // Starting texture coordinate
-      double texPos = (drawStart - h / 2 + lineHeight / 2) * step;
-      for(int y = drawStart; y < drawEnd; y++)
-      {
-        // Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
-        int texY = (int)texPos & (texHeight - 1);
-        texPos += step;
-        Uint32 color = texture[texNum][texHeight * texY + texX];
-        //make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
-        if(side == 1) color = (color >> 1) & 8355711;
-        buffer[y][x] = color;
-      }
-    }
+				// get the texture coordinate from the fractional part
+				int tx = (int)(texWidth * (floor.x - cell.x)) & (texWidth - 1);
+				int ty = (int)(texHeight * (floor.y - cell.y)) & (texHeight - 1);
 
-    drawBuffer(buffer[0]);
-    for(int y = 0; y < h; y++) for(int x = 0; x < w; x++) buffer[y][x] = 0; //clear the buffer instead of cls()
+				floor.x += floorStep.x;
+				floor.y += floorStep.y;
 
+				// choose texture and draw the pixel
+				int floorTexture = 3;
+				int ceilingTexture = 6;
+				Uint32 color;
 
+				// floor
+				color = texture[floorTexture][texWidth * ty + tx];
+				color = (color >> 1) & 8355711; // make a bit darker
+				buffer[y][x] = color;
+
+				//ceiling (symmetrical, at screenHeight - y - 1 instead of y)
+				color = texture[ceilingTexture][texWidth * ty + tx];
+				color = (color >> 1) & 8355711; // make a bit darker
+				buffer[screenHeight - y - 1][x] = color;
+			}
+		}
+	}
+*/
 
 int main()
 {
 	t_all all;
 	int osef = 250;
 
-	all.moveSpeed = 1;
-	all.rotSpeed = 1;
+	all.moveSpeed = 0.4;
+	all.rotSpeed = 3.141592 / 4.000000;
 	all.res.x = 800;
 	all.res.y = 800;
 	
@@ -262,13 +308,12 @@ int main()
 	all.tf.time = 0; //time of current frame name time
 	all.tf.oldtime = 0; //time of previous frame
 
-
+	// text_floor(&all);
 	game_on(&all);
-		
+	mlx_do_key_autorepeatoff(all.mlx.mlx_ptr);
 	mlx_key_hook(all.mlx.win_ptr, deal_key, &all);
 	mlx_loop_hook(all.mlx.mlx_ptr, game_on, &all);
 	mlx_loop(all.mlx.mlx_ptr);
-	// }
-
+	return (0);
 }
 

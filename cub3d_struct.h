@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/03/02 14:45:06 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/11 15:13:05 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,28 @@ typedef struct s_mlx
 	char *img_data;
 }				t_mlx;
 
+typedef struct		s_texture
+{
+	void			*ptr;
+	int				*data;
+	int				bpp;
+	int				line_size;
+	int				endian;
+	int				h;
+	int				w;
+	int				color;
+}					t_texture;
+
+typedef struct s_move
+{
+	double up;
+	double down;
+	double right;
+	double left;
+	double rd;
+	double rg;
+}				t_move;
+
 typedef struct s_all
 {
 	t_res res;
@@ -89,6 +111,7 @@ typedef struct s_all
 	t_tf tf;
 	t_cam cam;
 	t_map map;
+	t_move move;
 	t_vec sideDist;
 	t_vec deltaDist;
 	double perpWallDist;
@@ -101,4 +124,8 @@ typedef struct s_all
 	t_color color;
 	double moveSpeed;
 	double rotSpeed;
+	t_texture tn;
+	t_texture ts;
+	t_texture te;
+	t_texture tw;
 }				t_all;
