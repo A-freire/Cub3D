@@ -12,7 +12,7 @@
 
 #include "cub3d_lib.h"
 
-// static int worldMap[24][24]=
+// static int all->map.map[24][24]=
 // 	{
 // 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 // 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -40,33 +40,33 @@
 // 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 // 	};
 
-static int worldMap[24][24]=
-	{
-	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0}
-	};
+// static int all->map.map[24][24]=
+// 	{
+// 	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+// 	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0}
+// 	};
 
 t_texture		ft_putt(char *texture_addr, t_all *all)
 {
@@ -160,7 +160,7 @@ int game_on(void* param)
 				all->map.y += all->step.y;
 				all->side = 1;
 			}
-			if(worldMap[all->map.x][all->map.y] > 0) 
+			if(all->map.map[all->map.x][all->map.y] > 0) 
 				all->hit = 1;
 		}
 		if(all->side == 0)
@@ -174,25 +174,25 @@ int game_on(void* param)
 		all->drawEnd = all->lineHeight / 2 + all->res.x / 2;
 		if(all->drawEnd >= all->res.x)
 			all->drawEnd = all->res.x - 1;
-		if (worldMap[all->map.x][all->map.y] == 1)
+		if (all->map.map[all->map.x][all->map.y] == 1)
 		{
 			all->color.r = 255;
 			all->color.g = 0;
 			all->color.b = 0;
 		}
-	/*	else if (worldMap[all->map.x][all->map.y] == 2)
+	/*	else if (all->map.map[all->map.x][all->map.y] == 2)
 		{
 			all->color.r = 0;
 			all->color.g = 255;
 			all->color.b = 0;
 		}
-		else if (worldMap[all->map.x][all->map.y] == 3)
+		else if (all->map.map[all->map.x][all->map.y] == 3)
 		{
 			all->color.r = 0;
 			all->color.g = 0;
 			all->color.b = 255;
 		}
-		else if (worldMap[all->map.x][all->map.y] == 4)
+		else if (all->map.map[all->map.x][all->map.y] == 4)
 		{
 			all->color.r = 255;
 			all->color.g = 255;
@@ -280,30 +280,45 @@ int game_on(void* param)
 		}
 	}
 */
+void ft_mlx(t_all *all)
+{
+	int osef = 250;
+	all->mlx.mlx_ptr = mlx_init();
+	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y, "YOLO");
+	all->mlx.img_ptr = mlx_new_image(all->mlx.mlx_ptr, all->res.x, all->res.y);
+	all->mlx.img_data = mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef, &osef);
+}
+
+void	option(t_all *all, t_file *file)
+{
+	all->start.pos = init_vec(file->spawn.x, file->spawn.y);
+	if(file->spawn.facing == 'N')
+		all->start.dir = init_vec(0, 1);
+	else if(file->spawn.facing == 'S')
+		all->start.dir = init_vec(0, -1);
+	else if(file->spawn.facing == 'E')
+		all->start.dir = init_vec(1, 0);
+	else if(file->spawn.facing == 'W')
+		all->start.dir = init_vec(-1, 0);
+	all->start.fov.x = 0; //planex
+	all->start.fov.y = 0.66; //plane y //the 2d raycaster version of camera plane
+	all->map = file->map;
+	all->res = file->res;
+	all->moveSpeed = 0.4;
+	all->rotSpeed = 3.141592 / 4.000000;
+	ft_mlx(all);
+}
 
 int main()
 {
 	t_all all;
-	int osef = 250;
-
-	all.moveSpeed = 0.4;
-	all.rotSpeed = 3.141592 / 4.000000;
-	all.res.x = 800;
-	all.res.y = 800;
+	t_file file;
 	
-	all.mlx.mlx_ptr = mlx_init();
-	all.mlx.win_ptr = mlx_new_window(all.mlx.mlx_ptr, all.res.x, all.res.y, "YOLO");
-	all.mlx.img_ptr = mlx_new_image(all.mlx.mlx_ptr, all.res.x, all.res.y);
-	all.mlx.img_data = mlx_get_data_addr(all.mlx.img_ptr, &osef, &osef, &osef);
-
-
-	all.start.pos.x = 22;//posx
-	all.start.pos.y = 12;//posy  //x and y start position
-
-	all.start.dir.x = -1;//dirx
-	all.start.dir.y = 0; //diry //initial direction vector
-	all.start.fov.x = 0; //planex
-	all.start.fov.y = 0.66; //plane y //the 2d raycaster version of camera plane
+	if (ft_parsing("test.cub", &file) <= 0)
+	{
+		return(0);
+	}
+	option(&all, &file);
 
 	all.tf.time = 0; //time of current frame name time
 	all.tf.oldtime = 0; //time of previous frame

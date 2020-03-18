@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-
+# include "parsing/ft_parsing.h"
 
 
 t_texture		ft_putt(char *texture_addr, t_all *all);

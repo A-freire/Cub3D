@@ -1,0 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    README                                             :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/03/18 10:10:48 by robriard          #+#    #+#              #
+#    Updated: 2020/03/18 10:22:48 by robriard         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Parsing projet Cub3D.
+
+Librairie : #include "ft_parsing.h"
+
+Synopsis : 
+
+int 
+ft_parsing((char *file, t_file *s));
+
+Description: 
+
+	ft_parsing copy les infos du fichier typé ".cub" et de chemin
+d'accès file dans la structure de type t_file pointé par *s et vérifie les
+informations.
+
+Valeurs de retours:
+
+	ft_parsing retourne un int égal à 0 si aucune erreur n'a été repéré ou
+une valeurs infèrieur à 0 sinon.
+
+	le pointeur *s aura toutes les valeurs récupéré enregistré ou des valeurs de
+bases si aucune valeurs ne lui à été donné, 0 pour les int, et (null) pour les *char
+
