@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
-/*   Updated: 2020/03/16 21:28:18 by robriard         ###   ########.fr       */
+/*   Updated: 2020/03/20 10:05:39 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void			ft_error(int error)
 	}
 	if (error == 404)
 		ft_printf("\033[33;05mNo .cub file input\033[00m\n");
+	if (error == 0)
+		ft_printf("\033[33;05mWrong number of argument\033[0 0m\n");
 	if (error == 1)
 		ft_printf("\033[33;05mBad resolution\033[0 0m\n");
 	if (error == 2)

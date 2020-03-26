@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_lib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/25 15:10:45 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/03/26 15:44:25 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_LIB_H
 # define CUB3D_LIB_H
-# include "../includes/minilibx/mlx.h"
+# include "./includes/minilibx/mlx.h"
 # include "cub3d_struct.h"
+# include "./parsing/ft_parsing.h"
 
 //maths
 t_vec   add_vec(t_vec vec1, t_vec vec2);
