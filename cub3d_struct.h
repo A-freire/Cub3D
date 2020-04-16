@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3d_lib.h"
-<<<<<<< HEAD
 
 typedef struct s_res
 {
@@ -31,9 +30,6 @@ typedef struct s_vec
 	double x;
 	double y;
 }				t_vec;
-=======
-#include "parsing/parsing_struct.h"
->>>>>>> 295eaf89097ba421fd890b476557decc60b95b90
 
 typedef struct s_csol
 {
@@ -63,6 +59,12 @@ typedef struct s_cam
 	t_vec pos;
 	t_vec dir;	
 }				t_cam;
+
+typedef struct s_map
+{
+	int x;
+	int y;
+}				t_map;
 
 typedef struct s_step
 {

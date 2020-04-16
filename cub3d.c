@@ -12,7 +12,7 @@
 
 #include "cub3d_lib.h"
 
-// static int all->map.map[24][24]=
+// static int worldMap[24][24]=
 // 	{
 // 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 // 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -40,33 +40,33 @@
 // 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 // 	};
 
-// static int all->map.map[24][24]=
-// 	{
-// 	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0}
-// 	};
+static int worldMap[24][24]=
+	{
+	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0}
+	};
 
 t_texture		ft_putt(char *texture_addr, t_all *all)
 {
@@ -160,7 +160,7 @@ int game_on(void* param)
 				all->map.y += all->step.y;
 				all->side = 1;
 			}
-			if(all->map.map[all->map.x][all->map.y] > 0) 
+			if(worldMap[all->map.x][all->map.y] > 0) 
 				all->hit = 1;
 		}
 		if(all->side == 0)
@@ -174,25 +174,25 @@ int game_on(void* param)
 		all->drawEnd = all->lineHeight / 2 + all->res.x / 2;
 		if(all->drawEnd >= all->res.x)
 			all->drawEnd = all->res.x - 1;
-		if (all->map.map[all->map.x][all->map.y] == 1)
+		if (worldMap[all->map.x][all->map.y] == 1)
 		{
 			all->color.r = 255;
 			all->color.g = 0;
 			all->color.b = 0;
 		}
-	/*	else if (all->map.map[all->map.x][all->map.y] == 2)
+	/*	else if (worldMap[all->map.x][all->map.y] == 2)
 		{
 			all->color.r = 0;
 			all->color.g = 255;
 			all->color.b = 0;
 		}
-		else if (all->map.map[all->map.x][all->map.y] == 3)
+		else if (worldMap[all->map.x][all->map.y] == 3)
 		{
 			all->color.r = 0;
 			all->color.g = 0;
 			all->color.b = 255;
 		}
-		else if (all->map.map[all->map.x][all->map.y] == 4)
+		else if (worldMap[all->map.x][all->map.y] == 4)
 		{
 			all->color.r = 255;
 			all->color.g = 255;
@@ -216,7 +216,6 @@ int game_on(void* param)
 	return (0);
 }
 
-<<<<<<< HEAD
 int main()
 {
 	t_all all;
@@ -226,111 +225,20 @@ int main()
 	all.rotSpeed = 3.141592 / 4.000000;
 	all.res.x = 1280;
 	all.res.y = 720;
-=======
-/*
-	void	text_floor(t_all *all)
-	{
-		for(int y = 0; y < all->res.x; y++)
-		{
-			// rayDir for leftmost ray (x = 0) and rightmost ray (x = w)
-			float rayDirX0 = all->start.dir.x - all->start.fov.x;
-			float rayDirY0 = all->start.dir.y - all->start.fov.y;
-			float rayDirX1 = all->start.dir.x + all->start.fov.x;
-			float rayDirY1 = all->start.dir.y + all->start.fov.y;
-
-			// Current y position compared to the center of the screen (the horizon)
-			int p = y - all->res.y / 2;
-
-			// Vertical position of the camera.
-			float posZ = 0.5 * all->res.y;
-
-			// Horizontal distance from the camera to the floor for the current row.
-			// 0.5 is the z position exactly in the middle between floor and ceiling.
-			float rowDistance = posZ / p;
-
-			// calculate the real world step vector we have to add for each x (parallel to camera plane)
-			// adding step by step avoids multiplications with a weight in the inner loop
-			t_vec floorStep;
-			floorStep.x = rowDistance * (rayDirX1 - rayDirX0) / all->res.x;
-			floorStep.y = rowDistance * (rayDirY1 - rayDirY0) / all->res.x;
-
-			// real world coordinates of the leftmost column. This will be updated as we step to the right.
-			t_vec floor;
-			floor.x = all->start.pos.x + rowDistance * rayDirX0;
-			floor.y = all->start.pos.y + rowDistance * rayDirY0;
-
-			for(int x = 0; x < all->res.x; ++x)
-			{
-				// the cell coord is simply got from the integer parts of floorX and floorY
-				t_vec cell;
-				cell.x = (int)(floor.x);
-				cell.y = (int)(floor.y);
-
-				// get the texture coordinate from the fractional part
-				int tx = (int)(texWidth * (floor.x - cell.x)) & (texWidth - 1);
-				int ty = (int)(texHeight * (floor.y - cell.y)) & (texHeight - 1);
-
-				floor.x += floorStep.x;
-				floor.y += floorStep.y;
-
-				// choose texture and draw the pixel
-				int floorTexture = 3;
-				int ceilingTexture = 6;
-				Uint32 color;
-
-				// floor
-				color = texture[floorTexture][texWidth * ty + tx];
-				color = (color >> 1) & 8355711; // make a bit darker
-				buffer[y][x] = color;
-
-				//ceiling (symmetrical, at screenHeight - y - 1 instead of y)
-				color = texture[ceilingTexture][texWidth * ty + tx];
-				color = (color >> 1) & 8355711; // make a bit darker
-				buffer[screenHeight - y - 1][x] = color;
-			}
-		}
-	}
-*/
-void ft_mlx(t_all *all)
-{
-	int osef = 250;
-	all->mlx.mlx_ptr = mlx_init();
-	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y, "YOLO");
-	all->mlx.img_ptr = mlx_new_image(all->mlx.mlx_ptr, all->res.x, all->res.y);
-	all->mlx.img_data = mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef, &osef);
-}
-
-void	option(t_all *all, t_file *file)
-{
-	all->start.pos = init_vec(file->spawn.x, file->spawn.y);
-	if(file->spawn.facing == 'N')
-		all->start.dir = init_vec(0, 1);
-	else if(file->spawn.facing == 'S')
-		all->start.dir = init_vec(0, -1);
-	else if(file->spawn.facing == 'E')
-		all->start.dir = init_vec(1, 0);
-	else if(file->spawn.facing == 'W')
-		all->start.dir = init_vec(-1, 0);
-	all->start.fov.x = 0; //planex
-	all->start.fov.y = 0.66; //plane y //the 2d raycaster version of camera plane
-	all->map = file->map;
-	all->res = file->res;
-	all->moveSpeed = 0.4;
-	all->rotSpeed = 3.141592 / 4.000000;
-	ft_mlx(all);
-}
-
-int main()
-{
-	t_all all;
-	t_file file;
->>>>>>> 295eaf89097ba421fd890b476557decc60b95b90
 	
-	if (ft_parsing("test.cub", &file) <= 0)
-	{
-		return(0);
-	}
-	option(&all, &file);
+	all.mlx.mlx_ptr = mlx_init();
+	all.mlx.win_ptr = mlx_new_window(all.mlx.mlx_ptr, all.res.x, all.res.y, "YOLO");
+	all.mlx.img_ptr = mlx_new_image(all.mlx.mlx_ptr, all.res.x, all.res.y);
+	all.mlx.img_data = mlx_get_data_addr(all.mlx.img_ptr, &osef, &osef, &osef);
+
+
+	all.start.pos.x = 22;//posx
+	all.start.pos.y = 12;//posy  //x and y start position
+
+	all.start.dir.x = -1;//dirx
+	all.start.dir.y = 0; //diry //initial direction vector
+	all.start.fov.x = 0; //planex
+	all.start.fov.y = 0.66; //plane y //the 2d raycaster version of camera plane
 
 	all.tf.time = 0; //time of current frame name time
 	all.tf.oldtime = 0; //time of previous frame
