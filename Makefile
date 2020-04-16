@@ -38,18 +38,18 @@ CFLAGS =  -Wall -Wextra -Werror -I includes/ -I includes/minilibx
 RM  = rm -f
 
 ${NAME}	:	${OBJS}
-	@(${CC}	 -o ${NAME}  ${FLAGS} ${OBJS})
+	${CC}	 -o ${NAME}  ${FLAGS} ${OBJS}
 
 all:  ${NAME}
 
 clean:	
-	@(${RM}	${OBJS})
+	${RM}	${OBJS}
 
 fclean:  clean
-	@(${RM} ${NAME})
+	${RM} ${NAME}
 
 re: fclean all
-	@(${RM}	${OBJS})
+	${RM}	${OBJS}
 exe: re
-	@(./${NAME})
+	./${NAME} test.cub
 .PHONY: all clean fclean re

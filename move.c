@@ -12,62 +12,6 @@
 
 #include "cub3d_lib.h"
 
-// static int worldMap[24][24]=
-// 	{
-// 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
-// 	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
-// 	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-// 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-// 	};
-
-static int worldMap[24][24]=
-	{
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-	};
-
 // void	up_down(t_all *all)
 // {
 // 	if (all->move.up == 1)
@@ -76,9 +20,9 @@ static int worldMap[24][24]=
 // 	}
 // 	else if (all->move.down == 1)
 // 	{
-// 		if(worldMap[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y)] == 0)
+// 		if(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y)] == 0)
 // 			all->start.pos.x -= all->start.dir.x * all->moveSpeed;
-//     	if(worldMap[(int)(all->start.pos.x)][(int)(all->start.pos.y - all->start.dir.y * all->moveSpeed)] == 0) 
+//     	if(all->map.map[(int)(all->start.pos.x)][(int)(all->start.pos.y - all->start.dir.y * all->moveSpeed)] == 0) 
 // 			all->start.pos.y -= all->start.dir.y * all->moveSpeed;
 // 	}
 // }
@@ -88,7 +32,7 @@ int deal_key(int key, void *param)
 	t_all *all;
 	all = param;
 	//  printf("%d\n", key);
-	printf("start x = %d | y = %d\n", (int)(all->start.pos.x), (int)(all->start.pos.y));
+	// printf("start x = %d | y = %d\n", (int)(all->start.pos.x), (int)(all->start.pos.y));
 	if (key == 53)
 		exit(0);
 	if (key == 12 || key == 123)
@@ -116,44 +60,44 @@ int deal_key(int key, void *param)
 	if (key == 1)
 	{
 		printf("reculer\n");
-		if(worldMap[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y)] == 0)
+		if(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y)] == 0)
 			all->start.pos.x -= all->start.dir.x * all->moveSpeed;
-    	if(worldMap[(int)(all->start.pos.x)][(int)(all->start.pos.y - all->start.dir.y * all->moveSpeed)] == 0) 
+    	if(all->map.map[(int)(all->start.pos.x)][(int)(all->start.pos.y - all->start.dir.y * all->moveSpeed)] == 0) 
 			all->start.pos.y -= all->start.dir.y * all->moveSpeed;
 	}
 	if (key == 13)
 	{
 		printf("avancer\n");
-		 if(worldMap[(int)(all->start.pos.x + all->start.dir.x * all->moveSpeed)][(int)all->start.pos.y] == 0) 
+		 if(all->map.map[(int)(all->start.pos.x + all->start.dir.x * all->moveSpeed)][(int)all->start.pos.y] == 0) 
 			 	all->start.pos.x += all->start.dir.x * all->moveSpeed;
-		 if(worldMap[(int)(all->start.pos.x)][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] == 0) 
+		 if(all->map.map[(int)(all->start.pos.x)][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] == 0) 
 			 	all->start.pos.y += all->start.dir.y * all->moveSpeed;
 	}
 	if (key == 0)
 	{
 		printf("gauche\n");
 		// printf("x = %d | y = %d\n", (int)(all->start.pos.x), (int)all->start.pos.y));
-		if(worldMap[(int)(all->start.pos.x) - 1][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed) - 1] != 1) 
+		if(all->map.map[(int)(all->start.pos.x)][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) 
 			all->start.pos.y += all->start.dir.x * all->moveSpeed;
-    	if(worldMap[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed) - 1][(int)(all->start.pos.y) - 1] != 1)
+    	if(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y)] != 1)
 			all->start.pos.x -= all->start.dir.y * all->moveSpeed;
 	}
 	if (key == 2)
 	{
 		printf("droite\n");
-		if(worldMap[(int)(all->start.pos.x + all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)
+		if(all->map.map[(int)(all->start.pos.x + all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)
 		{
 			// printf("x = %d | y = %d\n", (int)(all->start.pos.x + all->start.dir.x * all->moveSpeed), (int)(all->start.pos.y + all->start.dir.y * all->moveSpeed));
 			all->start.pos.y -= all->start.dir.x * all->moveSpeed;
 		}
-		if(worldMap[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y - all->start.dir.y * all->moveSpeed)] != 1)
+		if(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y - all->start.dir.y * all->moveSpeed)] != 1)
 		{
 			// printf("x = %d\n", (int)(all->start.pos.x - all->start.dir.x * all->moveSpeed));
 			// printf("y = %d\n", (int)(all->start.pos.y - all->start.dir.y * all->moveSpeed));
 			all->start.pos.x += all->start.dir.y * all->moveSpeed;
 		}
 	}
-	printf("end x = %d | y = %d\n", (int)(all->start.pos.x), (int)(all->start.pos.y));
+	// printf("end x = %d | y = %d\n", (int)(all->start.pos.x), (int)(all->start.pos.y));
 	return (key);
 }
 

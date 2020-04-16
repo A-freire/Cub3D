@@ -15,8 +15,8 @@ int		main(int ac, char **av)
 		printf("EA = |%s|\n", s.map.EAface);
 		printf("WE = |%s|\n", s.map.WEface);
 		printf("S = |%s|\n", s.map.Sprite);
-		printf("F = %d %d %d\n", s.screen.floor.red, s.screen.floor.green, s.screen.floor.blue);
-		printf("C = %d %d %d\n", s.screen.ceiling.red, s.screen.ceiling.green, s.screen.ceiling.blue);
+		printf("F = %d %d %d\n", s.screen.floor.r, s.screen.floor.g, s.screen.floor.b);
+		printf("C = %d %d %d\n", s.screen.ceiling.r, s.screen.ceiling.g, s.screen.ceiling.b);
 		printf("SPAWN = [%c] %d %d\n", s.spawn.facing, s.spawn.x, s.spawn.y);
 		printf("\n");
 		int	y = -1;;

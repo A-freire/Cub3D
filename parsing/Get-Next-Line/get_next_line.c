@@ -6,13 +6,32 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:20:35 by robriard          #+#    #+#             */
-/*   Updated: 2020/02/13 14:43:49 by robriard         ###   ########.fr       */
+/*   Updated: 2020/03/20 09:34:48 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	ft_check_end_of_line(char *content)
+static int	ft_init(int fd, char **buffer, char **content)
+{
+	int	check;
+	int	i;
+
+	if (!(buffer[0]))
+	{
+		if (!(buffer[0] = malloc(sizeof(char) * BUFFER_SIZE + 1)))
+			return (0);
+		i = -1;
+		check = read(fd,buffer[0], BUFFER_SIZE);
+		buffer[0][check] = '\0';
+	}
+	else
+		check = -1;
+	content[0] = ft_strdup(buffer[0]);
+	return (check);
+}
+
+static int	ft_check(char *content)
 {
 	int i;
 
@@ -27,104 +46,78 @@ static int	ft_check_end_of_line(char *content)
 	return (0);
 }
 
+static char	*ft_fill_line(char *content)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	while (content[i] && content[i] != '\n')
+		i++;
+	if (!(line = malloc(sizeof(char) * i +1)))
+		return (NULL);
+	i = 0;
+	while (content[i] && content[i] != '\n')
+	{
+		line[i] = content[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+char		*ft_clearbuffer(char *content, char **buffer)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (content[i] && content[i] != '\n')
+		i++;
+	i++;
+	j = 0;
+	while (content[i + j])
+	{
+		buffer[0][j] = content[i + j];
+		j++;
+	}
+	while (j <= BUFFER_SIZE)
+	{
+		buffer[0][j] = '\0';
+		j++;
+	}
+	return (buffer[0]);
+}
+
 int			get_next_line(int fd, char **line)
 {
 	static char	*buffer;
 	char		*content;
-	char		*buf;
-	int			checker;
-	int 		i;
-	int			j;
-	char 		*tmp;
-
-	printf("TEST0\n");
+	char		*tmp;
+	int			check;
 
 	if (BUFFER_SIZE < 1 || line == 0 || fd < 0)
 		return (-1);
-
-	printf("TEST1\n");
-
-	if (!(content = malloc(sizeof(char))))
-		return (0);
-
-	printf("TEST1.1\n");
-	content[0] = '\0';
-	if (!(buf = malloc(sizeof(char) * BUFFER_SIZE + 1)))
-		return (0);
-	buf[BUFFER_SIZE] = '\0';
-	if (!buffer)
+	check = ft_init(fd, &buffer, &content);
+	while (!(ft_check(content)) && check != 0)
 	{
-		if (!(buffer = malloc(sizeof(char) * BUFFER_SIZE + 1)))
-			return (0);
-		i = -1;
-		while (++i < BUFFER_SIZE)
-			buffer[i] = 0;
-		buffer[BUFFER_SIZE] = '\0';
-		checker = read(fd, content, BUFFER_SIZE);
-	}
-	else
-		checker = -1;
-	tmp = ft_strdup(content);
-	free(content);
-	content = ft_strjoin(tmp, buffer);
-	free(tmp);
-
-	printf("TEST2\n");
-
-	while (!(ft_check_end_of_line(content)) && checker != 0)
-	{
-		checker = read(fd, buf, BUFFER_SIZE);
-		buf[checker] = '\0';
+		check = read(fd, buffer, BUFFER_SIZE);
+		buffer[check] = '\0';
 		tmp = ft_strdup(content);
 		free(content);
-		if (buf[0] == '\0')
+		if (buffer[0] == '\0')
 			content = ft_strjoin(tmp, "\n");
 		else
-			content = ft_strjoin(tmp, buf);
+			content = ft_strjoin(tmp, buffer);
 		free(tmp);
 	}
-
-	printf("TEST3\n");
-
-	i = 0;
-	while (content[i] != '\0')
-		i++;
-	if (!(line[0] = malloc(sizeof(char) * i + 1)))
-		return (0);
-	i = 0;
-	while (content[i] != '\n' && content[i])
-	{
-	 	line[0][i] = content[i];
-	 	i++;
-	}
-	line[0][i] = '\0';
-	 i++;
-
-	printf("TEST4\n");
-
-	j = 0;
-	while (j <= BUFFER_SIZE)
-	{
-		buffer[j] = 0;
-		j++;
-	}
-	j = 0;
-	while (content[i])
-	{
-		buffer[j] = content[i];
-		i++;
-		j++;
-	}
-	buffer[j] = '\0';
-	
+	line[0] = ft_fill_line(content);
+	buffer = ft_clearbuffer(content, &buffer);
 	free (content);
-	free (buf);
-
-	printf("TEST5\n");
-
-	if (checker == 0)
+	if (check == 0)
 	{
 		free (buffer);
+		buffer = NULL;
 		return (0);
 	}
 	return (1);

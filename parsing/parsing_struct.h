@@ -15,8 +15,8 @@
 
 typedef struct	s_vec
 {
-	float	x;
-	float	y;
+	double		x;
+	double		y;
 }				t_vec;
 
 typedef struct	s_color
@@ -28,8 +28,8 @@ typedef struct	s_color
 
 typedef struct	s_res
 {
-	float	x;
-	float	y;
+	double		x;
+	double		y;
 }				t_res;
 
 typedef struct	s_back_screen

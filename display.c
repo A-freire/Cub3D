@@ -26,8 +26,7 @@ void    display(int x, double haut, double bas, t_color color, char *img_data, i
 	while (bas < haut)
 	{
 		//putPixel(255, 255, 255, img_data, x, bas, res);
-
-		 putPixel(color.r, color.g, color.b, img_data, x, bas, res);
+		putPixel(color.r, color.g, color.b, img_data, x, bas, res);
 		bas++;
 	}
 }
