@@ -11,7 +11,25 @@
 /* ************************************************************************** */
 
 #include "cub3d_lib.h"
-#include "parsing/parsing_struct.h"
+
+typedef struct s_res
+{
+	double x;
+	double y;
+}				t_res;
+
+typedef struct s_color
+{
+	int r;
+	int g;
+	int b;
+}				t_color;
+
+typedef struct s_vec
+{
+	double x;
+	double y;
+}				t_vec;
 
 typedef struct s_csol
 {
@@ -41,6 +59,12 @@ typedef struct s_cam
 	t_vec pos;
 	t_vec dir;	
 }				t_cam;
+
+typedef struct s_map
+{
+	int x;
+	int y;
+}				t_map;
 
 typedef struct s_step
 {
