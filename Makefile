@@ -15,22 +15,30 @@ NAME = cub3d
 SRCS =	cub3d.c \
 		maths.c \
 		display.c \
-		move.c
+		move.c \
+		./parsing/checking/ft_checkmap.c \
+		./parsing/checking/ft_checkparsing.c \
+		./parsing/Get-Next-Line/get_next_line_utils.c \
+		./parsing/Get-Next-Line/get_next_line.c \
+		./parsing/other/ft_countmap.c \
+		./parsing/other/ft_error.c \
+		./parsing/other/ft_finalmap.c \
+		./parsing/other/ft_ismap.c \
+		./parsing/other/ft_strncmp.c \
+		./parsing/reader/ft_readparsing.c \
+		./parsing/reader/parsing_reader.c \
+		./parsing/ft_parsing.c \
 
 OBJS = ${SRCS:.c=.o}
 
 CC  = gcc
 
-FLAGS =   -L includes/minilibx -lmlx -framework OpenGL -framework Appkit 
+FLAGS =   -L includes/minilibx -lmlx -framework OpenGL -framework Appkit
 CFLAGS =  -Wall -Wextra -Werror -I includes/ -I includes/minilibx
 RM  = rm -f
 
 ${NAME}	:	${OBJS}
-<<<<<<< HEAD
 	${CC}	 -o ${NAME}  ${FLAGS} ${OBJS}
-=======
-	@${CC}	 -o ${NAME}  ${FLAGS} ${OBJS}
->>>>>>> f5335835a8f02767c37b99212640242dd4724123
 
 all:  ${NAME}
 
@@ -43,9 +51,5 @@ fclean:  clean
 re: fclean all
 	${RM}	${OBJS}
 exe: re
-<<<<<<< HEAD
 	./${NAME} test.cub
-=======
-	./${NAME}
->>>>>>> f5335835a8f02767c37b99212640242dd4724123
 .PHONY: all clean fclean re
