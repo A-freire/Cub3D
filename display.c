@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/03/03 14:43:10 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/04/20 11:28:26 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,26 @@ void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data,
 	img_data[(x + y * res) * 4 + 3] = 0;
 }
 
-void    display(int x, double haut, double bas, t_color color, char *img_data, int res)
+void    display(int x, double yMax, double y, t_color color, char *img_data, int res)
 {
-	(void)color;
-	while (bas < haut)
+	while (y < yMax)
 	{
-		//putPixel(255, 255, 255, img_data, x, bas, res);
-		putPixel(color.r, color.g, color.b, img_data, x, bas, res);
-		bas++;
+		putPixel(color.r, color.g, color.b, img_data, x, y, res);
+		y++;
 	}
 }
 
 t_all	*clear_image(t_all *all)
 {
-	int x = 0;
-	int y = 0;
-	while (x < all->res.x)
+	int x;
+	int y;
+
+	x = -1;
+	while (++x < all->res.x)
 	{
-		while (y < all->res.y)
-		{
+		y = -1;
+		while (++y < all->res.y)
 			putPixel(0, 0, 0, all->mlx.img_data, x, y, all->res.x);
-			y++;
-		}
-		y=0;
-		x++;
 	}
 	return (all);
 }

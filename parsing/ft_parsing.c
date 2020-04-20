@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 15:46:51 by robriard          #+#    #+#             */
-/*   Updated: 2020/03/18 09:34:41 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/16 15:08:04 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_file		ft_initvalue(t_file *s)
 	s->map.EAface = NULL;
 	s->map.WEface = NULL;
 	s->map.Sprite = NULL;
+	s->spawn.x = -1;
+	s->spawn.y = -1;
 	return (*s);
 }
 

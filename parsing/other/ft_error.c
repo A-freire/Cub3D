@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
-/*   Updated: 2020/03/16 21:28:18 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/16 15:26:19 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ void			ft_error(int error)
 		ft_printf("\033[33;05mUnknow way texture\033[00m\n");
 	if (error == 4)
 		ft_printf("\033[33;05mBack Screen incorrect colors\033[00m\n");
+	if (error == 5)
+		ft_printf("\033[33;05mThe texture path isn't correct\033[00m\n");
+	if (error == 6)
+		ft_printf("\033[33;05mmlx_get_data_addr texture\033[00m\n");
 	return ;
 }

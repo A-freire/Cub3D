@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/16 21:23:32 by robriard          #+#    #+#             */
-/*   Updated: 2020/03/18 09:37:17 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/16 15:02:09 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,13 @@ int		ft_checkmap(int **map, t_spawn spawn)
 	if ((spawn.facing != 'N' && spawn.facing != 'S' && spawn.facing != 'E' &&
 		spawn.facing != 'W') || !(copy = ft_initcopy(map)))
 	{
+		printf("spawn.facing = '%c'\n", spawn.facing);
 		ft_error(2);
 		return (-1);
 	}
 	copy = ft_initlifegame(copy);
 	copy = ft_lifegame(copy);
+
 	if (copy[spawn.x][spawn.y] == -1)
 	{
 		ft_error(2);

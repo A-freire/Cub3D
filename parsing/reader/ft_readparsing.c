@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 16:20:22 by robriard          #+#    #+#             */
-/*   Updated: 2020/03/17 11:37:57 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/16 15:08:49 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_file  ft_readparsing(char *file, char *line, t_file *s)
 		i = -1;
 		while (line[++i])
 			if ((line[i] == 'N' || line[i] == 'S' || line[i] == 'E' ||
-			line[i] == 'W') && (s->spawn.x == 0 && s->spawn.y == 0))
+			line[i] == 'W') && (s->spawn.x == -1 && s->spawn.y == -1))
 			{
 				s->spawn.x = index;
 				s->spawn.y = i;
