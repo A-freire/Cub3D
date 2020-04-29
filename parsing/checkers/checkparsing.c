@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/04/29 11:56:18 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/29 14:26:15 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ static int	ft_checkmap(t_all a)
 
 static int	ft_checkcolor(t_color c)
 {
-	if (c.r <= 0 || c.r >= 255)
+	if (c.r < 0 || c.r > 255)
 		return (-1);
-	if (c.g <= 0 || c.g >= 255)
+	if (c.g < 0 || c.g > 255)
 		return (-1);
-	if (c.b <= 0 || c.b >= 255)
+	if (c.b < 0 || c.b > 255)
 		return (-1);
 	return (0);
 }

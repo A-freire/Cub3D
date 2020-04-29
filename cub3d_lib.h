@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/04/29 11:17:09 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/29 14:08:27 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ double	val_abs(double t);
 
 //display
 void    display(int x, double haut, double bas, t_color color, char *img_data, int res);
-void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y, int res);
-t_all	*clear_image(t_all *all);
+void    putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y, int res);
+void	clear_image(t_all *all);
 
 //move
 int deal_key(int key, void *param);
