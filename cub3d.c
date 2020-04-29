@@ -120,22 +120,31 @@ int game_on(void* param)
 }
 
 
-t_all	ft_init(t_all all, char *windowname)
+void	ft_init(t_all *all, char *windowname)
 {
 	int osef;
 
 	osef = 250;
-	all.moveSpeed = 0.2;
-	all.rotSpeed = 0.1;
-	all.mlx.mlx_ptr = mlx_init();
-	all.mlx.win_ptr = mlx_new_window(all.mlx.mlx_ptr, all.res.x, all.res.y, windowname);
-	all.mlx.img_ptr = mlx_new_image(all.mlx.mlx_ptr, all.res.x, all.res.y);
-	all.mlx.img_data = mlx_get_data_addr(all.mlx.img_ptr, &osef, &osef, &osef);
-	all.start.fov.x = 0;
-	all.start.fov.y = 0.66;
-	all.tf.time = 0;
-	all.tf.oldtime = 0;
-	return (all);
+	all->moveSpeed = 0.2;
+	all->rotSpeed = 0.1;
+	all->start.fov.x = 0;
+	all->start.fov.y = 0.66;
+	all->tf.time = 0;
+	all->tf.oldtime = 0;
+
+	all->texwidth = 64;
+	all->texheight = 64;
+	all->sprwidth = 0;
+	all->sprheight = 0;
+	all->bits_per_pixel = 0;
+	all->line_length = 0;
+	all->endian = 0;
+	all->mlx.mlx_ptr = mlx_init();
+	ft_texture(all);
+	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y, windowname);
+	all->mlx.img_ptr = mlx_new_image(all->mlx.mlx_ptr, all->res.x, all->res.y);
+	all->mlx.img_data = mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef, &osef);
+
 }
 
 char	*ft_windowname(char *file)
@@ -175,7 +184,7 @@ int		main(int ac, char **av)
 		ft_error(404);
 		return (0);
 	}
-	all = ft_init(all, windowname);
+	ft_init(&all, windowname);
 	game_on(&all);
 		
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);

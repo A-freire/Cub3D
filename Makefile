@@ -23,8 +23,9 @@ SRCS =	cub3d.c											\
 		parsing/Get-Next-Line/get_next_line_utils.c		\
 		parsing/srcs/ft_error.c							\
 		parsing/srcs/ft_squaremap.c						\
-		parsing/srcs/ft_strcmp.c							\
-		parsing/srcs/parsing_reader.c					
+		parsing/srcs/ft_strcmp.c						\
+		parsing/srcs/parsing_reader.c					\
+		texture.c
 
 
 OBJS = ${SRCS:.c=.o}
