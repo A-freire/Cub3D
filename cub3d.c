@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/04/29 14:09:14 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/29 14:49:13 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ int game_on(void* param)
 	}
 	mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
 	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
-	clear_image(all);
 	return (0);
 }
 
