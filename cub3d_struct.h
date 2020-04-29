@@ -74,6 +74,11 @@ typedef struct	s_texture
 	void	*tex_s;
 	void	*tex_e;
 	void	*tex_w;
+	int		x;
+	int 	y;
+	float	step;
+	float	pos;
+	int		*color;
 }				t_texture;
 
 typedef struct	s_all
@@ -93,7 +98,7 @@ typedef struct	s_all
 	t_vec		deltaDist;
 	int			hit;
 	int			side;
-	int			lineHeight;
+	int			lineheight;
 	int			drawStart;
 	int			drawEnd;
 	double		moveSpeed;

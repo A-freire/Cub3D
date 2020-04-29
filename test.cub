@@ -1,4 +1,4 @@
-R 640 480
+R 1280 720
 
 NO ./ft_parcing.h
 SO ./ft_print_error.c
