@@ -58,7 +58,6 @@ int game_on(void* param)
 		}
 
 
-
 		while (all->hit == 0)
 		{
 			if(all->sideDist.x < all->sideDist.y)
@@ -73,7 +72,7 @@ int game_on(void* param)
 				all->map.pos.y += all->step.y;
 				all->side = 1;
 			}
-			if(all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] > 0) 
+			if(all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 1) 
 				all->hit = 1;
 		}
 
