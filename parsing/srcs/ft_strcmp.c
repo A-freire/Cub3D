@@ -6,16 +6,18 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 16:54:01 by robriard          #+#    #+#             */
-/*   Updated: 2020/03/10 15:20:19 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/30 12:00:50 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+#include "../ft_parsing.h"
+
+int		ft_strcmp(char *s1, char *s2, int max)
 {
 	int i;
 
 	i = 0;
-	while (s1[i] && s2[i])
+	while (s1[i] && s2[i] && i < max)
 	{
 		if (s1[i] != s2[i])
 			return (1);

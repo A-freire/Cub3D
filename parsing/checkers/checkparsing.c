@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/04/29 14:26:15 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/30 14:05:46 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,48 +56,31 @@ static int	ft_checkcolor(t_color c)
 	return (0);
 }
 
-// static int	ft_checktexture(t_texture texture)
-// {
-// 	int	i;
+static int	ft_checktexture(char *way)
+{
+	int	i;
+	int	fd;
 
-// 	if (ft_strcmp(texture.north, "textures/") != 0 || ft_strcmp(texture.north, "./textures/") != 0)
-// 		return (-1);
-// 	if (ft_strcmp(texture.south, "textures/") != 0 || ft_strcmp(texture.south, "./textures/") != 0)
-// 		return (-1);
-// 	if (ft_strcmp(texture.east, "textures/") != 0 || ft_strcmp(texture.east, "./textures/") != 0)
-// 		return (-1);
-// 	if (ft_strcmp(texture.west, "textures/") != 0 || ft_strcmp(texture.west, "./textures/") != 0)
-// 		return (-1);
-// 	if (ft_strcmp(texture.sprite, "textures/") != 0 || ft_strcmp(texture.sprite, "./textures/") != 0)
-// 		return (-1);
-// 	i = 0;
-// 	while (texture.north[i + 4])
-// 		i++;
-// 	if (ft_strcmp(texture.north + i, ".xpm") != 0)
-// 		return (-1);
-// 	i = 0;
-// 	while (texture.south[i + 4])
-// 		i++;
-// 	if (ft_strcmp(texture.south + i, ".xpm") != 0)
-// 		return (-1);
-// 	i = 0;
-// 	while (texture.east[i + 4])
-// 		i++;
-// 	if (ft_strcmp(texture.east + i, ".xpm") != 0)
-// 		return (-1);
-// 	i = 0;
-// 	while (texture.west[i + 4])
-// 		i++;
-// 	if (ft_strcmp(texture.west + i, ".xpm") != 0)
-// 		return (-1);
-// 	return (0);
-// }
+	i = 0;
+	while (way[i + 4] != '\0')
+		i++;
+	if (ft_strcmp(way + i, ".xpm", 4) != 0 || (fd = open (way, O_RDONLY)) < 0)
+		return (-1);
+	while (way[i] && way[i] != '/')
+		i--;
+	i -= 7;
+	if (i < 0)
+		return (-1);
+	if (ft_strcmp(way + i, "texture", 7) != 0)
+		return (-1);
+	return (0);
+}
 
 int			ft_checkparsing(t_all a)
 {
 	int	res;
 	int	map;
-	int	tex = 0;
+	int	tex[5];
 	int	floor;
 	int	ceiling;
 
@@ -105,11 +88,20 @@ int			ft_checkparsing(t_all a)
 		ft_error (1);
 	if ((map = ft_checkmap(a)) != 0)
 		ft_error (2);
-	//if ((tex = ft_checktexture(a.texture) != 0))
-	//	ft_error (3);
+	if ((tex[0] = ft_checktexture(a.texture.north) != 0))
+		ft_error (3);
+	if ((tex[1] = ft_checktexture(a.texture.south) != 0))
+		ft_error (3);
+	if ((tex[2] = ft_checktexture(a.texture.east) != 0))
+		ft_error (3);
+	if ((tex[3] = ft_checktexture(a.texture.west) != 0))
+		ft_error (3);
+	if ((tex[4] = ft_checktexture(a.texture.sprite) != 0))
+		ft_error (3);
 	if ((floor = ft_checkcolor(a.floor)) != 0)
 		ft_error (4);
 	if ((ceiling = ft_checkcolor(a.ceiling)) != 0)
 		ft_error(4);
-	return (res + map + tex + floor + ceiling);
+	return (res + map + tex[0] + tex[1] + tex[2] + tex[3] + tex[4] + floor
+	+ ceiling);
 }

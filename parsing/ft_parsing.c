@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/04/29 12:03:57 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/30 11:18:09 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int			ft_parsing(char *file, t_all *a)
 	i = 0;
 	while (file[i + 4] != '\0')
 		i++;
-	if ((fd = open(file, O_RDONLY)) < 0 || ft_strcmp(file + i, ".cub") != 0)
+	if ((fd = open(file, O_RDONLY)) < 0 || ft_strcmp(file + i, ".cub", 4) != 0)
 	{
 		ft_error (404);
 		return (-1);

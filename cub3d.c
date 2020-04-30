@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/04/29 14:49:13 by robriard         ###   ########.fr       */
+/*   Updated: 2020/04/30 12:15:16 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,14 @@ int game_on(void* param)
 		else if (all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 4)
 		{
 			all->color.r = 255;
-			all->color.g = 255;
+			all->color.g = 0;
 			all->color.b = 255;
 		}
 		else
 		{
-			all->color.r = 127;
-			all->color.g = 127;
-			all->color.b = 127;
+			all->color.r = 0;
+			all->color.g = 255;
+			all->color.b = 255;
 		}
 		display(x, all->drawEnd, all->drawStart, all->color, all->mlx.img_data, all->res.x);
 		x++;		

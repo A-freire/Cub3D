@@ -6,7 +6,7 @@
 #    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/04/29 12:04:31 by robriard         ###   ########.fr        #
+#    Updated: 2020/04/30 14:07:10 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS =	cub3d.c											\
 		parsing/Get-Next-Line/get_next_line_utils.c		\
 		parsing/srcs/ft_error.c							\
 		parsing/srcs/ft_squaremap.c						\
-		parsing/srcs/ft_strcmp.c							\
+		parsing/srcs/ft_strcmp.c						\
 		parsing/srcs/parsing_reader.c					
 
 
