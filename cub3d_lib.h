@@ -34,7 +34,10 @@ void	clear_image(t_all *all);
 //move
 int deal_key(int key, void *param);
 
+//texture
+void	ft_texture(t_all *all);
+void     ft_crea_tex(t_all *all);
 
-
+//main
 int game_on(void* param);
 #endif
