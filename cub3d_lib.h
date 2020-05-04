@@ -27,7 +27,7 @@ t_vec   vec_float(t_vec vec1, double a);
 double	val_abs(double t);
 
 //display
-void    display(int x, double haut, double bas, t_color color, char *img_data, int res);
+void    display(int x, t_all *all);
 void    putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y, int res);
 void	clear_image(t_all *all);
 

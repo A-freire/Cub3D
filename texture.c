@@ -10,13 +10,15 @@ void     ft_crea_tex(t_all *all)
 				// 	printf("fichier invalide lors de convertion xpm to image\n");
 				// if (!(all->texture.tex_w = mlx_xpm_file_to_image(all->mlx.mlx_ptr, all->texture.west, &all->texwidth, &all->texwidth)))
 				// 	printf("fichier invalide lors de convertion xpm to image\n");
-				if (!(all->texture.tex_n = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/bluestone.xpm", &all->texwidth, &all->texwidth)))
+
+/*A delete quand on aura le path*/
+				if (!(all->texture.tex_n = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/redbrick.xpm", &all->texwidth, &all->texwidth)))
 					printf("fichier invalide lors de convertion xpm to image\n");
-				if (!(all->texture.tex_s = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/bluestone.xpm", &all->texwidth, &all->texwidth)))
+				if (!(all->texture.tex_s = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/redbrick.xpm", &all->texwidth, &all->texwidth)))
 					printf("fichier invalide lors de convertion xpm to image\n");
-				if (!(all->texture.tex_e = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/bluestone.xpm", &all->texwidth, &all->texwidth)))
+				if (!(all->texture.tex_e = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/redbrick.xpm", &all->texwidth, &all->texwidth)))
 					printf("fichier invalide lors de convertion xpm to image\n");
-				if (!(all->texture.tex_w = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/bluestone.xpm", &all->texwidth, &all->texwidth)))
+				if (!(all->texture.tex_w = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./texture/redbrick.xpm", &all->texwidth, &all->texwidth)))
 					printf("fichier invalide lors de convertion xpm to image\n");
 }
 

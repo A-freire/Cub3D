@@ -20,15 +20,18 @@ void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data,
 	img_data[(x + y * res) * 4 + 3] = 0;
 }
 
-void    display(int x, double haut, double bas, t_color color, char *img_data, int res)
+void    display(int x, t_all *all)
 {
-	(void)color;
-	while (bas < haut)
+	int start = all->drawStart;
+	while (start < all->drawEnd)
 	{
-		//putPixel(255, 255, 255, img_data, x, bas, res);
-
-		 putPixel(color.r, color.g, color.b, img_data, x, bas, res);
-		bas++;
+		all->texture.y = (int)all->texture.pos & (all->texheight - 1);
+		all->texture.pos += all->texture.step;
+		all->mlx.img_data [(start * (int)all->res.x + x) * 4] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
+		all->mlx.img_data [(start * (int)all->res.x + x) * 4 + 1] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
+		all->mlx.img_data [(start * (int)all->res.x + x) * 4 + 2] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
+		all->mlx.img_data [(start * (int)all->res.x + x) * 4 + 3] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
+		start++;
 	}
 }
 
@@ -46,7 +49,7 @@ void	clear_image(t_all *all)
 				putPixel(all->floor.r, all->floor.g, all->floor.b, all->mlx.img_data, x, y, all->res.x);
 			y++;
 		}
-		y=0;
+		y = 0;
 		x++;
 	}
 }

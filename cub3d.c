@@ -25,17 +25,17 @@ int game_on(void* param)
 	clear_image(all);
 	while(x < all->res.x)
 	{
-		all->cam.pos.x = 2 * x / all->res.x - 1; //x-coordinate in camera space // camerax
-		all->cam.dir.x = all->start.dir.x + all->start.fov.x * all->cam.pos.x;//raydirx
-		all->cam.dir.y = all->start.dir.y + all->start.fov.y * all->cam.pos.x;//raydiry
-		all->map.pos.x = (int)all->start.pos.x;//mapx
-		all->map.pos.y = (int)all->start.pos.y;//mapy
+		all->cam.pos.x = 2 * x / all->res.x - 1;
+		all->cam.dir.x = all->start.dir.x + all->start.fov.x * all->cam.pos.x;
+		all->cam.dir.y = all->start.dir.y + all->start.fov.y * all->cam.pos.x;
+		all->map.pos.x = (int)all->start.pos.x;
+		all->map.pos.y = (int)all->start.pos.y;
 		all->deltaDist.x = val_abs(1 / all->cam.dir.x);
 		all->deltaDist.y = val_abs(1 / all->cam.dir.y);
 
 
 
-		all->hit = 0; //was there a wall hit?
+		all->hit = 0;
 		if(all->cam.dir.x < 0)
 		{
 			all->step.x = -1;
@@ -104,7 +104,7 @@ int game_on(void* param)
 			wallx = all->start.pos.y + all->perpWallDist * all->cam.dir.y;
 		else
 			wallx = all->start.pos.x + all->perpWallDist * all->cam.dir.x;
-		wallx -= floor((wallx));
+		wallx -= floor(wallx);
 		all->texture.x = (int)(wallx * all->texheight);
 		if (all->side == 0 && all->cam.dir.x > 0)
 			all->texture.x = all->texwidth - all->texture.x - 1;
@@ -136,11 +136,8 @@ int game_on(void* param)
 
 
 
+		display(x, all);
 
-
-
-
-		display(x, all->drawEnd, all->drawStart, all->color, all->mlx.img_data, all->res.x);
 		x++;		
 	}
 	mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
@@ -216,36 +213,3 @@ int		main(int ac, char **av)
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);
 	mlx_loop(all.mlx.mlx_ptr);
 }
-
-
-
-		// if (all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 1)
-		// {
-		// 	all->color.r = 255;
-		// 	all->color.g = 0;
-		// 	all->color.b = 0;
-		// }
-		// else if (all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 2)
-		// {
-		// 	all->color.r = 0;
-		// 	all->color.g = 255;
-		// 	all->color.b = 0;
-		// }
-		// else if (all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 3)
-		// {
-		// 	all->color.r = 0;
-		// 	all->color.g = 0;
-		// 	all->color.b = 255;
-		// }
-		// else if (all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 4)
-		// {
-		// 	all->color.r = 255;
-		// 	all->color.g = 255;
-		// 	all->color.b = 255;
-		// }
-		// else
-		// {
-		// 	all->color.r = 127;
-		// 	all->color.g = 127;
-		// 	all->color.b = 127;
-		// }
