@@ -6,21 +6,16 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/04/29 14:49:13 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/06 11:29:26 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_lib.h"
 
 
-int game_on(void* param)
+int game_on(t_all* all)
 {
-	t_all *all;
-	all = param;
 	int x = 0;
-	
-
-	
 
 	clear_image(all);
 	while(x < all->res.x)
@@ -32,9 +27,6 @@ int game_on(void* param)
 		all->map.pos.y = (int)all->start.pos.y;
 		all->deltaDist.x = val_abs(1 / all->cam.dir.x);
 		all->deltaDist.y = val_abs(1 / all->cam.dir.y);
-
-
-
 		all->hit = 0;
 		if(all->cam.dir.x < 0)
 		{
@@ -56,8 +48,6 @@ int game_on(void* param)
 			all->step.y = 1;
 			all->sideDist.y = (all->map.pos.y + 1.0 - all->start.pos.y) * all->deltaDist.y;
 		}
-
-
 		while (all->hit == 0)
 		{
 			if(all->sideDist.x < all->sideDist.y)
@@ -75,18 +65,12 @@ int game_on(void* param)
 			if(all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 1) 
 				all->hit = 1;
 		}
-
-
-
 		if(all->side == 0)
 			all->perpWallDist = (all->map.pos.x - all->start.pos.x + (1 - all->step.x) / 2) / all->cam.dir.x;
 		else
 			all->perpWallDist = (all->map.pos.y - all->start.pos.y + (1 - all->step.y) / 2) / all->cam.dir.y;
 		if (all->perpWallDist == 0)
 			all->perpWallDist = 0.1;
-
-
-
 		all->lineheight = (int)(all->res.y / all->perpWallDist);
 		all->drawStart = -all->lineheight / 2 + all->res.y / 2;
 		if(all->drawStart < 0)
@@ -94,12 +78,7 @@ int game_on(void* param)
 		all->drawEnd = all->lineheight / 2 + all->res.y / 2;
 		if(all->drawEnd >= all->res.y)
 			all->drawEnd = all->res.y - 1;
-
-
-
-
 		float	wallx;
-
 		if (all->side == 0)
 			wallx = all->start.pos.y + all->perpWallDist * all->cam.dir.y;
 		else
@@ -112,9 +91,6 @@ int game_on(void* param)
 			all->texture.x = all->texwidth - all->texture.x - 1;
 		all->texture.step = 1.0 * all->texheight / all->lineheight;
 		all->texture.pos = (all->drawStart - all->res.y / 2 + all->lineheight / 2) * all->texture.step;
-
-
-
 		if (all->side == 1 && (all->map.pos.y > all->start.pos.y))
 			all->texture.color = (int *)all->texture.tex_s;
 		else if (all->side == 1 && (all->map.pos.y < all->start.pos.y))
@@ -123,21 +99,7 @@ int game_on(void* param)
 			all->texture.color = (int *)all->texture.tex_e;
 		else
 			all->texture.color = (int *)all->texture.tex_w;
-		// m->spr.color = (int *)m->spr.spr_tex;
-
-
-
-
-
-
-
-
-
-
-
-
 		display(x, all);
-
 		x++;		
 	}
 	mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );

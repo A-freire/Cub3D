@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/04/29 14:08:27 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/06 11:29:22 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void	ft_texture(t_all *all);
 void     ft_crea_tex(t_all *all);
 
 //main
-int game_on(void* param);
+int game_on(t_all* all);
 #endif

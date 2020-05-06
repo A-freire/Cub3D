@@ -1,11 +1,11 @@
 R 1280 720
 
-NO ./ft_parcing.h
-SO ./ft_print_error.c
-EA ./ft_test.c
-WE ./random test
+NO ./texture/bluestone.xpm
+SO ./texture/redbrick.xpm
+EA ./texture/wood.xpm
+WE ./texture/colorstone.xpm
 
-S other yolo
+S ./texture/pillar.xpm
 
 F 100 100 100
 
