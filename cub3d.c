@@ -91,14 +91,14 @@ int game_on(t_all* all)
 			all->texture.x = all->texwidth - all->texture.x - 1;
 		all->texture.step = 1.0 * all->texheight / all->lineheight;
 		all->texture.pos = (all->drawStart - all->res.y / 2 + all->lineheight / 2) * all->texture.step;
-		if (all->side == 1 && (all->map.pos.y > all->start.pos.y))
+		if (all->side == 0 && (all->map.pos.x > all->start.pos.x))
 			all->texture.color = (int *)all->texture.tex_s;
 		else if (all->side == 1 && (all->map.pos.y < all->start.pos.y))
-			all->texture.color = (int *)all->texture.tex_n;
-		else if (all->side == 0 && (all->map.pos.x > all->start.pos.x))
+			all->texture.color = (int *)all->texture.tex_w;
+		else if (all->side == 1 && (all->map.pos.y > all->start.pos.y))
 			all->texture.color = (int *)all->texture.tex_e;
 		else
-			all->texture.color = (int *)all->texture.tex_w;
+			all->texture.color = (int *)all->texture.tex_n;
 		display(x, all);
 		x++;		
 	}
