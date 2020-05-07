@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/04/29 11:27:51 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/07 16:02:02 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,14 @@ typedef struct	s_texture
 	void	*tex_s;
 	void	*tex_e;
 	void	*tex_w;
+	int		*color;
 	int		x;
 	int 	y;
+	int		spritenb;
+	float	*spritex;
+	float	*spritey;
 	float	step;
 	float	pos;
-	int		*color;
 }				t_texture;
 
 typedef struct	s_all

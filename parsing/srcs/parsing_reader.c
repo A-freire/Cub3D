@@ -6,33 +6,35 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 10:58:07 by robriard          #+#    #+#             */
-/*   Updated: 2020/04/24 19:48:16 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:50:37 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../ft_parsing.h"
 
-int			*ft_map(char *line)
+t_all		*ft_map(t_all *ret, char *line, int x)
 {
 	int     i;
-	int		*ret;
+	
 	i = 0;
 	while (line[i])
 		i++;
-	if (!(ret = malloc(sizeof(int) * i + 1)))
+	if (!(ret->map.map[x] = malloc(sizeof(int) * i + 1)))
 		return (NULL);
-	ret[i] = -42;
+	ret->map.map[x][i] = -42;
 	i = 0;
 	while (line[i])
 	{
 		if (line[i] == ' ')
-			ret[i] = 0;
+			ret->map.map[x][i] = 0; 
 		else if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E' ||
 			line[i] == 'W')
-			ret[i] = 0;
+			ret->map.map[x][i] = 0;
 		else
-			ret[i] = 0 + (line[i] - 48);
+			ret->map.map[x][i] = 0 + (line[i] - 48);
+		if (line[i] == '2')
+			ret->texture.spritenb++;
 		i++;
 	}
 	return (ret);

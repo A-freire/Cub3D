@@ -6,11 +6,44 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/04/27 15:58:40 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/07 12:07:51 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_parsing.h"
+
+t_all	*ft_spritecoord(t_all *all)
+{
+	int		x;
+	int		y;
+	int		i;
+
+
+	if (!(all->texture.spritex = malloc(sizeof(float) * all->texture.spritenb + 1)))
+		exit(0);
+	all->texture.spritex[all->texture.spritenb] = -42;
+	if (!(all->texture.spritey = malloc(sizeof(float) * all->texture.spritenb + 1)))
+		exit(0);
+	all->texture.spritey[all->texture.spritenb] = -42;
+	i = 0;
+	x = 0;
+	while (all->map.map[x][0] != -42)
+	{
+		y = 0;
+		while (all->map.map[x][y] != -42)
+		{
+			if (all->map.map[x][y] == 2)
+			{
+				all->texture.spritex[i] = y + 0.5;
+				all->texture.spritey[i] = x + 0.5;
+				i++;
+			}
+			y++;
+		}
+		x++;
+	}
+	return (all);
+}
 
 int		**ft_squaremap(int **map)
 {
