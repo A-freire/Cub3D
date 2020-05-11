@@ -16,6 +16,7 @@
 int game_on(t_all* all)
 {
 	int x = 0;
+	// printf("x = %f\ny = %f\n-------\n", all->start.pos.x, all->start.pos.y);
 
 	clear_image(all);
 	while(x < all->res.x)
@@ -99,9 +100,12 @@ int game_on(t_all* all)
 			all->texture.color = (int *)all->texture.tex_e;
 		else
 			all->texture.color = (int *)all->texture.tex_n;
+		all->sprite.color = (int *)all->sprite.tex;
 		display(x, all);
-		x++;		
+		all->sprite.buff[x] = (float)all->perpWallDist;
+		x++;
 	}
+	ft_sprites(all);
 	mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
 	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
 	return (0);
@@ -113,6 +117,8 @@ void	ft_init(t_all *all, char *windowname)
 	int osef;
 
 	osef = 250;
+	all->start.pos.x += 0.5;
+	all->start.pos.y += 0.5;
 	all->moveSpeed = 0.2;
 	all->rotSpeed = 0.1;
 	all->tf.time = 0;
@@ -151,7 +157,11 @@ char	*ft_windowname(char *file)
 	}
 	return (ret);
 }
-
+int nani()
+{
+	int i = 1+1;
+	return (i);
+}
 int		main(int ac, char **av)
 {
 	t_all 	all;
@@ -170,6 +180,9 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	ft_init(&all, windowname);
+	if (!(all.sprite.buff = malloc(sizeof(float *) * all.res.x + 1)))
+		return(0);
+
 	game_on(&all);
 		
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);

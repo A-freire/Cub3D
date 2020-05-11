@@ -63,6 +63,28 @@ typedef struct	s_start
 	t_vec fov; 
 }				t_start;
 
+typedef struct	s_sprite
+{
+	void	*tex;
+	int		*color;
+	float	*buff;
+	int		dist;
+	float	x;
+	float	y;
+	float	invdet;
+	float	transx;
+	float	transy;
+	int		screen;
+	int		movescreen;
+	int		drawstartx;
+	int		drawstarty;
+	int		drawendx;
+	int		drawendy;
+	int		stripe;
+	int		sprx;
+	int		spry;
+}				t_sprite;
+
 typedef struct	s_texture
 {
 	char	*east;
@@ -77,11 +99,11 @@ typedef struct	s_texture
 	int		*color;
 	int		x;
 	int 	y;
+	float	step;
+	float	pos;
 	int		spritenb;
 	float	*spritex;
 	float	*spritey;
-	float	step;
-	float	pos;
 }				t_texture;
 
 typedef struct	s_all
@@ -96,6 +118,7 @@ typedef struct	s_all
 	t_color		floor;
 	t_color		ceiling;
 	t_texture	texture;
+	t_sprite	sprite;
 	t_vec		res;
 	t_vec		sideDist;
 	t_vec		deltaDist;

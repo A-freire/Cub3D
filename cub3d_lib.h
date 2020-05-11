@@ -20,11 +20,9 @@
 # include <math.h>
 
 //maths
-t_vec   add_vec(t_vec vec1, t_vec vec2);
-t_vec   sub_vec(t_vec vec1, t_vec vec2);
 t_vec   init_vec(double x, double y);
-t_vec   vec_float(t_vec vec1, double a);
 double	val_abs(double t);
+int		power_of(t_vec pos, float spr_x, float spr_y);
 
 //display
 void    display(int x, t_all *all);
@@ -37,6 +35,12 @@ int deal_key(int key, void *param);
 //texture
 void	ft_texture(t_all *all);
 void     ft_crea_tex(t_all *all);
+
+//sprites
+void	write_sprites(t_all *all);
+void	ft_switch(t_all *all, int x);
+void	sorting(t_all *all);
+void	ft_sprites(t_all *all);
 
 //main
 int game_on(t_all* all);

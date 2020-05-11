@@ -25,7 +25,8 @@ SRCS =	cub3d.c											\
 		parsing/srcs/ft_squaremap.c						\
 		parsing/srcs/ft_strcmp.c						\
 		parsing/srcs/parsing_reader.c					\
-		texture.c
+		texture.c										\
+		sprites.c
 
 
 OBJS = ${SRCS:.c=.o}
