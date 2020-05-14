@@ -135,6 +135,7 @@ void	ft_init(t_all *all, char *windowname)
 	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y, windowname);
 	all->mlx.img_ptr = mlx_new_image(all->mlx.mlx_ptr, all->res.x, all->res.y);
 	all->mlx.img_data = mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef, &osef);
+	all->mlx.addr = (int*)mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef, &osef);
 
 }
 

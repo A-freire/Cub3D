@@ -27,10 +27,7 @@ void    display(int x, t_all *all)
 	{
 		all->texture.y = (int)all->texture.pos & (all->texheight - 1);
 		all->texture.pos += all->texture.step;
-		all->mlx.img_data [(start * (int)all->res.x + x) * 4] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
-		all->mlx.img_data [(start * (int)all->res.x + x) * 4 + 1] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
-		all->mlx.img_data [(start * (int)all->res.x + x) * 4 + 2] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
-		all->mlx.img_data [(start * (int)all->res.x + x) * 4 + 3] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
+		all->mlx.addr[(start * (int)all->res.x + x)] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
 		start++;
 	}
 }

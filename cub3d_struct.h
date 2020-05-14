@@ -41,6 +41,7 @@ typedef struct	s_mlx
 	void *win_ptr;
 	void *img_ptr;
 	char *img_data;
+	int *addr;
 }				t_mlx;
 
 typedef struct	s_step
