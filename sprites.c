@@ -13,10 +13,7 @@ void	write_sprites(t_all *all)
 		all->sprite.spry = ((d * all->texwidth) / all->sprheight) / 256;
 		if ((all->sprite.color[64 * all->sprite.spry + all->sprite.sprx]) != 0)
 		{
-			all->mlx.img_data[(y * (int)all->res.x + all->sprite.stripe) * 4] = all->sprite.color[64 * all->sprite.spry + all->sprite.sprx];
-			all->mlx.img_data[(y * (int)all->res.x + all->sprite.stripe) * 4 + 1] = all->sprite.color[64 * all->sprite.spry + all->sprite.sprx];
-			all->mlx.img_data[(y * (int)all->res.x + all->sprite.stripe) * 4 + 2] = all->sprite.color[64 * all->sprite.spry + all->sprite.sprx];
-			all->mlx.img_data[(y * (int)all->res.x + all->sprite.stripe) * 4 + 3] = all->sprite.color[64 * all->sprite.spry + all->sprite.sprx];
+			all->mlx.addr[(y * (int)all->res.x + all->sprite.stripe)] = all->sprite.color[64 * all->sprite.spry + all->sprite.sprx];
 		}
 		y++;
 	}
@@ -58,26 +55,11 @@ void	sorting(t_all *all)
 void	ft_sprites(t_all *all)
 {
 	int x = 0;
-	// printf("\n");
-	// 	while(x < all->texture.spritenb)
-	// 	{
-	// 		printf("x = %f\ny = %f\n---------------\n", all->texture.spritex[x], all->texture.spritey[x]);
-	// 		x++;
-	// 	}
-	// 	x = 0;
 	sorting(all);
-	// printf("%d\n", all->texture.spritenb);
-	// while(x < all->texture.spritenb)
-	// {
-	// 	printf("x = %f\ny = %f\n---------------\n", all->texture.spritex[x], all->texture.spritey[x]);
-	// 	x++;
-	// }
-	// x = 0;
 	while(x < all->texture.spritenb)
 	{
 		all->sprite.x = (all->texture.spritex[x] - all->start.pos.x);
 		all->sprite.y = (all->texture.spritey[x] - all->start.pos.y);
-		printf("x = %f\ny = %f\n---------------\n", all->texture.spritex[x], all->texture.spritey[x]);
 
 		all->sprite.invdet = 1.0 / (all->start.fov.x * all->start.dir.y - all->start.dir.x * all->start.fov.y);
 		all->sprite.transx = (all->sprite.invdet * (all->start.dir.y * all->sprite.x - all->start.dir.x * all->sprite.y));
