@@ -156,11 +156,7 @@ char	*ft_windowname(char *file)
 	}
 	return (ret);
 }
-int nani()
-{
-	int i = 1+1;
-	return (i);
-}
+
 int		main(int ac, char **av)
 {
 	t_all 	all;

@@ -29,6 +29,7 @@ void		ft_init_parsing(t_all *a)
 	a->texture.south = NULL;
 	a->texture.west = NULL;
 	a->texture.sprite = NULL;
+	a->texture.spritenb = 0;
 }
 
 int			ft_ismap(char *line)

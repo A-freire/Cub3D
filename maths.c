@@ -30,6 +30,5 @@ double	val_abs(double t)
 
 int		power_of(t_vec pos, float spr_x, float spr_y)
 {
-	return((pos.x - spr_x) * (pos.x - spr_x) +
-			(pos.y - spr_y) * (pos.y - spr_y));
+	return((pos.x - spr_x) * (pos.x - spr_x) + (pos.y - spr_y) * (pos.y - spr_y));
 }
