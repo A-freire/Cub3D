@@ -16,10 +16,10 @@ static int	ft_checkres(t_vec res)
 {
 	if (res.x < 100|| res.y < 100)
 		return (-1);
-	if (res.x > 2560)
-		res.x = 2560;
-	if (res.y > 1440)
-		res.y = 1440;
+	if (res.x > 1680)
+		res.x = 1680;
+	if (res.y > 1005)
+		res.y = 1005;
 	return (0);
 }
 

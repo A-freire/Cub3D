@@ -156,6 +156,11 @@ char	*ft_windowname(char *file)
 	}
 	return (ret);
 }
+int	ft_exit(void *param)
+{
+	(void) param;
+	exit(0);
+}
 
 int		main(int ac, char **av)
 {
@@ -181,5 +186,6 @@ int		main(int ac, char **av)
 	game_on(&all);
 		
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);
+	mlx_hook(all.mlx.win_ptr, 17, 0, ft_exit, &all);
 	mlx_loop(all.mlx.mlx_ptr);
 }
