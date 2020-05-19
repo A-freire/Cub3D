@@ -38,7 +38,7 @@ void     ft_crea_tex(t_all *all);
 
 //sprites
 void	write_sprites(t_all *all);
-void	ft_switch(t_all *all, int x);
+void	ft_switch(t_all *all, int x, int y );
 void	sorting(t_all *all);
 void	ft_sprites(t_all *all);
 

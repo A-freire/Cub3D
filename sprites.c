@@ -21,16 +21,16 @@ void	write_sprites(t_all *all)
 	}
 }
 
-void	ft_switch(t_all *all, int x)
+void	ft_switch(t_all *all, int x, int y)
 {
 	float tmp;
 
 	tmp = all->texture.spritex[x];
-	all->texture.spritex[x] = all->texture.spritex[x + 1];
-	all->texture.spritex[x + 1] = tmp;
+	all->texture.spritex[x] = all->texture.spritex[y];
+	all->texture.spritex[y] = tmp;
 	tmp = all->texture.spritey[x];
-	all->texture.spritey[x] = all->texture.spritey[x + 1];
-	all->texture.spritey[x + 1] = tmp;
+	all->texture.spritey[x] = all->texture.spritey[y];
+	all->texture.spritey[y] = tmp;
 }
 
 void	sorting(t_all *all)
@@ -43,9 +43,9 @@ void	sorting(t_all *all)
 		y = x + 1;
 		while (y < all->texture.spritenb)
 		{
-			if (power_of(all->start.pos, all->texture.spritex[y], all->texture.spritey[y]) > all->sprite.dist)
+			if ((all->sprite.dist < power_of(all->start.pos, all->texture.spritex[y], all->texture.spritey[y]) && y < x) || (all->sprite.dist > power_of(all->start.pos, all->texture.spritex[y], all->texture.spritey[y]) && y > x))
 			{
-				ft_switch(all, x);
+				ft_switch(all, x, y);
 				all->sprite.dist = power_of(all->start.pos, all->texture.spritex[y], all->texture.spritey[y]);
 			}
 			y++;
