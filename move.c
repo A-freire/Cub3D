@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/06 11:29:30 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/19 15:46:40 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ t_all	*ft_turn(t_all *all, int i)
 
 t_all	*ft_shift(t_all *all, int i)
 {
-	if(all->map.map[(int)(all->start.pos.x - all->start.dir.x * ((all->moveSpeed + 0.1) * i))][(int)(all->start.pos.y )] != 1)
+	if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * (all->moveSpeed))][(int)(all->start.pos.y + (all->moveSpeed * i))] != 1) &&
+	(all->map.map[(int)(all->start.pos.x - all->start.dir.x * (all->moveSpeed))][(int)(all->start.pos.y + (all->moveSpeed * -i))] != 1))
 		all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
-	if(all->map.map[(int)(all->start.pos.x)][(int)(all->start.pos.y + all->start.dir.y * ((all->moveSpeed + 0.1) * i))] != 1) 
+	if((all->map.map[(int)(all->start.pos.x + (all->moveSpeed * -i))][(int)(all->start.pos.y + all->start.dir.y * (all->moveSpeed))] != 1) &&
+	(all->map.map[(int)(all->start.pos.x + (all->moveSpeed * i))][(int)(all->start.pos.y + all->start.dir.y * (all->moveSpeed))] != 1)) 
 		all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
 	return (all);
 }
