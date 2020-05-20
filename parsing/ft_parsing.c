@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/20 14:01:45 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 16:11:03 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void		ft_init_parsing(t_all *a)
 	a->res.y = 0;
 	a->start.pos.x = -1;
 	a->start.pos.y = -1;
-	a->texture.east = NULL;
-	a->texture.north = NULL;
-	a->texture.south = NULL;
-	a->texture.west = NULL;
-	a->texture.sprite = NULL;
-	a->texture.spritenb = 0;
+	a->tex.east = NULL;
+	a->tex.north = NULL;
+	a->tex.south = NULL;
+	a->tex.west = NULL;
+	a->tex.sprite = NULL;
+	a->tex.spritenb = 0;
 }
 
 int			ft_ismap(char *line)
@@ -61,15 +61,15 @@ int			ft_ismap(char *line)
 t_all		ft_indexnull(char *line, t_all *ret)
 {
 	if (line[0] == 'N' && line[1]== 'O')
-		ret->texture.north = ft_way(line);
+		ret->tex.north = ft_way(line);
 	if (line[0] == 'S' && line[1]== 'O')
-		ret->texture.south = ft_way(line);
+		ret->tex.south = ft_way(line);
 	if (line[0] == 'E' && line[1]== 'A')
-		ret->texture.east = ft_way(line);
+		ret->tex.east = ft_way(line);
 	if (line[0] == 'W' && line[1]== 'E')
-		ret->texture.west = ft_way(line);
+		ret->tex.west = ft_way(line);
 	if (line[0] == 'S' && line[1]== ' ')
-		ret->texture.sprite = ft_way(line);
+		ret->tex.sprite = ft_way(line);
 	if (line[0] == 'R' && line[1]== ' ')
 		ret->res = ft_res(line);
 	if (line[0] == 'F' && line[1]== ' ')

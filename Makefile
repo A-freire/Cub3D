@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
+#    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/04/29 12:04:31 by robriard         ###   ########.fr        #
+#    Updated: 2020/05/20 18:58:02 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 SRCS =	cub3d.c											\
-		maths.c											\
+		tools.c											\
 		display.c										\
 		move.c											\
 		parsing/ft_parsing.c							\
@@ -26,7 +26,9 @@ SRCS =	cub3d.c											\
 		parsing/srcs/ft_strcmp.c						\
 		parsing/srcs/parsing_reader.c					\
 		texture.c										\
-		sprites.c
+		game.c											\
+		sprites.c										\
+		shift.c
 
 
 OBJS = ${SRCS:.c=.o}
@@ -50,6 +52,7 @@ fclean:  clean
 
 re: fclean all
 	${RM}	${OBJS}
+	
 exe: re
 	./${NAME} test.cub
 .PHONY: all clean fclean re

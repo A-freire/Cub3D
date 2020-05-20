@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maths.c                                            :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 16:04:08 by afreire-          #+#    #+#             */
-/*   Updated: 2020/02/27 14:32:30 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/05/20 18:19:00 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,18 @@ double	val_abs(double t)
 
 int		power_of(t_vec pos, float spr_x, float spr_y)
 {
-	return((pos.x - spr_x) * (pos.x - spr_x) + (pos.y - spr_y) * (pos.y - spr_y));
+	return((pos.x - spr_x) * (pos.x - spr_x) +
+	(pos.y - spr_y) * (pos.y - spr_y));
+}
+
+void	ft_switch(t_all *all, int x, int y)
+{
+	float tmp;
+
+	tmp = all->tex.spritex[x];
+	all->tex.spritex[x] = all->tex.spritex[y];
+	all->tex.spritex[y] = tmp;
+	tmp = all->tex.spritey[x];
+	all->tex.spritey[x] = all->tex.spritey[y];
+	all->tex.spritey[y] = tmp;
 }

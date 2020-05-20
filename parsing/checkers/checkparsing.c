@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkparsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/20 14:02:51 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 16:11:35 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,15 +91,15 @@ int			ft_checkparsing(t_all *a)
 		ft_error (1);
 	if ((map = ft_checkmap(*a)) != 0)
 		ft_error (2);
-	if ((tex[1] = ft_checktexture(a->texture.north) != 0))
+	if ((tex[1] = ft_checktexture(a->tex.north) != 0))
 		ft_error (3);
-	if ((tex[2] = ft_checktexture(a->texture.south) != 0))
+	if ((tex[2] = ft_checktexture(a->tex.south) != 0))
 		ft_error (3);
-	if ((tex[3] = ft_checktexture(a->texture.east) != 0))
+	if ((tex[3] = ft_checktexture(a->tex.east) != 0))
 		ft_error (3);
-	if ((tex[4] = ft_checktexture(a->texture.west) != 0))
+	if ((tex[4] = ft_checktexture(a->tex.west) != 0))
 		ft_error (3);
-	if ((tex[5] = ft_checktexture(a->texture.sprite) != 0))
+	if ((tex[5] = ft_checktexture(a->tex.sprite) != 0))
 		ft_error (3);
 	tex[0] = tex[1] + tex[2] + tex[3] + tex[4] + tex[5]; 
 	if ((floor = ft_checkcolor(a->floor)) != 0)

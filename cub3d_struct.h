@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/07 16:02:02 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 18:28:17 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,11 @@ typedef struct	s_all
 	t_color		color;
 	t_color		floor;
 	t_color		ceiling;
-	t_texture	texture;
-	t_sprite	sprite;
+	t_texture	tex;
+	t_sprite	spr;
 	t_vec		res;
 	t_vec		sideDist;
 	t_vec		deltaDist;
-	int			hit;
 	int			side;
 	int			lineheight;
 	int			drawStart;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sprites.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
+/*   Updated: 2020/05/20 18:19:30 by afreire-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d_lib.h"
 
 void	write_sprites(t_all *all)
@@ -6,47 +18,77 @@ void	write_sprites(t_all *all)
 	int d;
 
 	d = 0;
-	y = all->sprite.drawstarty;
-	while (y < all->sprite.drawendy)
+	y = all->spr.drawstarty;
+	while (y < all->spr.drawendy)
 	{
 		d = (y) * 256 - all->res.y * 128 + all->sprheight * 128;
 
-		all->sprite.spry = ((d * all->texwidth) / all->sprheight) / 256;
-		if ((all->sprite.color[64 * all->sprite.spry + all->sprite.sprx]) != 0 && all->sprite.transy < all->sprite.buff[all->sprite.stripe])
+		all->spr.spry = ((d * all->texwidth) / all->sprheight) / 256;
+		if ((all->spr.color[64 * all->spr.spry + all->spr.sprx]) != 0
+		&& all->spr.transy < all->spr.buff[all->spr.stripe])
 		{
-			if (all->sprite.stripe >= 0 && all->sprite.stripe < all->res.x && y >= 0 && y < all->res.y)
-				all->mlx.addr[(y * (int)all->res.x + all->sprite.stripe)] = all->sprite.color[64 * all->sprite.spry + all->sprite.sprx];
+			if (all->spr.stripe >= 0 && all->spr.stripe < all->res.x &&
+			y >= 0 && y < all->res.y)
+				all->mlx.addr[(y * (int)all->res.x + all->spr.stripe)] =
+				all->spr.color[64 * all->spr.spry + all->spr.sprx];
 		}
 		y++;
 	}
 }
 
-void	ft_switch(t_all *all, int x, int y)
+void	ft_draw_spr(t_all *all)
 {
-	float tmp;
+	all->spr.drawstarty = -all->sprheight / 2 + all->res.y / 2;
+	if (all->spr.drawstarty < 0)
+		all->spr.drawstarty = 0;
+	all->spr.drawendy = all->sprheight / 2 + all->res.y / 2;
+	if (all->spr.drawendy >= all->res.y)
+		all->spr.drawendy = all->res.y - 1;
+	all->sprwidth = abs((int)(all->res.y / all->spr.transy));
+	all->spr.drawstartx = -all->sprwidth / 2 + all->spr.screen;
+	if (all->spr.drawstartx < 0)
+		all->spr.drawstartx = 0;
+	all->spr.drawendx = all->sprwidth / 2 + all->spr.screen;
+	if (all->spr.drawendx >= all->res.x)
+		all->spr.drawendx = all->res.x - 1;
+}
 
-	tmp = all->texture.spritex[x];
-	all->texture.spritex[x] = all->texture.spritex[y];
-	all->texture.spritex[y] = tmp;
-	tmp = all->texture.spritey[x];
-	all->texture.spritey[x] = all->texture.spritey[y];
-	all->texture.spritey[y] = tmp;
+void	ft_spr_init(t_all *all, int x)
+{
+	all->spr.x = (all->tex.spritex[x] - all->start.pos.y);
+	all->spr.y = (all->tex.spritey[x] - all->start.pos.x);
+	all->spr.invdet = 1.0 / (all->start.fov.y * all->start.dir.x -
+	all->start.dir.y * all->start.fov.x);
+	all->spr.transx = (all->spr.invdet * (all->start.dir.x * all->spr.x
+	- all->start.dir.y * all->spr.y));
+	all->spr.transy = (all->spr.invdet * (-all->start.fov.x * all->spr.x
+	+ all->start.fov.y * all->spr.y));
+	all->spr.screen = (int)((all->res.x / 2) *
+	(1 + all->spr.transx / all->spr.transy));
+	all->sprheight = abs((int)(all->res.y / all->spr.transy));
 }
 
 void	sorting(t_all *all)
 {
-	int x = 0;
+	int x;
 	int y;
-	while(x < all->texture.spritenb - 1)
+
+	x = 0;
+	while(x < all->tex.spritenb - 1)
 	{
-		all->sprite.dist = power_of(all->start.pos, all->texture.spritex[x], all->texture.spritey[x]);
+		all->spr.dist = power_of(all->start.pos, all->tex.spritex[x],
+		all->tex.spritey[x]);
 		y = x + 1;
-		while (y < all->texture.spritenb)
+		while (y < all->tex.spritenb)
 		{
-			if ((all->sprite.dist < power_of(all->start.pos, all->texture.spritex[y], all->texture.spritey[y]) && y < x) || (all->sprite.dist > power_of(all->start.pos, all->texture.spritex[y], all->texture.spritey[y]) && y > x))
+			if ((all->spr.dist < power_of(all->start.pos, all->tex.spritex[y],
+			all->tex.spritey[y]) && y < x) ||
+			(all->spr.dist > power_of(all->start.pos, all->tex.spritex[y],
+			all->tex.spritey[y]) && y > x))
 			{
 				ft_switch(all, x, y);
-				all->sprite.dist = power_of(all->start.pos, all->texture.spritex[y], all->texture.spritey[y]);
+				all->spr.dist = power_of(all->start.pos, all->tex.spritex[y],
+				all->tex.spritey[y]);
 			}
 			y++;
 		}
@@ -56,37 +98,24 @@ void	sorting(t_all *all)
 
 void	ft_sprites(t_all *all)
 {
-	int x = 0;
+	int x;
+
+	x = 0;
 	sorting(all);
-	while(x < all->texture.spritenb)
+	while(x < all->tex.spritenb)
 	{
-		all->sprite.x = (all->texture.spritex[x] - all->start.pos.y);
-		all->sprite.y = (all->texture.spritey[x] - all->start.pos.x);
-		all->sprite.invdet = 1.0 / (all->start.fov.y * all->start.dir.x - all->start.dir.y * all->start.fov.x);
-		all->sprite.transx = (all->sprite.invdet * (all->start.dir.x * all->sprite.x - all->start.dir.y * all->sprite.y));
-		all->sprite.transy = (all->sprite.invdet * (-all->start.fov.x * all->sprite.x + all->start.fov.y * all->sprite.y));
-		all->sprite.screen = (int)((all->res.x / 2) * (1 + all->sprite.transx / all->sprite.transy));
-		all->sprheight = abs((int)(all->res.y / all->sprite.transy));
-		all->sprite.drawstarty = -all->sprheight / 2 + all->res.y / 2;
-		if (all->sprite.drawstarty < 0)
-			all->sprite.drawstarty = 0;
-		all->sprite.drawendy = all->sprheight / 2 + all->res.y / 2;
-		if (all->sprite.drawendy >= all->res.y)
-			all->sprite.drawendy = all->res.y - 1;
-		all->sprwidth = abs((int)(all->res.y / all->sprite.transy));
-		all->sprite.drawstartx = -all->sprwidth / 2 + all->sprite.screen;
-		if (all->sprite.drawstartx < 0)
-			all->sprite.drawstartx = 0;
-		all->sprite.drawendx = all->sprwidth / 2 + all->sprite.screen;
-		if (all->sprite.drawendx >= all->res.x)
-			all->sprite.drawendx = all->res.x - 1;
-		all->sprite.stripe = all->sprite.drawstartx;
-		while (all->sprite.stripe < all->sprite.drawendx)
+		ft_spr_init(all, x);
+		ft_draw_spr(all);
+		all->spr.stripe = all->spr.drawstartx;
+		while (all->spr.stripe < all->spr.drawendx)
 		{
-			all->sprite.sprx = (int)(256 * (all->sprite.stripe - (-all->sprwidth / 2 + all->sprite.screen)) * all->texwidth / all->sprwidth) / 256;
-			if (all->sprite.transy > 0 && all->sprite.stripe > 0 && all->sprite.stripe < all->res.x && all->sprite.sprx < 64)
+			all->spr.sprx = (int)(256 * (all->spr.stripe -
+			(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
+			all->sprwidth) / 256;
+			if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+			all->spr.stripe < all->res.x && all->spr.sprx < 64)
 				write_sprites(all);
-			all->sprite.stripe++;
+			all->spr.stripe++;
 		}
 		x++;
 	}

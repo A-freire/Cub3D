@@ -3,32 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/20 10:58:16 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 17:40:02 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_lib.h"
 
-void putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_data, int x, int y, int res)
+void putPixelr(unsigned char r, char *img_data, int x, int y, int res)
+{	
+	img_data[(x + y * res) * 4 + 2] = (char)r;
+}
+
+void putPixelg(unsigned char g, char *img_data, int x, int y, int res)
+{	
+	img_data[(x + y * res) * 4 + 1] = (char)g;
+}
+
+void putPixelb(unsigned char b, char *img_data, int x, int y, int res)
 {	
 	img_data[(x + y * res) * 4] = (char)b;
-	img_data[(x + y * res) * 4 + 1] = (char)g;
-	img_data[(x + y * res) * 4 + 2] = (char)r;
-	img_data[(x + y * res) * 4 + 3] = 0;
 }
 
 void    display(int x, t_all *all)
 {
-	int start = all->drawStart;
-	while (start < all->drawEnd)
+	int i = all->drawStart;
+	while (i < all->drawEnd)
 	{
-		all->texture.y = (int)all->texture.pos & (all->texheight - 1);
-		all->texture.pos += all->texture.step;
-		all->mlx.addr[(start * (int)all->res.x + x)] = all->texture.color[(all->texture.y * all->texheight + all->texture.x)];
-		start++;
+		all->tex.y = (int)all->tex.pos & (all->texheight - 1);
+		all->tex.pos += all->tex.step;
+		all->mlx.addr[(i * (int)all->res.x + x)] = all->tex.color[(all->tex.y *
+		all->texheight + all->tex.x)];
+		i++;
 	}
 }
 
@@ -41,9 +49,17 @@ void	clear_image(t_all *all)
 		while (y < all->res.y)
 		{
 			if (y < all->res.y / 2)
-				putPixel(all->ceiling.r, all->ceiling.g, all->ceiling.b, all->mlx.img_data, x, y, all->res.x);
+			{
+				putPixelr(all->ceiling.r, all->mlx.img_data, x, y, all->res.x);
+				putPixelg(all->ceiling.g, all->mlx.img_data, x, y, all->res.x);
+				putPixelb(all->ceiling.b, all->mlx.img_data, x, y, all->res.x);
+			}
 			else
-				putPixel(all->floor.r, all->floor.g, all->floor.b, all->mlx.img_data, x, y, all->res.x);
+			{	
+				putPixelr(all->floor.r, all->mlx.img_data, x, y, all->res.x);
+				putPixelg(all->floor.g, all->mlx.img_data, x, y, all->res.x);
+				putPixelb(all->floor.b, all->mlx.img_data, x, y, all->res.x);
+			}
 			y++;
 		}
 		y = 0;

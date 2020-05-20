@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_squaremap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/07 12:07:51 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 16:12:08 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ t_all	*ft_spritecoord(t_all *all)
 	int		i;
 
 
-	if (!(all->texture.spritex = malloc(sizeof(float) * all->texture.spritenb + 1)))
+	if (!(all->tex.spritex = malloc(sizeof(float) * all->tex.spritenb + 1)))
 		exit(0);
-	all->texture.spritex[all->texture.spritenb] = -42;
-	if (!(all->texture.spritey = malloc(sizeof(float) * all->texture.spritenb + 1)))
+	all->tex.spritex[all->tex.spritenb] = -42;
+	if (!(all->tex.spritey = malloc(sizeof(float) * all->tex.spritenb + 1)))
 		exit(0);
-	all->texture.spritey[all->texture.spritenb] = -42;
+	all->tex.spritey[all->tex.spritenb] = -42;
 	i = 0;
 	x = 0;
 	while (all->map.map[x][0] != -42)
@@ -34,8 +34,8 @@ t_all	*ft_spritecoord(t_all *all)
 		{
 			if (all->map.map[x][y] == 2)
 			{
-				all->texture.spritex[i] = y + 0.5;
-				all->texture.spritey[i] = x + 0.5;
+				all->tex.spritex[i] = y + 0.5;
+				all->tex.spritey[i] = x + 0.5;
 				i++;
 			}
 			y++;

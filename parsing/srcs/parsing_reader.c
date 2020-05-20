@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_reader.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 10:58:07 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/07 15:50:37 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 16:12:35 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_all		*ft_map(t_all *ret, char *line, int x)
 		else
 			ret->map.map[x][i] = 0 + (line[i] - 48);
 		if (line[i] == '2')
-			ret->texture.spritenb++;
+			ret->tex.spritenb++;
 		i++;
 	}
 	return (ret);
