@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/19 15:46:40 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/19 19:31:56 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,73 @@ t_all	*ft_turn(t_all *all, int i)
 	return (all);
 }
 
-t_all	*ft_shift(t_all *all, int i)
+t_all	*ft_shiftN(t_all *all, int i)
 {
-	if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * (all->moveSpeed))][(int)(all->start.pos.y + (all->moveSpeed * i))] != 1) &&
-	(all->map.map[(int)(all->start.pos.x - all->start.dir.x * (all->moveSpeed))][(int)(all->start.pos.y + (all->moveSpeed * -i))] != 1))
-		all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
-	if((all->map.map[(int)(all->start.pos.x + (all->moveSpeed * -i))][(int)(all->start.pos.y + all->start.dir.y * (all->moveSpeed))] != 1) &&
-	(all->map.map[(int)(all->start.pos.x + (all->moveSpeed * i))][(int)(all->start.pos.y + all->start.dir.y * (all->moveSpeed))] != 1)) 
-		all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
+	if (all->start.dir.y > 0)
+	{
+		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * i))] != 1) &&
+		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * -i))] != 1))
+			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
+		if((all->map.map[(int)(all->start.pos.x + ((all->moveSpeed + 0.2) * -i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) &&
+		(all->map.map[(int)(all->start.pos.x + ((all->moveSpeed - 0.2) * i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)) 
+			all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
+	}
+	else
+	{
+		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * i))] != 1) &&
+		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * -i))] != 1))
+			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
+		if((all->map.map[(int)(all->start.pos.x + ((all->moveSpeed - 0.2) * -i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) &&
+		(all->map.map[(int)(all->start.pos.x + ((all->moveSpeed + 0.2) * i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)) 
+			all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
+	}
+	return (all);
+}
+
+
+t_all	*ft_shiftS(t_all *all, int i)
+{
+	if (all->start.dir.y > 0)
+	{
+		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * i))] != 1) &&
+		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * -i))] != 1))
+			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
+		if((all->map.map[(int)(all->start.pos.x + ((all->moveSpeed + 0.2) * -i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) &&
+		(all->map.map[(int)(all->start.pos.x + ((all->moveSpeed - 0.2) * i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)) 
+			all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
+	}
+	else
+	{
+		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * i))] != 1) &&
+		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * -i))] != 1))
+			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
+		if((all->map.map[(int)(all->start.pos.x + ((all->moveSpeed - 0.2) * -i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) &&
+		(all->map.map[(int)(all->start.pos.x + ((all->moveSpeed + 0.2) * i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)) 
+			all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
+	}
 	return (all);
 }
 
 t_all	*ft_foward(t_all *all, int i)
 {
-	if(all->map.map[(int)(all->start.pos.x + (all->start.dir.x * ((all->moveSpeed + 0.1) * i)))][(int)all->start.pos.y] != 1) 
-		all->start.pos.x += all->start.dir.x * all->moveSpeed * i;
-	if(all->map.map[(int)(all->start.pos.x)][(int)(all->start.pos.y + (all->start.dir.y * ((all->moveSpeed + 0.1) * i)))] != 1) 
-		all->start.pos.y += all->start.dir.y * all->moveSpeed * i;
+	float posx;
+	float posy;
+	float dirx;
+	float diry;
+
+	posx = all->start.pos.x;
+	posy = all->start.pos.y;
+	dirx = all->start.dir.x;
+	diry = all->start.dir.y;
+	if (all->map.map[(int)(posx + (dirx * ((all->moveSpeed + 0.2) * i)))][(int)posy] != 1) 
+		all->start.pos.x += dirx * all->moveSpeed * i;
+	if (all->map.map[(int)(posx)][(int)(posy + (diry * ((all->moveSpeed + 0.2) * i)))] != 1) 
+		all->start.pos.y += diry * all->moveSpeed * i;
 	return (all);			
 }
 
-int 	deal_key(int key, void *param)
-{
-	t_all *all;
-	all = param;
-	
+int 	deal_key(int key, t_all *all)
+{	
 	if (key == 53)
 		exit(0);
 	if (key == 1)
@@ -59,19 +101,23 @@ int 	deal_key(int key, void *param)
 	if (key == 13)
 		 all = ft_foward(all, 1);
 	if (key == 12 || key == 123)
-	{
-		mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
 		all = ft_turn(all, 1);
-	}
 	if (key == 14 || key == 124)
-	{
-		mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
 		all = ft_turn(all, -1);
-	}
 	if (key == 0)
-		all = ft_shift(all, 1);	
+	{
+		if (all->start.dir.x > 0)
+			all = ft_shiftS(all, 1);
+		else	
+		all = ft_shiftN(all, 1);	
+	}
 	if (key == 2)
-		all = ft_shift(all, -1);
+	{
+		if (all->start.dir.x > 0)
+			all = ft_shiftS(all, -1);
+		else
+			all = ft_shiftN(all, -1);
+	}
 	game_on(all);
 	return (key);
 }
