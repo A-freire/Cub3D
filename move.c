@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/19 19:31:56 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 13:59:15 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ t_all	*ft_turn(t_all *all, int i)
 
 t_all	*ft_shiftN(t_all *all, int i)
 {
+	printf("N & ");
 	if (all->start.dir.y > 0)
 	{
+		printf("E\n");
 		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * i))] != 1) &&
 		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * -i))] != 1))
 			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
@@ -40,6 +42,7 @@ t_all	*ft_shiftN(t_all *all, int i)
 	}
 	else
 	{
+		printf("W\n");
 		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * i))] != 1) &&
 		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * -i))] != 1))
 			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
@@ -53,22 +56,25 @@ t_all	*ft_shiftN(t_all *all, int i)
 
 t_all	*ft_shiftS(t_all *all, int i)
 {
+	printf("S & ");
 	if (all->start.dir.y > 0)
 	{
-		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * i))] != 1) &&
-		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * -i))] != 1))
-			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
-		if((all->map.map[(int)(all->start.pos.x + ((all->moveSpeed + 0.2) * -i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) &&
-		(all->map.map[(int)(all->start.pos.x + ((all->moveSpeed - 0.2) * i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)) 
-			all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
-	}
-	else
-	{
+		printf("E\n");
 		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * i))] != 1) &&
 		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * -i))] != 1))
 			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
 		if((all->map.map[(int)(all->start.pos.x + ((all->moveSpeed - 0.2) * -i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) &&
 		(all->map.map[(int)(all->start.pos.x + ((all->moveSpeed + 0.2) * i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)) 
+			all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
+	}
+	else
+	{
+		printf("W\n");
+		if((all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed - 0.2) * i))] != 1) &&
+		(all->map.map[(int)(all->start.pos.x - all->start.dir.x * all->moveSpeed)][(int)(all->start.pos.y + ((all->moveSpeed + 0.2) * -i))] != 1))
+			all->start.pos.y += (all->start.dir.x * all->moveSpeed * i);
+		if((all->map.map[(int)(all->start.pos.x + ((all->moveSpeed + 0.2) * -i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1) &&
+		(all->map.map[(int)(all->start.pos.x + ((all->moveSpeed - 0.2) * i))][(int)(all->start.pos.y + all->start.dir.y * all->moveSpeed)] != 1)) 
 			all->start.pos.x -= (all->start.dir.y * all->moveSpeed * i);
 	}
 	return (all);
@@ -85,9 +91,11 @@ t_all	*ft_foward(t_all *all, int i)
 	posy = all->start.pos.y;
 	dirx = all->start.dir.x;
 	diry = all->start.dir.y;
-	if (all->map.map[(int)(posx + (dirx * ((all->moveSpeed + 0.2) * i)))][(int)posy] != 1) 
+	if (all->map.map[(int)(posx + (dirx * ((all->moveSpeed + 0.2) * i)))]
+	[(int)posy] != 1) 
 		all->start.pos.x += dirx * all->moveSpeed * i;
-	if (all->map.map[(int)(posx)][(int)(posy + (diry * ((all->moveSpeed + 0.2) * i)))] != 1) 
+	if (all->map.map[(int)(posx)]
+	[(int)(posy + (diry * ((all->moveSpeed + 0.2) * i)))] != 1) 
 		all->start.pos.y += diry * all->moveSpeed * i;
 	return (all);			
 }
@@ -107,16 +115,16 @@ int 	deal_key(int key, t_all *all)
 	if (key == 0)
 	{
 		if (all->start.dir.x > 0)
-			all = ft_shiftS(all, 1);
+			all = ft_shiftN(all, 1);
 		else	
-		all = ft_shiftN(all, 1);	
+		all = ft_shiftS(all, 1);	
 	}
 	if (key == 2)
 	{
 		if (all->start.dir.x > 0)
-			all = ft_shiftS(all, -1);
-		else
 			all = ft_shiftN(all, -1);
+		else
+			all = ft_shiftS(all, -1);
 	}
 	game_on(all);
 	return (key);

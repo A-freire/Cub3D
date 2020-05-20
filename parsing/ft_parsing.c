@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/07 15:55:58 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 14:01:45 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,5 @@ int			ft_parsing(char *file, t_all *a)
 	free(line);
 	a->map.map = ft_squaremap(a->map.map);
 	a = ft_spritecoord(a);
-	return (ft_checkparsing(*a));
+	return (ft_checkparsing(&*a));
 }

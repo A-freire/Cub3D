@@ -6,20 +6,20 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/06 11:21:28 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 14:02:51 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_parsing.h"
 
-static int	ft_checkres(t_vec res)
+static int	ft_checkres(t_vec *res)
 {
-	if (res.x < 100|| res.y < 100)
+	if (res->x < 100|| res->y < 100)
 		return (-1);
-	if (res.x > 1680)
-		res.x = 1680;
-	if (res.y > 1005)
-		res.y = 1005;
+	if (res->x > 1680)
+		res->x = 1680;
+	if (res->y > 1005)
+		res->y = 1005;
 	return (0);
 }
 
@@ -79,7 +79,7 @@ static int	ft_checktexture(char *texture)
 	return (0);
 }
 
-int			ft_checkparsing(t_all a)
+int			ft_checkparsing(t_all *a)
 {
 	int	res;
 	int	map;
@@ -87,24 +87,24 @@ int			ft_checkparsing(t_all a)
 	int	floor;
 	int	ceiling;
 
-	if ((res = ft_checkres(a.res)) != 0)
+	if ((res = ft_checkres(&a->res)) != 0)
 		ft_error (1);
-	if ((map = ft_checkmap(a)) != 0)
+	if ((map = ft_checkmap(*a)) != 0)
 		ft_error (2);
-	if ((tex[1] = ft_checktexture(a.texture.north) != 0))
+	if ((tex[1] = ft_checktexture(a->texture.north) != 0))
 		ft_error (3);
-	if ((tex[2] = ft_checktexture(a.texture.south) != 0))
+	if ((tex[2] = ft_checktexture(a->texture.south) != 0))
 		ft_error (3);
-	if ((tex[3] = ft_checktexture(a.texture.east) != 0))
+	if ((tex[3] = ft_checktexture(a->texture.east) != 0))
 		ft_error (3);
-	if ((tex[4] = ft_checktexture(a.texture.west) != 0))
+	if ((tex[4] = ft_checktexture(a->texture.west) != 0))
 		ft_error (3);
-	if ((tex[5] = ft_checktexture(a.texture.sprite) != 0))
+	if ((tex[5] = ft_checktexture(a->texture.sprite) != 0))
 		ft_error (3);
 	tex[0] = tex[1] + tex[2] + tex[3] + tex[4] + tex[5]; 
-	if ((floor = ft_checkcolor(a.floor)) != 0)
+	if ((floor = ft_checkcolor(a->floor)) != 0)
 		ft_error (4);
-	if ((ceiling = ft_checkcolor(a.ceiling)) != 0)
+	if ((ceiling = ft_checkcolor(a->ceiling)) != 0)
 		ft_error(4);
 	return (res + map + tex[0] + floor + ceiling);
 }

@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/06 11:29:22 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 10:57:42 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    putPixel(unsigned char r, unsigned char g, unsigned char b, char *img_da
 void	clear_image(t_all *all);
 
 //move
-int deal_key(int key, void *param);
+int deal_key(int key, t_all *all);
 
 //texture
 void	ft_texture(t_all *all);

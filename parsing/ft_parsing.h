@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:59:39 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/07 15:55:59 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/20 14:01:30 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	    ft_clear_copy(int ***copy);
 void		ft_error(int error);
 int 	    ft_lifegame(int	**copy);
 char		*ft_way(char *line);
-int			ft_checkparsing(t_all a);
+int			ft_checkparsing(t_all *a);
 int			**ft_initcopy(int **map, int ***copy);
 int			**ft_initcheck(int **copy);
 int	    	**ft_squaremap(int **map);
