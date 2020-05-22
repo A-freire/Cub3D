@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:59:39 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/20 14:01:30 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/22 13:52:45 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "./Get-Next-Line/get_next_line.h"
-# include "../cub3d_lib.h"
+# include "../header/cub3d_lib.h"
 
 void	    ft_clear_copy(int ***copy);
 void		ft_error(int error);

@@ -3,19 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
+#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/05/20 18:58:02 by afreire-         ###   ########.fr        #
+#    Updated: 2020/05/22 14:31:29 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 SRCS =	cub3d.c											\
-		tools.c											\
-		display.c										\
-		move.c											\
+		srcs/tools.c									\
+		srcs/display.c									\
+		srcs/move.c										\
+		srcs/texture.c									\
+		srcs/game.c										\
+		srcs/sprites.c									\
+		srcs/shift.c									\
+		srcs/ft_bmp.c									\
+		srcs/ft_memset.c								\
 		parsing/ft_parsing.c							\
 		parsing/checkers/checkmap.c						\
 		parsing/checkers/checkparsing.c					\
@@ -24,11 +30,7 @@ SRCS =	cub3d.c											\
 		parsing/srcs/ft_error.c							\
 		parsing/srcs/ft_squaremap.c						\
 		parsing/srcs/ft_strcmp.c						\
-		parsing/srcs/parsing_reader.c					\
-		texture.c										\
-		game.c											\
-		sprites.c										\
-		shift.c
+		parsing/srcs/parsing_reader.c					
 
 
 OBJS = ${SRCS:.c=.o}

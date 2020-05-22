@@ -3,39 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/20 18:29:00 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/05/22 16:05:35 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_lib.h"
+#include "./header/cub3d_lib.h"
 
-void game_on(t_all* all)
+void		game_on(t_all *all)
 {
 	int x;
 
 	x = 0;
 	clear_image(all);
-	while(x < all->res.x)
+	while (x < all->res.x)
 	{
 		ft_start(all, x);
-        ft_dist(all);
-        ft_hit(all);
-        ft_draw(all);
-        ft_tex(all);
+		ft_dist(all);
+		ft_hit(all);
+		ft_draw(all);
+		ft_tex(all);
 		display(x, all);
 		all->spr.buff[x] = (float)all->perpWallDist;
 		x++;
 	}
 	ft_sprites(all);
-	mlx_clear_window ( all->mlx.mlx_ptr, all->mlx.win_ptr );
+	if (all->bmp == 1)
+	{
+		ft_bmp(all);
+		all->bmp = 0;
+	}
+	mlx_clear_window(all->mlx.mlx_ptr, all->mlx.win_ptr);
 	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr,
 	all->mlx.img_ptr, 0, 0);
 }
 
-char	*ft_windowname(char *file)
+char		*ft_windowname(char *file)
 {
 	int		i;
 	char	*ret;
@@ -55,17 +60,18 @@ char	*ft_windowname(char *file)
 	return (ret);
 }
 
-int	ft_finish(void *param)
+int			ft_finish(void *param)
 {
-	(void) param;
+	(void)param;
 	exit(0);
 }
 
-void	ft_init(t_all *all, char *windowname)
+void		ft_init(t_all *all, char *windowname)
 {
 	int osef;
 
 	osef = 250;
+	all->bmp = 0;
 	all->start.pos.x += 0.5;
 	all->start.pos.y += 0.5;
 	all->moveSpeed = 0.2;
@@ -88,9 +94,9 @@ void	ft_init(t_all *all, char *windowname)
 	&osef);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
-	t_all 	all;
+	t_all	all;
 	char	*windowname;
 
 	if (ac != 2 && ac != 3)
@@ -106,8 +112,12 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	ft_init(&all, windowname);
+	if (ac == 3 && ft_strcmp(av[2], "--save", 6) == 0)
+		all.bmp = 1;
+	else if (ac == 3 && ft_strcmp(av[2], "--save", 6) != 0)
+		ft_error(0);
 	if (!(all.spr.buff = malloc(sizeof(float *) * all.res.x + 1)))
-		return(0);
+		return (0);
 	game_on(&all);
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);
 	mlx_hook(all.mlx.win_ptr, 17, 0, ft_finish, &all);
