@@ -6,7 +6,7 @@
 #    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/05/26 13:05:10 by robriard         ###   ########.fr        #
+#    Updated: 2020/05/26 14:58:43 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,14 @@ re: fclean all clean
 exe: re
 	@echo "${YELLOW}Execution${REST}"
 	@(./${NAME} test.cub)
-	@echo "${RED}Programm Ended${RESET}"
+	@echo "${GREEN}Programm Closed${RESET}"
 
-.PHONY: all clean fclean re
+help:
+	@echo "${RED}===MAKFILE of Cub3D 42 project===${RESET}\n"
+	@echo "${BLUE}all :${RESET} be the default value. Just compile SRCS in NAME."
+	@echo "${BLUE}clean :${RESET} delete all objects files."
+	@echo "${BLUE}fclean :${RESET} delete the executable NAME. he use clean"
+	@echo "${BLUE}re :${RESET} compile the lasted version of the files OBJS in NAME. He use fclean and all."
+	@echo "${BLUE}exe :${RESET} compile the lastead version of the files OBJS in NAME and execute the programm. He use re"
+
+.PHONY: all clean fclean re help
