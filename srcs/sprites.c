@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/22 12:54:35 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/26 17:05:45 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	ft_draw_spr(t_all *all)
 
 void	ft_spr_init(t_all *all, int x)
 {
-	all->spr.x = (all->tex.spritex[x] - all->start.pos.y);
-	all->spr.y = (all->tex.spritey[x] - all->start.pos.x);
+	all->spr.x = (all->spr.s[x].x - all->start.pos.y);
+	all->spr.y = (all->spr.s[x].y - all->start.pos.x);
 	all->spr.invdet = 1.0 / (all->start.fov.y * all->start.dir.x -
 	all->start.dir.y * all->start.fov.x);
 	all->spr.transx = (all->spr.invdet * (all->start.dir.x * all->spr.x
@@ -70,29 +70,35 @@ void	ft_spr_init(t_all *all, int x)
 
 void	sorting(t_all *all)
 {
-	int x;
-	int y;
+	int i;
 
-	x = 0;
-	while(x < all->tex.spritenb - 1)
+	i = 0;
+	while (i < all->tex.spritenb)
 	{
-		all->spr.dist = power_of(all->start.pos, all->tex.spritex[x],
-		all->tex.spritey[x]);
-		y = x + 1;
-		while (y < all->tex.spritenb)
+		all->spr.s[i].x = all->tex.spritex[i];
+		all->spr.s[i].y = all->tex.spritey[i];
+		all->spr.s[i].ordre = i;
+		all->spr.s[all->spr.s[i].ordre].dist = power_of(all->start.pos, all->spr.s[i].x, all->spr.s[i].y);
+		i++;
+	}
+}
+
+void	sorting_2(t_all *all)
+{
+	int i;
+	int tmp;
+
+	i = 0;
+	while (i + 1 < all->tex.spritenb)
+	{
+		if (all->spr.s[all->spr.s[i].ordre].dist < all->spr.s[all->spr.s[i + 1].ordre].dist)
 		{
-			if ((all->spr.dist < power_of(all->start.pos, all->tex.spritex[y],
-			all->tex.spritey[y]) && y < x) ||
-			(all->spr.dist > power_of(all->start.pos, all->tex.spritex[y],
-			all->tex.spritey[y]) && y > x))
-			{
-				ft_switch(all, x, y);
-				all->spr.dist = power_of(all->start.pos, all->tex.spritex[y],
-				all->tex.spritey[y]);
-			}
-			y++;
+			tmp = all->spr.s[i].ordre;
+			all->spr.s[i].ordre = all->spr.s[i + 1].ordre;
+			all->spr.s[i + 1].ordre = tmp;
+			sorting_2(all);
 		}
-		x++;
+		i++;
 	}
 }
 
@@ -102,6 +108,7 @@ void	ft_sprites(t_all *all)
 
 	x = 0;
 	sorting(all);
+	sorting_2(all);
 	while(x < all->tex.spritenb)
 	{
 		ft_spr_init(all, x);
@@ -118,5 +125,7 @@ void	ft_sprites(t_all *all)
 			all->spr.stripe++;
 		}
 		x++;
+		// printf("x=%i\n",x);
 	}
+	// printf("yolo\n");
 }

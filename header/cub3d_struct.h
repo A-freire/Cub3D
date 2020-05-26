@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/22 14:07:32 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/26 16:23:20 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,14 @@ typedef struct		s_bmp
 	int				fd;
 }					t_bmp;
 
+typedef struct	s_sort
+{
+	int		ordre;
+	double	dist;
+	float	x;
+	float 	y;
+}				t_sort;
+
 typedef struct	s_sprite
 {
 	void	*tex;
@@ -98,6 +106,7 @@ typedef struct	s_sprite
 	int		*color;
 	int		sprx;
 	int		spry;
+	t_sort	*s;
 }				t_sprite;
 
 typedef struct	s_texture

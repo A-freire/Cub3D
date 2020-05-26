@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
+#    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/05/26 14:58:43 by robriard         ###   ########.fr        #
+#    Updated: 2020/05/26 15:14:47 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ fclean:  clean
 re: fclean all clean
 	
 exe: re
-	@echo "${YELLOW}Execution${REST}"
+	@echo "${YELLOW}Execution${RESET}"
 	@(./${NAME} test.cub)
 	@echo "${GREEN}Programm Closed${RESET}"
 
