@@ -6,7 +6,7 @@
 #    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/05/22 14:31:29 by robriard         ###   ########.fr        #
+#    Updated: 2020/05/26 13:05:10 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,20 +41,36 @@ FLAGS =   -L includes/minilibx -lmlx -framework OpenGL -framework Appkit
 CFLAGS =  -Wall -Wextra -Werror -I includes/ -I includes/minilibx
 RM  = rm -f
 
-${NAME}	:	${OBJS}
-	@${CC}	 -o ${NAME}  ${FLAGS} ${OBJS}
+BLACK		:= $(shell tput -Txterm setaf 0)
+RED			:= $(shell tput -Txterm setaf 1)
+GREEN		:= $(shell tput -Txterm setaf 2)
+YELLOW		:= $(shell tput -Txterm setaf 3)
+LIGHTPURPLE	:= $(shell tput -Txterm setaf 4)
+PURPLE		:= $(shell tput -Txterm setaf 5)
+BLUE		:= $(shell tput -Txterm setaf 6)
+WHITE		:= $(shell tput -Txterm setaf 7)
+RESET		:= $(shell tput -Txterm sgr0)
+
+$(NAME):
+	@echo "${YELLOW}Compilation...${RESET}"
+	@($(CC) $(CFLAGS) $(SRCS) $(FLAGS) -o $(NAME))
+	@echo "${GREEN}Compilation OK${RESET}"
 
 all:  ${NAME}
 
 clean:	
-	${RM}	${OBJS}
+	@echo "${RED}deleting ojbects${RESET}"
+	@(${RM}	${OBJS})
 
 fclean:  clean
-	${RM} ${NAME}
+	@echo "${RED}deleting executable${RESET}"
+	@(${RM} ${NAME})
 
-re: fclean all
-	${RM}	${OBJS}
+re: fclean all clean
 	
 exe: re
-	./${NAME} test.cub
+	@echo "${YELLOW}Execution${REST}"
+	@(./${NAME} test.cub)
+	@echo "${RED}Programm Ended${RESET}"
+
 .PHONY: all clean fclean re
