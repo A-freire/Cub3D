@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/26 16:48:37 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/05/27 17:50:02 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,8 @@ void		game_on(t_all *all)
 		ft_bmp(all);
 		all->bmp = 0;
 	}
-			printf("1\n");
-
 	mlx_clear_window(all->mlx.mlx_ptr, all->mlx.win_ptr);
-			printf("2\n");
-
 	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
-	printf("3\n");
 }
 
 char		*ft_windowname(char *file)
@@ -123,11 +118,7 @@ int			main(int ac, char **av)
 	if (!(all.spr.buff = malloc(sizeof(float *) * all.res.x + 1)))
 		return (0);
 	game_on(&all);
-	printf("4\n");
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);
-	printf("5\n");
 	mlx_hook(all.mlx.win_ptr, 17, 0, ft_finish, &all);
-	printf("6\n");
 	mlx_loop(all.mlx.mlx_ptr);
-	printf("7\n");
 }

@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/26 17:05:45 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/05/27 19:06:45 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	ft_draw_spr(t_all *all)
 
 void	ft_spr_init(t_all *all, int x)
 {
-	all->spr.x = (all->spr.s[x].x - all->start.pos.y);
-	all->spr.y = (all->spr.s[x].y - all->start.pos.x);
+	all->spr.x = (all->tex.spritex[x] - all->start.pos.y);
+	all->spr.y = (all->tex.spritey[x] - all->start.pos.x);
 	all->spr.invdet = 1.0 / (all->start.fov.y * all->start.dir.x -
 	all->start.dir.y * all->start.fov.x);
 	all->spr.transx = (all->spr.invdet * (all->start.dir.x * all->spr.x
@@ -68,64 +68,121 @@ void	ft_spr_init(t_all *all, int x)
 	all->sprheight = abs((int)(all->res.y / all->spr.transy));
 }
 
-void	sorting(t_all *all)
+void	trueread(t_all *all)
 {
-	int i;
+    int        x;
+    int        y;
+    int        index;
 
-	i = 0;
-	while (i < all->tex.spritenb)
-	{
-		all->spr.s[i].x = all->tex.spritex[i];
-		all->spr.s[i].y = all->tex.spritey[i];
-		all->spr.s[i].ordre = i;
-		all->spr.s[all->spr.s[i].ordre].dist = power_of(all->start.pos, all->spr.s[i].x, all->spr.s[i].y);
-		i++;
-	}
-}
-
-void	sorting_2(t_all *all)
-{
-	int i;
-	int tmp;
-
-	i = 0;
-	while (i + 1 < all->tex.spritenb)
-	{
-		if (all->spr.s[all->spr.s[i].ordre].dist < all->spr.s[all->spr.s[i + 1].ordre].dist)
-		{
-			tmp = all->spr.s[i].ordre;
-			all->spr.s[i].ordre = all->spr.s[i + 1].ordre;
-			all->spr.s[i + 1].ordre = tmp;
-			sorting_2(all);
-		}
-		i++;
-	}
+    if (!(all->tex.spritex = malloc(sizeof(float) * all->tex.spritenb + 1)))
+        ft_error(0);
+    all->tex.spritex[all->tex.spritenb] = -42;
+    if (!(all->tex.spritey = malloc(sizeof(float) * all->tex.spritenb + 1)))
+        ft_error(0);
+    all->tex.spritey[all->tex.spritenb] = -42;
+    index = 0;
+    x = -1;
+    while (all->map.map[++x][0] != -42)
+    {
+        y = -1;
+        while (all->map.map[x][++y] != -42)
+        {
+            if (all->map.map[x][y] == 2)
+            {
+                all->tex.spritex[index] = x + 0.5;
+                all->tex.spritey[index] = y + 0.5;
+                index++;
+            }
+        }
+    }
 }
 
 void	ft_sprites(t_all *all)
 {
 	int x;
-
-	x = 0;
-	sorting(all);
-	sorting_2(all);
-	while(x < all->tex.spritenb)
+	if (all->start.dir.x > 0.7)
 	{
-		ft_spr_init(all, x);
-		ft_draw_spr(all);
-		all->spr.stripe = all->spr.drawstartx;
-		while (all->spr.stripe < all->spr.drawendx)
+		all = ft_spritecoord(all);
+		x = all->tex.spritenb;
+		while(x >= 0)
 		{
-			all->spr.sprx = (int)(256 * (all->spr.stripe -
-			(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
-			all->sprwidth) / 256;
-			if (all->spr.transy > 0 && all->spr.stripe > 0 &&
-			all->spr.stripe < all->res.x && all->spr.sprx < 64)
-				write_sprites(all);
-			all->spr.stripe++;
+			ft_spr_init(all, x);
+			ft_draw_spr(all);
+			all->spr.stripe = all->spr.drawstartx;
+			while (all->spr.stripe < all->spr.drawendx)
+			{
+				all->spr.sprx = (int)(256 * (all->spr.stripe -
+				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
+				all->sprwidth) / 256;
+				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+				all->spr.stripe < all->res.x && all->spr.sprx < 64)
+					write_sprites(all);
+				all->spr.stripe++;
+			}
+			x--;
 		}
-		x++;
-		// printf("x=%i\n",x);
+	}else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 && all->start.dir.y < -0.7)
+	{
+		trueread(all);
+		x = 0;
+		while(x < all->tex.spritenb)
+		{
+			ft_spr_init(all, x);
+			ft_draw_spr(all);
+			all->spr.stripe = all->spr.drawstartx;
+			while (all->spr.stripe < all->spr.drawendx)
+			{
+				all->spr.sprx = (int)(256 * (all->spr.stripe -
+				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
+				all->sprwidth) / 256;
+				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+				all->spr.stripe < all->res.x && all->spr.sprx < 64)
+					write_sprites(all);
+				all->spr.stripe++;
+			}
+			x++;
+		}
+	}else if (all->start.dir.x < -0.7)
+	{
+		all = ft_spritecoord(all);
+		x = 0;
+		while(x < all->tex.spritenb)
+		{
+			ft_spr_init(all, x);
+			ft_draw_spr(all);
+			all->spr.stripe = all->spr.drawstartx;
+			while (all->spr.stripe < all->spr.drawendx)
+			{
+				all->spr.sprx = (int)(256 * (all->spr.stripe -
+				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
+				all->sprwidth) / 256;
+				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+				all->spr.stripe < all->res.x && all->spr.sprx < 64)
+					write_sprites(all);
+				all->spr.stripe++;
+			}
+			x++;
+		}
+	}else
+	{
+		trueread(all);
+		x = all->tex.spritenb;
+		while(x > 0)
+		{
+			ft_spr_init(all, x);
+			ft_draw_spr(all);
+			all->spr.stripe = all->spr.drawstartx;
+			while (all->spr.stripe < all->spr.drawendx)
+			{
+				all->spr.sprx = (int)(256 * (all->spr.stripe -
+				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
+				all->sprwidth) / 256;
+				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+				all->spr.stripe < all->res.x && all->spr.sprx < 64)
+					write_sprites(all);
+				all->spr.stripe++;
+			}
+			x--;
+		}
 	}
-	// printf("yolo\n");
 }

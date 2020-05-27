@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 15:53:03 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/26 16:28:44 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/05/27 15:31:56 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	ft_texture(t_all *all)
 	&all->bits_per_pixel, &all->line_length, &all->endian);
 	all->spr.tex = mlx_get_data_addr(all->spr.tex,
 	&all->bits_per_pixel, &all->line_length, &all->endian);
-	if (!(all->spr.s = malloc(sizeof(int) * all->tex.spritenb + 1)))
+	if (!(all->spr.s = malloc(sizeof(t_sort) * all->tex.spritenb + 1)))
 		exit(0);
 }
