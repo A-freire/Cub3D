@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/28 14:18:09 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:33:47 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	ft_sprites(t_all *all)
 	{
 		trueread(all);
 		x = 0;
-		while(x < all->tex.spritenb)
+		while(x <= all->tex.spritenb)
 		{
 			ft_spr_init(all, x);
 			ft_draw_spr(all);
@@ -146,7 +146,7 @@ void	ft_sprites(t_all *all)
 	{
 		all = ft_spritecoord(all);
 		x = 0;
-		while(x < all->tex.spritenb)
+		while(x <= all->tex.spritenb)
 		{
 			ft_spr_init(all, x);
 			ft_draw_spr(all);
@@ -167,7 +167,7 @@ void	ft_sprites(t_all *all)
 	{
 		trueread(all);
 		x = all->tex.spritenb;
-		while(x > 0)
+		while(x >= 0)
 		{
 			ft_spr_init(all, x);
 			ft_draw_spr(all);
