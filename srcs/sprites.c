@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/27 19:06:45 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:18:09 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,16 @@ void	trueread(t_all *all)
         ft_error(0);
     all->tex.spritey[all->tex.spritenb] = -42;
     index = 0;
-    x = -1;
-    while (all->map.map[++x][0] != -42)
+    y = -1;
+    while (all->map.map[0][++y] != -42)
     {
-        y = -1;
-        while (all->map.map[x][++y] != -42)
+        x = -1;
+        while (all->map.map[++x][0] != -42)
         {
             if (all->map.map[x][y] == 2)
             {
-                all->tex.spritex[index] = x + 0.5;
-                all->tex.spritey[index] = y + 0.5;
+                all->tex.spritey[index] = x + 0.5;
+                all->tex.spritex[index] = y + 0.5;
                 index++;
             }
         }

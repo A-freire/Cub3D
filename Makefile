@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
+#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/05/27 15:34:44 by afreire-         ###   ########.fr        #
+#    Updated: 2020/05/28 11:46:00 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,31 +53,25 @@ RESET		:= $(shell tput -Txterm sgr0)
 
 $(NAME):
 	@echo "${YELLOW}Compilation...${RESET}"
-	@say -v "Samantha" "Compilation..."
 	@($(CC) $(CFLAGS) $(SRCS) $(FLAGS) -o $(NAME))
 	@echo "${GREEN}Compilation OK${RESET}"
-	@say -v "Samantha" "Compilation OK"
 
 all:  ${NAME}
 
 clean:	
 	@echo "${RED}deleting ojbects${RESET}"
-	@say -v "Samantha" "deleting objects"
 	@(${RM}	${OBJS})
 
 fclean:  clean
 	@echo "${RED}deleting executable${RESET}"
-	@say -v "Samantha" "deleting executable"
 	@(${RM} ${NAME})
 
 re: fclean all clean
 	
 exe: re
 	@echo "${YELLOW}Execution${RESET}"
-	@say -v "Samantha" "Execution"
 	@(./${NAME} test.cub)
 	@echo "${GREEN}Programm Closed${RESET}"
-	@say -v "Samantha" "programm closed"
 
 help:
 	@echo "${RED}===MAKFILE of Cub3D 42 project===${RESET}\n"
