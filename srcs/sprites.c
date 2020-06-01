@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/28 14:44:12 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/01 15:10:11 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,115 +68,14 @@ void	ft_spr_init(t_all *all, int x)
 	all->sprheight = abs((int)(all->res.y / all->spr.transy));
 }
 
-void	trueread(t_all *all)
-{
-    int        x;
-    int        y;
-    int        index;
-
-    index = 0;
-    y = -1;
-    while (all->map.map[0][++y] != -42)
-    {
-        x = -1;
-        while (all->map.map[++x][0] != -42)
-        {
-            if (all->map.map[x][y] == 2)
-            {
-                all->tex.spritey[index] = x + 0.5;
-                all->tex.spritex[index] = y + 0.5;
-                index++;
-            }
-        }
-    }
-}
-
 void	ft_sprites(t_all *all)
 {
-	int x;
 	if (all->start.dir.x > 0.7)
-	{
-		all = ft_spritecoord(all);
-		x = all->tex.spritenb;
-		while(x >= 0)
-		{
-			ft_spr_init(all, x);
-			ft_draw_spr(all);
-			all->spr.stripe = all->spr.drawstartx;
-			while (all->spr.stripe < all->spr.drawendx)
-			{
-				all->spr.sprx = (int)(256 * (all->spr.stripe -
-				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
-				all->sprwidth) / 256;
-				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
-				all->spr.stripe < all->res.x && all->spr.sprx < 64)
-					write_sprites(all);
-				all->spr.stripe++;
-			}
-			x--;
-		}
-	}else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 && all->start.dir.y < -0.7)
-	{
-		trueread(all);
-		x = 0;
-		while(x <= all->tex.spritenb)
-		{
-			ft_spr_init(all, x);
-			ft_draw_spr(all);
-			all->spr.stripe = all->spr.drawstartx;
-			while (all->spr.stripe < all->spr.drawendx)
-			{
-				all->spr.sprx = (int)(256 * (all->spr.stripe -
-				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
-				all->sprwidth) / 256;
-				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
-				all->spr.stripe < all->res.x && all->spr.sprx < 64)
-					write_sprites(all);
-				all->spr.stripe++;
-			}
-			x++;
-		}
-	}else if (all->start.dir.x < -0.7)
-	{
-		all = ft_spritecoord(all);
-		x = 0;
-		while(x <= all->tex.spritenb)
-		{
-			ft_spr_init(all, x);
-			ft_draw_spr(all);
-			all->spr.stripe = all->spr.drawstartx;
-			while (all->spr.stripe < all->spr.drawendx)
-			{
-				all->spr.sprx = (int)(256 * (all->spr.stripe -
-				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
-				all->sprwidth) / 256;
-				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
-				all->spr.stripe < all->res.x && all->spr.sprx < 64)
-					write_sprites(all);
-				all->spr.stripe++;
-			}
-			x++;
-		}
-	}else
-	{
-		trueread(all);
-		x = all->tex.spritenb;
-		while(x >= 0)
-		{
-			ft_spr_init(all, x);
-			ft_draw_spr(all);
-			all->spr.stripe = all->spr.drawstartx;
-			while (all->spr.stripe < all->spr.drawendx)
-			{
-				all->spr.sprx = (int)(256 * (all->spr.stripe -
-				(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
-				all->sprwidth) / 256;
-				if (all->spr.transy > 0 && all->spr.stripe > 0 &&
-				all->spr.stripe < all->res.x && all->spr.sprx < 64)
-					write_sprites(all);
-				all->spr.stripe++;
-			}
-			x--;
-		}
-	}
+		spr_south(all);
+	else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 && all->start.dir.y < -0.7)
+		spr_west(all);
+	else if (all->start.dir.x < -0.7)
+		spr_north(all);
+	else
+		spr_east(all);
 }

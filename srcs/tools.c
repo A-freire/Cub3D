@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 16:04:08 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/22 12:49:38 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/01 15:19:25 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ int		power_of(t_vec pos, float spr_x, float spr_y)
 	(pos.y - spr_y) * (pos.y - spr_y));
 }
 
-void	ft_switch(t_all *all, int x, int y)
+void	*ft_memset(void *b, int c, size_t n)
 {
-	float tmp;
+	char		*d;
+	size_t		i;
 
-	tmp = all->tex.spritex[x];
-	all->tex.spritex[x] = all->tex.spritex[y];
-	all->tex.spritex[y] = tmp;
-	tmp = all->tex.spritey[x];
-	all->tex.spritey[x] = all->tex.spritey[y];
-	all->tex.spritey[y] = tmp;
+	d = (char *)b;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = c;
+		i++;
+	}
+	return (d);
 }

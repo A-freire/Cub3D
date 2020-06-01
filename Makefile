@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
+#    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/05/28 11:46:00 by robriard         ###   ########.fr        #
+#    Updated: 2020/06/01 15:21:03 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRCS =	cub3d.c											\
 		srcs/sprites.c									\
 		srcs/shift.c									\
 		srcs/ft_bmp.c									\
-		srcs/ft_memset.c								\
 		parsing/ft_parsing.c							\
 		parsing/checkers/checkmap.c						\
 		parsing/checkers/checkparsing.c					\
@@ -30,7 +29,9 @@ SRCS =	cub3d.c											\
 		parsing/srcs/ft_error.c							\
 		parsing/srcs/ft_squaremap.c						\
 		parsing/srcs/ft_strcmp.c						\
-		parsing/srcs/parsing_reader.c					
+		parsing/srcs/parsing_reader.c					\
+		srcs/read.c										\
+		srcs/order.c
 
 
 OBJS = ${SRCS:.c=.o}
