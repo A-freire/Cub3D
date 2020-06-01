@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/27 17:50:02 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:47:45 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,6 @@ int			main(int ac, char **av)
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);
 	mlx_hook(all.mlx.win_ptr, 17, 0, ft_finish, &all);
 	mlx_loop(all.mlx.mlx_ptr);
+	while (1)
+		;
 }

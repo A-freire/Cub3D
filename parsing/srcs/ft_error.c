@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
-/*   Updated: 2020/04/24 18:45:31 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/28 16:52:50 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void			ft_error(int error)
 {
 	ft_printf("\033[31;01mError\033[00m\n");
 	if (error == 404)
-		ft_printf("\033[33;05mNo .cub file input\033[00m\n");
+		ft_printf("No .cub file input\n");
 	if (error == 1)
-		ft_printf("\033[33;05mBad resolution\033[00m\n");
+		ft_printf("Bad resolution\n");
 	if (error == 2)
-		ft_printf("\033[33;05mMap Error\033[00m\n");
+		ft_printf("Map Error\n");
 	if (error == 3)
-		ft_printf("\033[33;05mUnknow way texture\033[00m\n");
+		ft_printf("Unknow way texture\n");
 	if (error == 4)
-		ft_printf("\033[33;05mBack Screen incorrect colors\033[00m\n");
+		ft_printf("Back Screen incorrect colors\n");
 	return ;
 }

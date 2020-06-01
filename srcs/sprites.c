@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/05/28 14:33:47 by robriard         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:44:12 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,6 @@ void	trueread(t_all *all)
     int        y;
     int        index;
 
-    if (!(all->tex.spritex = malloc(sizeof(float) * all->tex.spritenb + 1)))
-        ft_error(0);
-    all->tex.spritex[all->tex.spritenb] = -42;
-    if (!(all->tex.spritey = malloc(sizeof(float) * all->tex.spritenb + 1)))
-        ft_error(0);
-    all->tex.spritey[all->tex.spritenb] = -42;
     index = 0;
     y = -1;
     while (all->map.map[0][++y] != -42)
