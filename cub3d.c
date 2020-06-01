@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 14:41:13 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/01 17:05:00 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void		game_on(t_all *all)
 	int x;
 
 	x = 0;
+	if (all->map.map[(int)all->start.pos.x][(int)all->start.pos.y] == 2)
+		all->life--;
 	clear_image(all);
 	while (x < all->res.x)
 	{
@@ -29,12 +31,10 @@ void		game_on(t_all *all)
 		all->spr.buff[x] = (float)all->perpWallDist;
 		x++;
 	}
+	heal(all);
 	ft_sprites(all);
 	if (all->bmp == 1)
-	{
 		ft_bmp(all);
-		all->bmp = 0;
-	}
 	mlx_clear_window(all->mlx.mlx_ptr, all->mlx.win_ptr);
 	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
 }
@@ -82,6 +82,7 @@ void		ft_init(t_all *all, char *windowname)
 	all->bits_per_pixel = 0;
 	all->line_length = 0;
 	all->endian = 0;
+	all->life = 10;
 	all->mlx.mlx_ptr = mlx_init();
 	ft_texture(all);
 	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y,
@@ -91,6 +92,7 @@ void		ft_init(t_all *all, char *windowname)
 	&osef);
 	all->mlx.addr = (int*)mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef,
 	&osef);
+	ft_save(all);
 }
 
 int			main(int ac, char **av)

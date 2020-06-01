@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 14:07:51 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/01 15:06:21 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/01 16:58:37 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ void		ft_bmp(t_all *all)
 	imgbmp(all, &bmp);
 	free(bmp.img);
 	close(bmp.fd);
+	all->bmp = 0;
 }

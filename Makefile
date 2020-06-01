@@ -6,7 +6,7 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/06/01 15:21:03 by afreire-         ###   ########.fr        #
+#    Updated: 2020/06/01 16:28:38 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS =	cub3d.c											\
 		parsing/srcs/ft_strcmp.c						\
 		parsing/srcs/parsing_reader.c					\
 		srcs/read.c										\
-		srcs/order.c
+		srcs/order.c									\
+		srcs/bonus.c
 
 
 OBJS = ${SRCS:.c=.o}

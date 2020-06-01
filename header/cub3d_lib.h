@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 15:21:45 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/01 17:42:54 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_vec	init_vec(double x, double y);
 double	val_abs(double t);
 int		power_of(t_vec pos, float spr_x, float spr_y);
 void	*ft_memset(void *b, int c, size_t n);
+void	ft_save(t_all *all);
 
 //texture.c
 void	ft_crea_tex(t_all *all);
@@ -82,5 +83,10 @@ void	set_header(unsigned char *header, int param);
 void	imgbmp(t_all *all, t_bmp *bmp);
 void	ft_header(t_all *all, t_bmp *bmp);
 void    ft_bmp(t_all *all);
+
+//bonus.c
+void	colors(t_all *all, int x, int y);
+void	heal(t_all *all);
+void	ft_reset(t_all *all);
 
 #endif

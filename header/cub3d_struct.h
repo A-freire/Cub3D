@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 15:10:31 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/01 16:44:32 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct	s_color
 	float	g;
 	float	b;
 }				t_color;
+
 
 typedef struct	s_start
 {
@@ -152,5 +153,7 @@ typedef struct	s_all
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
+	t_start		save;
+	int 		life;
 }				t_all;
 #endif

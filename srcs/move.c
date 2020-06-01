@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 15:06:23 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/01 16:42:15 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int 	deal_key(int key, t_all *all)
 		ft_turn(all, 1);
 	if (key == 14 || key == 124)
 		ft_turn(all, -1);
+	if (key == 256)
+		ft_reset(all);
 	ft_shift(key, all);
 	game_on(all);
 	return (key);

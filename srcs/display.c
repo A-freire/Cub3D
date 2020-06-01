@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 15:06:20 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/01 16:57:33 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,14 @@ void    display(int x, t_all *all)
 
 void	clear_image(t_all *all)
 {
-	int x = 0;
-	int y = 0;
-	while (x < all->res.x)
+	int x;
+	int y;
+	
+	x = -1;
+	while (++x < all->res.x)
 	{
-		while (y < all->res.y)
+		y = -1;
+		while (++y < all->res.y)
 		{
 			if (y < all->res.y / 2)
 			{
@@ -60,9 +63,7 @@ void	clear_image(t_all *all)
 				putPixelg(all->floor.g, all->mlx.img_data, x, y, all->res.x);
 				putPixelb(all->floor.b, all->mlx.img_data, x, y, all->res.x);
 			}
-			y++;
 		}
-		y = 0;
-		x++;
 	}
 }
+

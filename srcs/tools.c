@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 16:04:08 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 15:19:25 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/01 16:39:19 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,11 @@ void	*ft_memset(void *b, int c, size_t n)
 		i++;
 	}
 	return (d);
+}
+
+void	ft_save(t_all *all)
+{
+	all->save.dir = all->start.dir;
+	all->save.fov = all->start.fov;
+	all->save.pos = all->start.pos;
 }
