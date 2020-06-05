@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 16:42:15 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/05 14:49:52 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_shift(int key, t_all *all)
 
 int 	deal_key(int key, t_all *all)
 {	
+	printf("%d\n", key);
 	if (key == 53)
 		exit(0);
 	if (key == 1)
@@ -80,11 +81,33 @@ int 	deal_key(int key, t_all *all)
 		ft_turn(all, -1);
 	if (key == 256)
 		ft_reset(all);
+	if (key == 15)
+		sprint(all);
 	ft_shift(key, all);
 	game_on(all);
 	return (key);
 }
 
+
+void	sprint(t_all *all)
+{
+	all->moveSpeed = 0.3;
+	if (all->start.fov.x != 0)
+	{
+		if (all->start.fov.x < 0)
+			all->start.fov.x = -0.76;
+		else
+			all->start.fov.x = 0.76;
+	}
+	else
+	{
+		if (all->start.fov.y < 0)
+			all->start.fov.y = -0.76;
+		else
+			all->start.fov.y = 0.76;
+	}
+	
+}
 
 /*
 w = 13

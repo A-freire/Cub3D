@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 17:42:54 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/05 14:49:14 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_turn(t_all *all, int i);
 void	ft_foward(t_all *all, int i);
 void	ft_shift(int key, t_all *all);
 int		deal_key(int key, t_all *all);
+void	sprint(t_all *all);
 
 //game.c
 void	ft_tex(t_all *all);
