@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/05 15:28:15 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/10 11:42:39 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void		ft_init(t_all *all, char *windowname)
 	all->bits_per_pixel = 0;
 	all->line_length = 0;
 	all->endian = 0;
-	all->life = 10;
+	all->life = 4;
 	all->mlx.mlx_ptr = mlx_init();
 	ft_texture(all);
 	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y,

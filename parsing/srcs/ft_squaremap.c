@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_squaremap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/20 16:12:08 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/10 10:10:39 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,40 @@ t_all	*ft_spritecoord(t_all *all)
 	int		x;
 	int		y;
 	int		i;
+	int		j;
 
 
-	if (!(all->tex.spritex = malloc(sizeof(float) * all->tex.spritenb + 1)))
-		exit(0);
+	if (!(all->tex.spritex = malloc(sizeof(float) * all->tex.spritenb + all->tp.tpnb + 1)))
+		ft_error(-1);
 	all->tex.spritex[all->tex.spritenb] = -42;
-	if (!(all->tex.spritey = malloc(sizeof(float) * all->tex.spritenb + 1)))
-		exit(0);
+	if (!(all->tex.spritey = malloc(sizeof(float) * all->tex.spritenb + all->tp.tpnb + 1)))
+		ft_error (-1);
 	all->tex.spritey[all->tex.spritenb] = -42;
+	if (!(all->tp.coord = malloc(sizeof(int *) * 2)))
+		ft_error (-1);
+	if (!(all->tp.coord[0] = malloc(sizeof(int) * all->tp.tpnb)))
+		ft_error (-1);
+	if (!(all->tp.coord[1] = malloc(sizeof(int) * all->tp.tpnb)))
+		ft_error (-1);
 	i = 0;
 	x = 0;
+	j = 0;
 	while (all->map.map[x][0] != -42)
 	{
 		y = 0;
 		while (all->map.map[x][y] != -42)
 		{
-			if (all->map.map[x][y] == 2)
+			if (all->map.map[x][y] == 2 || all->map.map[x][y] == 3)
 			{
 				all->tex.spritex[i] = y + 0.5;
 				all->tex.spritey[i] = x + 0.5;
 				i++;
+			}
+			if (all->map.map[x][y] == 3)
+			{
+				all->tp.coord[0][j] = x;
+				all->tp.coord[1][j] = y;
+				j++;
 			}
 			y++;
 		}
@@ -60,9 +74,9 @@ int		**ft_squaremap(int **map)
 	while (copy[i][0] != -42)
 		i++;
 	if (!(map = malloc (sizeof(int *) * (i + 1))))
-		exit (2);
+		ft_error(-1);
 	if (!(map[i] = malloc(sizeof(int))))
-		exit (2);
+		ft_error(-1);
 	map[i][0] = -42;
 	buf = 0;
 	i = -1;
@@ -80,7 +94,7 @@ int		**ft_squaremap(int **map)
 	while(copy[++i][0] != -42)
 	{
 		if (!(map[i] = malloc(sizeof(int) * (buf + 1))))
-			exit (2);
+			ft_error(-1);
 		map[i][buf] = -42;
 	}
 

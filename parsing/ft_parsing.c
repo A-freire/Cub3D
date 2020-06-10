@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/22 13:52:54 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/10 10:12:48 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		ft_init_parsing(t_all *a)
 	a->tex.west = NULL;
 	a->tex.sprite = NULL;
 	a->tex.spritenb = 0;
+	a->tp.tpnb = 0;
 }
 
 int			ft_ismap(char *line)
@@ -70,6 +71,8 @@ t_all		ft_indexnull(char *line, t_all *ret)
 		ret->tex.west = ft_way(line);
 	if (line[0] == 'S' && line[1]== ' ')
 		ret->tex.sprite = ft_way(line);
+	if (line[0] == 'T' && line[1]== ' ')
+		ret->tp.tpway = ft_way(line);
 	if (line[0] == 'R' && line[1]== ' ')
 		ret->res = ft_res(line);
 	if (line[0] == 'F' && line[1]== ' ')
@@ -88,9 +91,9 @@ t_all		ft_fillstruct(int n,char *line, t_all *a)
 	{
 		index = -1;
 		if (!(a->map.map = malloc(sizeof(int *) * (n + 1))))
-			exit (0);
+			ft_error(-1);
 		if (!(a->map.map[0] = malloc(sizeof(int))))
-			exit (0);
+			ft_error(-1);
 		a->map.map[0][0] = -42;
 		ft_init_parsing(*&a);
 	}
@@ -105,6 +108,8 @@ t_all		ft_fillstruct(int n,char *line, t_all *a)
 		i = 0;
 		while (line[i])
 		{
+			if (line[i] == 3)
+				a->tp.tpnb++;
 			if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
 				|| line[i] == 'W')
 			{
@@ -158,10 +163,7 @@ int			ft_parsing(char *file, t_all *a)
 	while (file[i + 4] != '\0')
 		i++;
 	if ((fd = open(file, O_RDONLY)) < 0 || ft_strcmp(file + i, ".cub", 4) != 0)
-	{
 		ft_error (404);
-		return (-1);
-	}
 	fd2 = open(file, O_RDONLY);
 	i = 0;
 	while (get_next_line(fd2, &line) != 0)

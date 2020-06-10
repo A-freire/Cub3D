@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:59:39 by robriard          #+#    #+#             */
-/*   Updated: 2020/05/22 13:52:45 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/08 10:39:50 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int			**ft_initcheck(int **copy);
 int	    	**ft_squaremap(int **map);
 int			ft_strcmp(char *s1, char *s2, int max);
 int			ft_parsing(char *file, t_all *a);
+int			ft_checktexture(char *texture);
 t_all		*ft_map(t_all *ret, char *line, int x);
 t_all	    *ft_spritecoord(t_all *all);
 int			**ft_finalmap(int **map);

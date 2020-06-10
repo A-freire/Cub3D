@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 16:44:32 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/10 09:18:31 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_STRUCT_H
 # define CUB3D_STRUCT_H
+
+typedef struct	s_tp
+{
+	int		tpnb;
+	char	*tpway;
+	int		**coord;
+}				t_tp;
+
 
 typedef struct	s_tf
 {
@@ -124,6 +132,7 @@ typedef struct	s_texture
 
 typedef struct	s_all
 {
+	t_tp		tp;
 	t_tf		tf;
 	t_mlx		mlx;
 	t_cam		cam;

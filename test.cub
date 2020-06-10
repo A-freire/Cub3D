@@ -1,15 +1,15 @@
 R 10000 10000
 
-NO ./texture/greystone.xpm
-SO ./texture/bluestone.xpm
-EA ./texture/redbrick.xpm
-WE ./texture/wood.xpm
+NO ./texture/oak_wood.xpm
+SO ./texture/grass.xpm
+EA ./texture/tnt.xpm
+WE ./texture/birch_wood.xpm
 
-S ./texture/barrel.xpm
+S ./texture/cactus.xpm
 
-F 100 100 100
+F 100 240 100
 
-C 200 200 200
+C 100 100 240
 
                     1111111111111111111111111111
                     1000000000000000000000000001

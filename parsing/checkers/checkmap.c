@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 11:15:50 by robriard          #+#    #+#             */
-/*   Updated: 2020/04/27 16:40:16 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/10 09:50:54 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int		**ft_initcopy(int **map, int ***copy)
 	while (map[i][0] != -42)
 		i++;
 	if (!(copy[0] = malloc(sizeof(int *) * (i + 1))))
-		return (NULL);
+		ft_error(-1);
 	if (!(copy[0][i] = malloc(sizeof(int))))
-		return (NULL);
+		ft_error(-1);
 	copy[0][i][0] = -42;
 	i = 0;
 	while (map[i][0] != -42)
@@ -47,7 +47,7 @@ int		**ft_initcopy(int **map, int ***copy)
 		while(map[i][j] != -42)
 			j++;
 		if (!(copy[0][i] = malloc(sizeof(int) * (j + 1))))
-			exit (2);
+			ft_error(-1);
 		copy[0][i][j] = -42;
 		while (--j >= 0)
 			copy[0][i][j] = map[i][j];
