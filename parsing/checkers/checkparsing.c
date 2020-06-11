@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkparsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/10 09:50:51 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/11 16:56:43 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	ft_checkmap(t_all a)
 	i = 0;
 	while (i < a.tp.tpnb)
 	{
-		if (copy[a.tp.coord[0][i]][a.tp.coord[1][i]] == -2)
+		if (copy[(int)a.tp.coord[0][i]][(int)a.tp.coord[1][i]] == -2)
 		{
 			ft_clear_copy(&copy);
 			ft_error(2);

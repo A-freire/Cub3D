@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/10 09:18:31 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/11 16:55:10 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ typedef struct	s_tp
 {
 	int		tpnb;
 	char	*tpway;
-	int		**coord;
+	float	**coord;
+	void	*tex;
 }				t_tp;
 
 
@@ -139,7 +140,6 @@ typedef struct	s_all
 	t_map		map;
 	t_step		step;
 	t_start		start;
-	t_color		color;
 	t_color		floor;
 	t_color		ceiling;
 	t_texture	tex;
@@ -164,5 +164,6 @@ typedef struct	s_all
 	int			endian;
 	t_start		save;
 	int 		life;
+	int			*color;
 }				t_all;
 #endif

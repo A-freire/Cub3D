@@ -25,7 +25,7 @@ void    ft_tex(t_all *all)
 		all->tex.color = (int *)all->tex.tex_e;
 	else
 		all->tex.color = (int *)all->tex.tex_n;
-	all->spr.color = (int *)all->spr.tex;
+	all->color = (int *)all->spr.tex;
 }
 
 void    ft_draw(t_all *all)

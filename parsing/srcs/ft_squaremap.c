@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_squaremap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/10 10:10:39 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/11 17:42:52 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ t_all	*ft_spritecoord(t_all *all)
 	if (!(all->tex.spritey = malloc(sizeof(float) * all->tex.spritenb + all->tp.tpnb + 1)))
 		ft_error (-1);
 	all->tex.spritey[all->tex.spritenb] = -42;
-	if (!(all->tp.coord = malloc(sizeof(int *) * 2)))
+	if (!(all->tp.coord = malloc(sizeof(float *) * 2)))
 		ft_error (-1);
-	if (!(all->tp.coord[0] = malloc(sizeof(int) * all->tp.tpnb)))
+	if (!(all->tp.coord[0] = malloc(sizeof(float) * all->tp.tpnb)))
 		ft_error (-1);
-	if (!(all->tp.coord[1] = malloc(sizeof(int) * all->tp.tpnb)))
+	if (!(all->tp.coord[1] = malloc(sizeof(float) * all->tp.tpnb)))
 		ft_error (-1);
 	i = 0;
 	x = 0;
@@ -46,10 +46,10 @@ t_all	*ft_spritecoord(t_all *all)
 				all->tex.spritey[i] = x + 0.5;
 				i++;
 			}
-			if (all->map.map[x][y] == 3)
+			if (all->map.map[x][y] == 3 && j < 2)
 			{
-				all->tp.coord[0][j] = x;
-				all->tp.coord[1][j] = y;
+				all->tp.coord[0][j] = y + 0.5;
+				all->tp.coord[1][j] = x + 0.5;
 				j++;
 			}
 			y++;

@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 15:53:03 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 15:10:18 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/10 19:26:53 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void     ft_crea_tex(t_all *all)
 	if (!(all->spr.tex = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
 			all->tex.sprite, &all->sprwidth, &all->sprheight)))
 		printf("fichier sprite invalide lors de convertion xpm to image\n");
+	if (!(all->tp.tex = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
+			all->tp.tpway, &all->sprwidth, &all->sprheight)))
+		printf("fichier sprite invalide lors de convertion xpm to image\n");
 }
 
 void	ft_texture(t_all *all)
@@ -43,5 +46,7 @@ void	ft_texture(t_all *all)
 	all->tex.tex_w = mlx_get_data_addr(all->tex.tex_w,
 	&all->bits_per_pixel, &all->line_length, &all->endian);
 	all->spr.tex = mlx_get_data_addr(all->spr.tex,
+	&all->bits_per_pixel, &all->line_length, &all->endian);
+	all->tp.tex = mlx_get_data_addr(all->tp.tex,
 	&all->bits_per_pixel, &all->line_length, &all->endian);
 }

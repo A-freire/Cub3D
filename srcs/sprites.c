@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 15:10:11 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/11 17:52:19 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	write_sprites(t_all *all)
 		d = (y) * 256 - all->res.y * 128 + all->sprheight * 128;
 
 		all->spr.spry = ((d * all->texwidth) / all->sprheight) / 256;
-		if ((all->spr.color[64 * all->spr.spry + all->spr.sprx]) != 0
+		if ((all->color[64 * all->spr.spry + all->spr.sprx]) != 0
 		&& all->spr.transy < all->spr.buff[all->spr.stripe])
 		{
 			if (all->spr.stripe >= 0 && all->spr.stripe < all->res.x &&
 			y >= 0 && y < all->res.y)
 				all->mlx.addr[(y * (int)all->res.x + all->spr.stripe)] =
-				all->spr.color[64 * all->spr.spry + all->spr.sprx];
+				all->color[64 * all->spr.spry + all->spr.sprx];
 		}
 		y++;
 	}
@@ -55,6 +55,11 @@ void	ft_draw_spr(t_all *all)
 
 void	ft_spr_init(t_all *all, int x)
 {
+	if ((all->tp.coord[0][0] == all->tex.spritex[x] && all->tp.coord[1][0] == all->tex.spritey[x])
+	|| (all->tp.coord[0][1] == all->tex.spritex[x] && all->tp.coord[1][1] == all->tex.spritey[x]))
+		all->color = (int *)all->tp.tex;
+	else
+		all->color = (int *)all->spr.tex;
 	all->spr.x = (all->tex.spritex[x] - all->start.pos.y);
 	all->spr.y = (all->tex.spritey[x] - all->start.pos.x);
 	all->spr.invdet = 1.0 / (all->start.fov.y * all->start.dir.x -
