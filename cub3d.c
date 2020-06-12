@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/11 18:29:32 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/12 14:08:15 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,13 @@ void		game_on(t_all *all)
 	{
 		ft_start(all, x);
 		ft_dist(all);
-	printf("0\n");
 		ft_hit(all);
-	printf("1\n");
 		ft_draw(all);
-	printf("2\n");
 		ft_tex(all);
-	printf("3\n");
 		display(x, all);
-	printf("4\n");
 		all->spr.buff[x] = (float)all->perpWallDist;
 		x++;
 	}
-	printf("5\n");
 	// heal(all);
 	ft_sprites(all);
 	if (all->bmp == 1)
