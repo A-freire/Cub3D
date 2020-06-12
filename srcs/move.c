@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/05 15:52:14 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/11 18:15:11 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int 	deal_key(int key, t_all *all)
 		sprint(all);
 	ft_shift(key, all);
 	// ft_reset(all);
-game_on(all);
+	game_on(all);
 	return (key);
 }
 

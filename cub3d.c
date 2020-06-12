@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/10 11:42:39 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/11 18:29:32 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,26 @@ void		game_on(t_all *all)
 	x = 0;
 	if (all->map.map[(int)all->start.pos.x][(int)all->start.pos.y] == 2)
 		all->life--;
+	ft_tp(all);
 	clear_image(all);
 	while (x < all->res.x)
 	{
 		ft_start(all, x);
 		ft_dist(all);
+	printf("0\n");
 		ft_hit(all);
+	printf("1\n");
 		ft_draw(all);
+	printf("2\n");
 		ft_tex(all);
+	printf("3\n");
 		display(x, all);
+	printf("4\n");
 		all->spr.buff[x] = (float)all->perpWallDist;
 		x++;
 	}
-	heal(all);
+	printf("5\n");
+	// heal(all);
 	ft_sprites(all);
 	if (all->bmp == 1)
 		ft_bmp(all);

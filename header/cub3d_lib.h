@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/10 16:05:00 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/11 18:06:07 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void	heal(t_all *all);
 void	ft_reset(t_all *all);
 void	sprint(t_all *all);
 void	sneack(t_all *all);
+void	ft_tp(t_all *all);
 
 #endif
