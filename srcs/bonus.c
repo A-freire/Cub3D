@@ -113,7 +113,7 @@ void	sneack(t_all *all)
 
 void	ft_tp(t_all *all)
 {
-	if (all->map.map[(int)all->start.pos.x][(int)all->start.pos.y] == 3)
+	if (all->map.map[(int)all->start.pos.x][(int)all->start.pos.y] == 3 && all->tp.tpnb >= 2)
 	{
 		if ((int)all->start.pos.x == (int)all->tp.coord[1][0] && (int)all->start.pos.y == (int)all->tp.coord[0][0])
 		{
