@@ -12,11 +12,9 @@ void	heal(t_all *all)
 	int x;
 	int	y;
 	int	buf;
-	int multi;
+	// int multix;
+	// int	multiy;
 
-	multi = 2 * (all->res.x / all->res.y);
-	if (multi < 1)
-		multi = 2 * (all->res.y / all->res.x);
 	if (all->life == 0)
 		ft_error (42);
 	if (all->life == 1)
@@ -31,12 +29,13 @@ void	heal(t_all *all)
 	all->health.starty = all->res.y - (all->res.y / 20);
 	y = 0;
 	buf = all->health.startx;
-	while (y <= all->health.heigth)
+	while (y < all->health.heigth)
 	{
 		all->health.startx = buf;
 		x = 0;
-		while (x <= all->health.width)
+		while (x < all->health.width)
 		{
+			if (all->health.color[(all->health.width * y) + x] != 0)
 			all->mlx.addr[(int)all->res.x * all->health.starty + all->health.startx] = 
 			all->health.color[(all->health.width * y) + x];
 			all->health.startx++;
