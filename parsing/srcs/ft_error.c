@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/10 10:41:55 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/16 16:21:57 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static int		ft_printf(char *str)
 
 void			ft_error(int error)
 {
-	ft_printf("\033[31;01mError\033[00m\n");
+	if (error != 42)
+		ft_printf("\033[31;01mError\033[00m\n");
 	if (error == 404)
 		ft_printf("\033[33;05mNo .cub file input\033[00m\n");
 	
@@ -53,5 +54,7 @@ void			ft_error(int error)
 		ft_printf("\033[33;05mYou don't give the good number of tp position\033[00m\n");
 	if (error == 10)
 		ft_printf("\033[33;05mYou don't give an acces way for tp texture\033[00m\n");
+	if (error == 42)
+		ft_printf("\033[33:05mYou die!!!!!\nTry Again\n");
 	exit(0);
 }

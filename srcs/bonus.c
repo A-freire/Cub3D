@@ -9,19 +9,43 @@ void	colors(t_all *all, int x, int y)
 
 void	heal(t_all *all)
 {
-	int	x;
-	int y;
-	x = -1;
+	int x;
+	int	y;
+	int	buf;
+	int multi;
+
+	multi = 2 * (all->res.x / all->res.y);
+	if (multi < 1)
+		multi = 2 * (all->res.y / all->res.x);
 	if (all->life == 0)
-		ft_finish(all);
-	while (++x < all->res.x / 10)
+		ft_error (42);
+	if (all->life == 1)
+		all->health.color = (int *)all->health.tex1;
+	if (all->life == 2)
+		all->health.color = (int *)all->health.tex2;
+	if (all->life == 3)
+		all->health.color = (int *)all->health.tex3;
+	if (all->life == 4)
+		all->health.color = (int *)all->health.tex4;
+	all->health.startx = all->res.x / 100;
+	all->health.starty = all->res.y - (all->res.y / 20);
+	y = 0;
+	buf = all->health.startx;
+	while (y <= all->health.heigth)
 	{
-		y = -1;
-		while (++y < all->res.y / 20)
+		all->health.startx = buf;
+		x = 0;
+		while (x <= all->health.width)
 		{
-			colors(all, x, y);
+			all->mlx.addr[(int)all->res.x * all->health.starty + all->health.startx] = 
+			all->health.color[(all->health.width * y) + x];
+			all->health.startx++;
+			x++;
 		}
+		all->health.starty++;
+		y++;
 	}
+	// mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
 }
 
 

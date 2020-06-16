@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/12 14:08:15 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/16 11:00:54 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void		game_on(t_all *all)
 		all->spr.buff[x] = (float)all->perpWallDist;
 		x++;
 	}
-	// heal(all);
 	ft_sprites(all);
+	heal(all);
 	if (all->bmp == 1)
 		ft_bmp(all);
 	mlx_clear_window(all->mlx.mlx_ptr, all->mlx.win_ptr);
@@ -84,6 +84,8 @@ void		ft_init(t_all *all, char *windowname)
 	all->line_length = 0;
 	all->endian = 0;
 	all->life = 4;
+	all->health.width = 64;
+	all->health.heigth = 17;
 	all->mlx.mlx_ptr = mlx_init();
 	ft_texture(all);
 	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y,

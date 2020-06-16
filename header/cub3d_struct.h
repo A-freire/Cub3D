@@ -3,15 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/11 16:55:10 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/15 16:05:59 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_STRUCT_H
 # define CUB3D_STRUCT_H
+
+typedef struct	s_health
+{
+	void	*tex4;
+	void	*tex3;
+	void	*tex2;
+	void	*tex1;
+	int		*color;
+	int		width;
+	int		heigth;
+	int		startx;
+	int		starty;
+	int		endx;
+	int		endy;
+}				t_health;
 
 typedef struct	s_tp
 {
@@ -133,6 +148,7 @@ typedef struct	s_texture
 
 typedef struct	s_all
 {
+	t_health	health;
 	t_tp		tp;
 	t_tf		tf;
 	t_mlx		mlx;
