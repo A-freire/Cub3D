@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkparsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/11 16:56:43 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/18 11:34:22 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ static int	ft_checkmap(t_all a)
 	i = 0;
 	while (i < a.tp.tpnb)
 	{
-		if (copy[(int)a.tp.coord[0][i]][(int)a.tp.coord[1][i]] == -2)
+		if (copy[(int)a.tp.coord[1][i]][(int)a.tp.coord[0][i]] == -2)
 		{
 			ft_clear_copy(&copy);
 			ft_error(2);
 		}
+		i++;
 	}
 	ft_clear_copy(&copy);
 	return (0);
@@ -93,6 +94,7 @@ int			ft_checktexture(char *texture)
 int			ft_checkparsing(t_all *a)
 {
 	ft_checkres(&a->res);
+	ft_checktp(a);
 	ft_checkmap(*a);
 	ft_checktexture(a->tex.north);
 	ft_checktexture(a->tex.south);

@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/10 10:12:48 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/18 11:18:03 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		ft_init_parsing(t_all *a)
 	a->tex.south = NULL;
 	a->tex.west = NULL;
 	a->tex.sprite = NULL;
+	a->tp.tpway = NULL;
 	a->tex.spritenb = 0;
 	a->tp.tpnb = 0;
 }
@@ -108,7 +109,7 @@ t_all		ft_fillstruct(int n,char *line, t_all *a)
 		i = 0;
 		while (line[i])
 		{
-			if (line[i] == 3)
+			if (line[i] == '3')
 				a->tp.tpnb++;
 			if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
 				|| line[i] == 'W')

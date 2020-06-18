@@ -44,7 +44,6 @@ void	heal(t_all *all)
 		all->health.starty++;
 		y++;
 	}
-	// mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
 }
 
 
@@ -140,25 +139,25 @@ void	ft_tp(t_all *all)
 	{
 		if ((int)all->start.pos.x == (int)all->tp.coord[1][0] && (int)all->start.pos.y == (int)all->tp.coord[0][0])
 		{
-			if (all->map.map[(int)all->tp.coord[1][1] + 1][(int)all->tp.coord[0][1] + 1] != 1)
+			if (all->map.map[(int)all->tp.coord[1][1] + 1][(int)all->tp.coord[0][1]] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][1] + 1;
-				all->start.pos.y = (double)all->tp.coord[0][1] + 1;
+				all->start.pos.x = (double)all->tp.coord[1][1] + 1.5;
+				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
-			else if (all->map.map[(int)all->tp.coord[1][1] - 1][(int)all->tp.coord[0][1] - 1] != 1)
+			else if (all->map.map[(int)all->tp.coord[1][1] - 1][(int)all->tp.coord[0][1]] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][1] - 1;
-				all->start.pos.y = (double)all->tp.coord[0][1] - 1;
+				all->start.pos.x = (double)all->tp.coord[1][1] - 1.5;
+				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
-			else if (all->map.map[(int)all->tp.coord[1][1] + 1][(int)all->tp.coord[0][1] - 1] != 1)
+			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] - 1] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][1] + 1;
-				all->start.pos.y = (double)all->tp.coord[0][1] - 1;
+				all->start.pos.x = (double)all->tp.coord[1][1];
+				all->start.pos.y = (double)all->tp.coord[0][1] - 1.5;
 			}
-			else if (all->map.map[(int)all->tp.coord[1][1] - 1][(int)all->tp.coord[0][1] + 1] != 1)
+			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] + 1] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][1] - 1;
-				all->start.pos.y = (double)all->tp.coord[0][1] + 1;
+				all->start.pos.x = (double)all->tp.coord[1][1];
+				all->start.pos.y = (double)all->tp.coord[0][1] + 1.5;
 			}
 			else
 			{
@@ -169,25 +168,25 @@ void	ft_tp(t_all *all)
 		}
 		else
 		{
-			if (all->map.map[(int)all->tp.coord[1][0] + 1][(int)all->tp.coord[0][0] + 1] != 1)
+			if (all->map.map[(int)all->tp.coord[1][0] + 1][(int)all->tp.coord[0][0]] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][0] + 1;
-				all->start.pos.y = (double)all->tp.coord[0][0] + 1;
+				all->start.pos.x = (double)all->tp.coord[1][0] + 1.5;
+				all->start.pos.y = (double)all->tp.coord[0][0];
 			}
-			if (all->map.map[(int)all->tp.coord[1][0] - 1][(int)all->tp.coord[0][0] - 1] != 1)
+			if (all->map.map[(int)all->tp.coord[1][0] - 1][(int)all->tp.coord[0][0]] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][0] - 1;
-				all->start.pos.y = (double)all->tp.coord[0][0] - 1;
+				all->start.pos.x = (double)all->tp.coord[1][0] - 1.5;
+				all->start.pos.y = (double)all->tp.coord[0][0];
 			}
-			if (all->map.map[(int)all->tp.coord[1][0] - 1][(int)all->tp.coord[0][0] + 1] != 1)
+			if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] - 1] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][0] - 1;
-				all->start.pos.y = (double)all->tp.coord[0][0] + 1;
+				all->start.pos.x = (double)all->tp.coord[1][0];
+				all->start.pos.y = (double)all->tp.coord[0][0] - 1.5;
 			}
-			if (all->map.map[(int)all->tp.coord[1][0] + 1][(int)all->tp.coord[0][0] - 1] != 1)
+			if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] + 1] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][0] + 1;
-				all->start.pos.y = (double)all->tp.coord[0][0] - 1;
+				all->start.pos.x = (double)all->tp.coord[1][0];
+				all->start.pos.y = (double)all->tp.coord[0][0] + 1.5;
 			}
 			else
 			{

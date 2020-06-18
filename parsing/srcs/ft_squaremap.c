@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_squaremap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/11 17:42:52 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/18 11:33:12 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ int		**ft_squaremap(int **map)
 	copy = ft_initcopy(map, &copy);
 	ft_clear_copy(&map);
 	i = 0;
-
-
 	while (copy[i][0] != -42)
 		i++;
 	if (!(map = malloc (sizeof(int *) * (i + 1))))
@@ -88,8 +86,6 @@ int		**ft_squaremap(int **map)
 		if (j > buf)
 			buf = j;
 	}
-	
-	
 	i = -1;
 	while(copy[++i][0] != -42)
 	{

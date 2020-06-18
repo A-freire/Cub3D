@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
+#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/06/01 16:28:38 by afreire-         ###   ########.fr        #
+#    Updated: 2020/06/17 13:43:27 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS =	cub3d.c											\
 		parsing/ft_parsing.c							\
 		parsing/checkers/checkmap.c						\
 		parsing/checkers/checkparsing.c					\
+		parsing/checkers/checktp.c						\
 		parsing/Get-Next-Line/get_next_line.c			\
 		parsing/Get-Next-Line/get_next_line_utils.c		\
 		parsing/srcs/ft_error.c							\
