@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_lib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/11 18:06:07 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/22 13:45:37 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 //cub3d.c
 void	game_on(t_all *all);
 char	*ft_windowname(char *file);
-int	ft_finish(void *param);
+int	    ft_finish(void *param);
 void	ft_init(t_all *all, char *windowname);
 
 //display.c

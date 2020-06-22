@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 10:58:07 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/18 09:47:11 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/22 13:46:02 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ char		*ft_way(char *line)
 	return (dst);
 }
 
-t_vec		ft_res(char *line)
+t_res		ft_res(char *line)
 {
-	t_vec	ret;
+	t_res	ret;
 	int		i;
 
 	ret.x = 0;

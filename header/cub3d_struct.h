@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/15 16:05:59 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/22 13:44:11 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ typedef struct	s_res
 {
 	int	x;
 	int	y;
-}		t_vec;
+
+}				t_res;
 
 typedef struct	s_cam
 {
