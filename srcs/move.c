@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
+#include <math.h>
 
 void	ft_turn(t_all *all, int i)
 {
@@ -50,14 +51,14 @@ void	ft_foward(t_all *all, int i)
 
 void	ft_shift(int key, t_all *all)
 {
-	if (key == 0)
+	if (key == 97)
 	{
 		if (all->start.dir.x > 0)
 			ft_shiftS(all, 1);
 		else	
 			ft_shiftN(all, 1);	
 	}
-	if (key == 2)
+	if (key == 100)
 	{
 		if (all->start.dir.x > 0)
 			ft_shiftS(all, -1);
@@ -68,23 +69,22 @@ void	ft_shift(int key, t_all *all)
 
 int 	deal_key(int key, t_all *all)
 {	
-	// printf("%d\n", key);
-	if (key == 53)
+	printf("%d\n", key);
+	if (key == 65307)
 		exit(0);
-	if (key == 1)
+	if (key == 115)
 		ft_foward(all, -1);
-	if (key == 13)
+	if (key == 119)
 		ft_foward(all, 1);
-	if (key == 12 || key == 123)
+	if (key == 113 || key == 65361)
 		ft_turn(all, 1);
-	if (key == 14 || key == 124)
+	if (key == 101 || key == 65363)
 		ft_turn(all, -1);
-	if (key == 256)
+	if (key == 65507)
 		sneack(all);
-	if (key == 15)
+	if (key == 114)
 		sprint(all);
 	ft_shift(key, all);
-	// ft_reset(all);
 	game_on(all);
 	return (key);
 }

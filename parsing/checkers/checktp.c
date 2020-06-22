@@ -16,7 +16,7 @@ int		ft_checktp(t_all *all)
 {
 	if (all->tp.tpnb == 0 && !(all->tp.tpway))
 		return (0);
-	if (all->tp.tpnb == 0 && all->tp.tpway != '\0')
+	if (all->tp.tpnb == 0 && all->tp.tpway[0] != '\0')
 		ft_error(8);
 	if (all->tp.tpnb != 0 && all->tp.tpnb != 2)
 		ft_error(9);

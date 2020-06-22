@@ -12,14 +12,15 @@
 
 #include "../ft_parsing.h"
 
-static int	ft_checkres(t_vec *res)
+static int	ft_checkres(t_all *all)
 {
-	if (res->x < 100|| res->y < 100)
+	mlx_get_screen_size(all->mlx.mlx_ptr, &all->maxres.x, &all->maxres.y);
+	if (all->res.x < 100|| all->res.y < 100)
 		ft_error(1);
-	if (res->x > 1680)
-		res->x = 1680;
-	if (res->y > 1005)
-		res->y = 1005;
+	if (all->res.x > all->maxres.x)
+		all->res.x = all->maxres.x;
+	if (all->res.y > all->maxres.y)
+		all->res.y = all->maxres.y;
 	return (0);
 }
 
@@ -93,7 +94,7 @@ int			ft_checktexture(char *texture)
 
 int			ft_checkparsing(t_all *a)
 {
-	ft_checkres(&a->res);
+	ft_checkres(a);
 	ft_checktp(a);
 	ft_checkmap(*a);
 	ft_checktexture(a->tex.north);

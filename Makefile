@@ -12,40 +12,40 @@
 
 NAME = cub3d
 
-SRCS =	cub3d.c											\
-		srcs/tools.c									\
-		srcs/display.c									\
-		srcs/move.c										\
-		srcs/texture.c									\
-		srcs/game.c										\
-		srcs/sprites.c									\
-		srcs/shift.c									\
-		srcs/ft_bmp.c									\
-		parsing/ft_parsing.c							\
-		parsing/checkers/checkmap.c						\
-		parsing/checkers/checkparsing.c					\
-		parsing/checkers/checktp.c						\
-		parsing/Get-Next-Line/get_next_line.c			\
-		parsing/Get-Next-Line/get_next_line_utils.c		\
-		parsing/srcs/ft_error.c							\
-		parsing/srcs/ft_squaremap.c						\
-		parsing/srcs/ft_strcmp.c						\
-		parsing/srcs/parsing_reader.c					\
-		srcs/read.c										\
-		srcs/order.c									\
-		srcs/bonus.c
+SRCS =	cub3d.c							\
+	srcs/tools.c						\
+	srcs/display.c						\
+	srcs/move.c						\
+	srcs/texture.c						\
+	srcs/game.c						\
+	srcs/sprites.c						\
+	srcs/shift.c						\
+	srcs/ft_bmp.c						\
+	parsing/ft_parsing.c					\
+	parsing/checkers/checkmap.c				\
+	parsing/checkers/checkparsing.c				\
+	parsing/checkers/checktp.c				\
+	parsing/Get-Next-Line/get_next_line.c			\
+	parsing/Get-Next-Line/get_next_line_utils.c		\
+	parsing/srcs/ft_error.c					\
+	parsing/srcs/ft_squaremap.c				\
+	parsing/srcs/ft_strcmp.c				\
+	parsing/srcs/parsing_reader.c				\
+	srcs/read.c						\
+	srcs/order.c						\
+	srcs/bonus.c
 
 
 OBJS = ${SRCS:.c=.o}
 
 CC  = gcc
 
-FLAGS =   -L includes/minilibx -lmlx -framework OpenGL -framework Appkit 
-CFLAGS =  -Wall -Wextra -Werror -I includes/ -I includes/minilibx
+FLAGS =   -L includes/minilibx -lmlx_Linux -lXext -lX11 -lm -lbsd -lmlx
+CFLAGS =  -Wall -Wextra -Werror
 RM  = rm -f
 
 BLACK		:= $(shell tput -Txterm setaf 0)
-RED			:= $(shell tput -Txterm setaf 1)
+RED		:= $(shell tput -Txterm setaf 1)
 GREEN		:= $(shell tput -Txterm setaf 2)
 YELLOW		:= $(shell tput -Txterm setaf 3)
 LIGHTPURPLE	:= $(shell tput -Txterm setaf 4)
@@ -56,7 +56,7 @@ RESET		:= $(shell tput -Txterm sgr0)
 
 $(NAME):
 	@echo "${YELLOW}Compilation...${RESET}"
-	@($(CC) $(CFLAGS) $(SRCS) $(FLAGS) -o $(NAME))
+	@(gcc -o ${NAME} -I includes/minilibx/ ${SRCS} includes/minilibx/libmlx.a ${FLAGS} ${CFLAGS})
 	@echo "${GREEN}Compilation OK${RESET}"
 
 all:  ${NAME}
@@ -70,7 +70,7 @@ fclean:  clean
 	@(${RM} ${NAME})
 
 re: fclean all clean
-	
+
 exe: re
 	@echo "${YELLOW}Execution${RESET}"
 	@(./${NAME} test.cub)
@@ -85,4 +85,4 @@ help:
 	@echo "${BLUE}exe :${RESET} compile the lastead version of the files OBJS in NAME and execute the programm. He use re"
 
 
-.PHONY: all clean fclean re help
+.PHONY: all clean fclean re exe help

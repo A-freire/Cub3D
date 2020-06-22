@@ -19,18 +19,18 @@ typedef struct	s_health
 	void	*tex3;
 	void	*tex2;
 	void	*tex1;
-	int		*color;
-	int		width;
-	int		heigth;
-	int		startx;
-	int		starty;
-	int		endx;
-	int		endy;
+	int	*color;
+	int	width;
+	int	heigth;
+	int	startx;
+	int	starty;
+	int	endx;
+	int	endy;
 }				t_health;
 
 typedef struct	s_tp
 {
-	int		tpnb;
+	int	tpnb;
 	char	*tpway;
 	float	**coord;
 	void	*tex;
@@ -48,6 +48,12 @@ typedef struct	s_vec
 	double x;
 	double y;
 }				t_vec;
+
+typedef struct	s_res
+{
+	int	x;
+	int	y;
+}		t_vec;
 
 typedef struct	s_cam
 {
@@ -160,7 +166,8 @@ typedef struct	s_all
 	t_color		ceiling;
 	t_texture	tex;
 	t_sprite	spr;
-	t_vec		res;
+	t_res		res;
+	t_res		maxres;
 	t_vec		sideDist;
 	t_vec		deltaDist;
 	int			bmp;

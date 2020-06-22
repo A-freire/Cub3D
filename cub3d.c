@@ -89,12 +89,12 @@ void		ft_init(t_all *all, char *windowname)
 	all->mlx.mlx_ptr = mlx_init();
 	ft_texture(all);
 	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y,
-	windowname);
+			windowname);
 	all->mlx.img_ptr = mlx_new_image(all->mlx.mlx_ptr, all->res.x, all->res.y);
 	all->mlx.img_data = mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef,
-	&osef);
+			&osef);
 	all->mlx.addr = (int*)mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef,
-	&osef);
+			&osef);
 	ft_save(all);
 }
 
@@ -123,7 +123,7 @@ int			main(int ac, char **av)
 	if (!(all.spr.buff = malloc(sizeof(float *) * all.res.x + 1)))
 		return (0);
 	game_on(&all);
-	mlx_hook(all.mlx.win_ptr, 2, 1L << 1, deal_key, &all);
+	mlx_hook(all.mlx.win_ptr, 2, 1L << 0, deal_key, &all);
 	mlx_hook(all.mlx.win_ptr, 17, 0, ft_finish, &all);
 	mlx_loop(all.mlx.mlx_ptr);
 }

@@ -15,13 +15,11 @@
 static int	ft_init(int fd, char **buffer, char **content)
 {
 	int	check;
-	int	i;
 
 	if (!(buffer[0]))
 	{
 		if (!(buffer[0] = malloc(sizeof(char) * BUFFER_SIZE + 1)))
 			return (0);
-		i = -1;
 		check = read(fd,buffer[0], BUFFER_SIZE);
 		buffer[0][check] = '\0';
 	}

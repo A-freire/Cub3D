@@ -22,7 +22,7 @@
 //cub3d.c
 void	game_on(t_all *all);
 char	*ft_windowname(char *file);
-int		ft_finish(void *param);
+int	ft_finish(void *param);
 void	ft_init(t_all *all, char *windowname);
 
 //display.c
