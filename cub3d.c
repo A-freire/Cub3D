@@ -86,7 +86,6 @@ void		ft_init(t_all *all, char *windowname)
 	all->life = 4;
 	all->health.width = 64;
 	all->health.heigth = 17;
-	all->mlx.mlx_ptr = mlx_init();
 	ft_texture(all);
 	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y,
 			windowname);
@@ -108,13 +107,14 @@ int			main(int ac, char **av)
 		ft_error(404);
 		return (0);
 	}
+	if ((windowname = ft_windowname(av[1])) == NULL)
+        {
+                ft_error(404);
+                return (0);
+        }
+	all.mlx.mlx_ptr = mlx_init();
 	if (ft_parsing(av[1], &all) != 0)
 		return (0);
-	if ((windowname = ft_windowname(av[1])) == NULL)
-	{
-		ft_error(404);
-		return (0);
-	}
 	ft_init(&all, windowname);
 	if (ac == 3 && ft_strcmp(av[2], "--save", 6) == 0)
 		all.bmp = 1;

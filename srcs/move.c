@@ -69,7 +69,6 @@ void	ft_shift(int key, t_all *all)
 
 int 	deal_key(int key, t_all *all)
 {	
-	printf("%d\n", key);
 	if (key == 65307)
 		exit(0);
 	if (key == 115)

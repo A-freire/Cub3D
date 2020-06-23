@@ -14,8 +14,8 @@
 
 void		ft_init_parsing(t_all *a)
 {
-	a->maxres.x = 0;
-	a->maxres.y = 0;
+	a->res.xmax = 0;
+	a->res.ymax = 0;
 	a->ceiling.r = -1;
 	a->ceiling.g = -1;
 	a->ceiling.b = -1;

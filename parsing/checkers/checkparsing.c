@@ -14,13 +14,13 @@
 
 static int	ft_checkres(t_all *all)
 {
-	mlx_get_screen_size(all->mlx.mlx_ptr, &all->maxres.x, &all->maxres.y);
+	mlx_get_screen_size(all->mlx.mlx_ptr, &all->res.xmax, &all->res.ymax);
 	if (all->res.x < 100|| all->res.y < 100)
 		ft_error(1);
-	if (all->res.x > all->maxres.x)
-		all->res.x = all->maxres.x;
-	if (all->res.y > all->maxres.y)
-		all->res.y = all->maxres.y;
+	if (all->res.x > all->res.xmax)
+		all->res.x = all->res.xmax;
+	if (all->res.y > all->res.ymax)
+		all->res.y = all->res.ymax;
 	return (0);
 }
 

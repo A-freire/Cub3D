@@ -51,8 +51,10 @@ typedef struct	s_vec
 
 typedef struct	s_res
 {
-	int	x;
-	int	y;
+	double	x;
+	double	y;
+	int	xmax;
+	int	ymax;
 
 }				t_res;
 
@@ -168,7 +170,6 @@ typedef struct	s_all
 	t_texture	tex;
 	t_sprite	spr;
 	t_res		res;
-	t_res		maxres;
 	t_vec		sideDist;
 	t_vec		deltaDist;
 	int			bmp;

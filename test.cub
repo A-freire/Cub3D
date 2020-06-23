@@ -1,9 +1,9 @@
-R 720 640
+R 10000 10000
 
-NO ./texture/greystone.xpm
-SO ./texture/colorstone.xpm
+NO ./texture/bluestone.xpm
+SO ./texture/redbrick.xpm
 EA ./texture/eagle.xpm
-WE ./texture/bluestone.xpm
+WE ./texture/colorstone.xpm
 
 S ./texture/cactus.xpm
 T ./texture/portal.xpm
