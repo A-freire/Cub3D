@@ -1,9 +1,9 @@
 R 10000 10000
 
-NO ./texture/bluestone.xpm
-SO ./texture/redbrick.xpm
-EA ./texture/eagle.xpm
-WE ./texture/colorstone.xpm
+NO ./texture/birch_wood.xpm
+SO ./texture/oak_wood.xpm
+EA ./texture/tnt.xpm
+WE ./texture/grass.xpm
 
 S ./texture/cactus.xpm
 T ./texture/portal.xpm
