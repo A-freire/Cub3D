@@ -9,11 +9,9 @@ void	colors(t_all *all, int x, int y)
 
 void	heal(t_all *all)
 {
-	int x;
+	int	x;
 	int	y;
 	int	buf;
-	// int multix;
-	// int	multiy;
 
 	if (all->life == 0)
 		ft_error (42);
@@ -36,8 +34,8 @@ void	heal(t_all *all)
 		while (x < all->health.width)
 		{
 			if (all->health.color[(all->health.width * y) + x] != 0)
-			all->mlx.addr[(int)all->res.x * all->health.starty + all->health.startx] = 
-			all->health.color[(all->health.width * y) + x];
+				all->mlx.addr[(int)all->res.x * all->health.starty + all->health.startx] = 
+					all->health.color[(all->health.width * y) + x];
 			all->health.startx++;
 			x++;
 		}
@@ -141,7 +139,7 @@ void	ft_tp(t_all *all)
 		{
 			if (all->map.map[(int)all->tp.coord[1][1] + 1][(int)all->tp.coord[0][1]] != 1)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][1] + 1.5;
+				all->start.pos.x = (double)all->tp.coord[1][1] + 0.5;
 				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
 			else if (all->map.map[(int)all->tp.coord[1][1] - 1][(int)all->tp.coord[0][1]] != 1)
@@ -152,7 +150,7 @@ void	ft_tp(t_all *all)
 			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] - 1] != 1)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][1];
-				all->start.pos.y = (double)all->tp.coord[0][1] - 1.5;
+				all->start.pos.y = (double)all->tp.coord[0][1] - 0.5;
 			}
 			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] + 1] != 1)
 			{
@@ -164,7 +162,7 @@ void	ft_tp(t_all *all)
 				all->start.pos.x = (double)all->tp.coord[1][1];
 				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
-			
+
 		}
 		else
 		{
