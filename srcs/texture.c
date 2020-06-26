@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 15:53:03 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/26 14:38:06 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/26 15:00:40 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/1/health_bar3.xpm";
 		way2 = "./asset/1/health_bar2.xpm";
 		way1 = "./asset/1/health_bar1.xpm";
+		all->res.folder = 1;
 	}
 	else if (all->res.x < 1000)
 	{
@@ -34,6 +35,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/2/health_bar3.xpm";
 		way2 = "./asset/2/health_bar2.xpm";
 		way1 = "./asset/2/health_bar1.xpm";
+		all->res.folder = 2;
 	}
 	else if (all->res.x < 1450)
 	{
@@ -41,6 +43,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/3/health_bar3.xpm";
 		way2 = "./asset/3/health_bar2.xpm";
 		way1 = "./asset/3/health_bar1.xpm";
+		all->res.folder = 3;
 	}
 	else if (all->res.x < 1900)
 	{
@@ -48,6 +51,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/4/health_bar3.xpm";
 		way2 = "./asset/4/health_bar2.xpm";
 		way1 = "./asset/4/health_bar1.xpm";
+		all->res.folder = 4;
 	}
 	else
 	{
@@ -55,6 +59,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/5/health_bar3.xpm";
 		way2 = "./asset/5/health_bar2.xpm";
 		way1 = "./asset/5/health_bar1.xpm";
+		all->res.folder = 5;
 	}
 	if (!(all->health.tex4 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
 		way4, &all->health.width, &all->health.heigth)))

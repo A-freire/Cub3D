@@ -26,7 +26,7 @@ void	heal(t_all *all)
 	if (all->life == 4)
 		all->health.color = (int *)all->health.tex4;
 	all->health.startx = all->res.x / 100;
-	all->health.starty = all->res.y - (all->res.y / 15);
+	all->health.starty = all->res.y - (all->res.y / (12 = all->res.folder));
 	y = 0;
 	buf = all->health.startx;
 	while (y < all->health.heigth)
