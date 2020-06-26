@@ -1,4 +1,4 @@
-R 10000 10000
+R 1460 860
 
 NO ./texture/birch_wood.xpm
 SO ./texture/oak_wood.xpm
