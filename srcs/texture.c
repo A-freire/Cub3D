@@ -27,7 +27,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/1/health_bar3.xpm";
 		way2 = "./asset/1/health_bar2.xpm";
 		way1 = "./asset/1/health_bar1.xpm";
-		all->res.folder = 1;
+		all->res.folder = 13;
 	}
 	else if (all->res.x < 1000)
 	{
@@ -35,7 +35,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/2/health_bar3.xpm";
 		way2 = "./asset/2/health_bar2.xpm";
 		way1 = "./asset/2/health_bar1.xpm";
-		all->res.folder = 2;
+		all->res.folder = 26;
 	}
 	else if (all->res.x < 1450)
 	{
@@ -43,7 +43,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/3/health_bar3.xpm";
 		way2 = "./asset/3/health_bar2.xpm";
 		way1 = "./asset/3/health_bar1.xpm";
-		all->res.folder = 3;
+		all->res.folder = 34;
 	}
 	else if (all->res.x < 1900)
 	{
@@ -51,7 +51,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/4/health_bar3.xpm";
 		way2 = "./asset/4/health_bar2.xpm";
 		way1 = "./asset/4/health_bar1.xpm";
-		all->res.folder = 4;
+		all->res.folder = 43;
 	}
 	else
 	{
@@ -59,7 +59,7 @@ void	ft_healthtexture(t_all *all)
 		way3 = "./asset/5/health_bar3.xpm";
 		way2 = "./asset/5/health_bar2.xpm";
 		way1 = "./asset/5/health_bar1.xpm";
-		all->res.folder = 5;
+		all->res.folder = 51;
 	}
 	if (!(all->health.tex4 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
 		way4, &all->health.width, &all->health.heigth)))
