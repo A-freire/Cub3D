@@ -6,11 +6,69 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 15:53:03 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/15 11:14:36 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/26 14:38:06 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
+
+void	ft_healthtexture(t_all *all)
+{
+	char	*way4;
+	char	*way3;
+	char	*way2;
+	char	*way1;
+
+
+
+	if (all->res.x < 550)
+	{
+		way4 = "./asset/1/health_bar4.xpm";
+		way3 = "./asset/1/health_bar3.xpm";
+		way2 = "./asset/1/health_bar2.xpm";
+		way1 = "./asset/1/health_bar1.xpm";
+	}
+	else if (all->res.x < 1000)
+	{
+		way4 = "./asset/2/health_bar4.xpm";
+		way3 = "./asset/2/health_bar3.xpm";
+		way2 = "./asset/2/health_bar2.xpm";
+		way1 = "./asset/2/health_bar1.xpm";
+	}
+	else if (all->res.x < 1450)
+	{
+		way4 = "./asset/3/health_bar4.xpm";
+		way3 = "./asset/3/health_bar3.xpm";
+		way2 = "./asset/3/health_bar2.xpm";
+		way1 = "./asset/3/health_bar1.xpm";
+	}
+	else if (all->res.x < 1900)
+	{
+		way4 = "./asset/4/health_bar4.xpm";
+		way3 = "./asset/4/health_bar3.xpm";
+		way2 = "./asset/4/health_bar2.xpm";
+		way1 = "./asset/4/health_bar1.xpm";
+	}
+	else
+	{
+		way4 = "./asset/5/health_bar4.xpm";
+		way3 = "./asset/5/health_bar3.xpm";
+		way2 = "./asset/5/health_bar2.xpm";
+		way1 = "./asset/5/health_bar1.xpm";
+	}
+	if (!(all->health.tex4 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
+		way4, &all->health.width, &all->health.heigth)))
+		ft_error(0);
+	if (!(all->health.tex3 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
+		way3, &all->health.width, &all->health.heigth)))
+		ft_error(0);
+	if (!(all->health.tex2 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
+		way2, &all->health.width, &all->health.heigth)))
+		ft_error(0);
+	if (!(all->health.tex1 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
+		way1, &all->health.width, &all->health.heigth)))
+		ft_error(0);
+}
 
 void     ft_crea_tex(t_all *all)
 {
@@ -32,19 +90,7 @@ void     ft_crea_tex(t_all *all)
 	if (!(all->tp.tex = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
 					all->tp.tpway, &all->sprwidth, &all->sprheight)))
 		ft_error(0);
-
-	if (!(all->health.tex4 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
-					"./asset/health_bar4.xpm", &all->health.width, &all->health.heigth)))
-		ft_error(0);
-	if (!(all->health.tex3 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
-					"./asset/health_bar3.xpm", &all->health.width, &all->health.heigth)))
-		ft_error(0);
-	if (!(all->health.tex2 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
-					"./asset/health_bar2.xpm", &all->health.width, &all->health.heigth)))
-		ft_error(0);
-	if (!(all->health.tex1 = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
-					"./asset/health_bar1.xpm", &all->health.width, &all->health.heigth)))
-		ft_error(0);
+	ft_healthtexture(all);
 }
 
 void	ft_texture(t_all *all)

@@ -1,3 +1,5 @@
+
+
 #include "../header/cub3d_lib.h"
 
 void	colors(t_all *all, int x, int y)
