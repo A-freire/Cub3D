@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:22:23 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:25:55 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_all	*ft_spritecoord(t_all *all)
 	int		y;
 	int		i;
 	int		j;
-
 
 	if (!(all->tex.spritex = malloc(sizeof(float) * all->tex.spritenb + all->tp.tpnb + 1)))
 		ft_error(-1);

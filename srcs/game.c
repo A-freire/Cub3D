@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/29 18:27:54 by afreire-          #+#    #+#             */
+/*   Updated: 2020/06/29 18:29:37 by afreire-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/cub3d_lib.h"
 
-void    ft_tex(t_all *all)
+void	ft_tex(t_all *all)
 {
 	float	wallx;
 
@@ -28,9 +40,9 @@ void    ft_tex(t_all *all)
 	all->color = (int *)all->spr.tex;
 }
 
-void    ft_draw(t_all *all)
+void	ft_draw(t_all *all)
 {
-	if(all->side == 0)
+	if (all->side == 0)
 		all->perpWallDist = (all->map.pos.x - all->start.pos.x +
 		(1 - all->step.x) / 2) / all->cam.dir.x;
 	else
@@ -40,21 +52,21 @@ void    ft_draw(t_all *all)
 		all->perpWallDist = 0.1;
 	all->lineheight = (int)(all->res.y / all->perpWallDist);
 	all->drawStart = -all->lineheight / 2 + all->res.y / 2;
-	if(all->drawStart < 0)
+	if (all->drawStart < 0)
 		all->drawStart = 0;
 	all->drawEnd = all->lineheight / 2 + all->res.y / 2;
-	if(all->drawEnd >= all->res.y)
+	if (all->drawEnd >= all->res.y)
 		all->drawEnd = all->res.y - 1;
 }
 
-void    ft_hit(t_all *all)
+void	ft_hit(t_all *all)
 {
 	int hit;
 
 	hit = 0;
 	while (hit == 0)
 	{
-		if(all->sideDist.x < all->sideDist.y)
+		if (all->sideDist.x < all->sideDist.y)
 		{
 			all->sideDist.x += all->deltaDist.x;
 			all->map.pos.x += all->step.x;
@@ -66,14 +78,14 @@ void    ft_hit(t_all *all)
 			all->map.pos.y += all->step.y;
 			all->side = 1;
 		}
-		if(all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 1) 
+		if (all->map.map[(int)all->map.pos.x][(int)all->map.pos.y] == 1)
 			hit = 1;
 	}
 }
 
-void    ft_dist(t_all *all)
+void	ft_dist(t_all *all)
 {
-	if(all->cam.dir.x < 0)
+	if (all->cam.dir.x < 0)
 	{
 		all->step.x = -1;
 		all->sideDist.x = (all->start.pos.x - all->map.pos.x)
@@ -85,7 +97,7 @@ void    ft_dist(t_all *all)
 		all->sideDist.x = (all->map.pos.x + 1.0 - all->start.pos.x)
 		* all->deltaDist.x;
 	}
-	if(all->cam.dir.y < 0)
+	if (all->cam.dir.y < 0)
 	{
 		all->step.y = -1;
 		all->sideDist.y = (all->start.pos.y - all->map.pos.y)
@@ -99,7 +111,7 @@ void    ft_dist(t_all *all)
 	}
 }
 
-void    ft_start(t_all *all, int x)
+void	ft_start(t_all *all, int x)
 {
 	all->cam.pos.x = 2 * x / all->res.x - 1;
 	all->cam.dir.x = all->start.dir.x + all->start.fov.x * all->cam.pos.x;

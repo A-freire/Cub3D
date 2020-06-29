@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   order.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/29 18:32:15 by afreire-          #+#    #+#             */
+/*   Updated: 2020/06/29 18:33:03 by afreire-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/cub3d_lib.h"
 
-void    spr_south(t_all *all)
+void	spr_south(t_all *all)
 {
 	int x;
-	
+
 	revread(all);
 	x = all->tex.spritenb;
-	while(x >= 0)
+	while (x >= 0)
 	{
 		ft_spr_init(all, x);
 		ft_draw_spr(all);
@@ -28,9 +40,10 @@ void    spr_south(t_all *all)
 void	spr_west(t_all *all)
 {
 	int x;
+
 	trueread(all);
 	x = 0;
-	while(x <= all->tex.spritenb)
+	while (x <= all->tex.spritenb)
 	{
 		ft_spr_init(all, x);
 		ft_draw_spr(all);
@@ -52,9 +65,10 @@ void	spr_west(t_all *all)
 void	spr_north(t_all *all)
 {
 	int x;
+
 	revread(all);
 	x = 0;
-	while(x <= all->tex.spritenb)
+	while (x <= all->tex.spritenb)
 	{
 		ft_spr_init(all, x);
 		ft_draw_spr(all);
@@ -76,9 +90,10 @@ void	spr_north(t_all *all)
 void	spr_east(t_all *all)
 {
 	int x;
+
 	trueread(all);
 	x = all->tex.spritenb;
-	while(x >= 0)
+	while (x >= 0)
 	{
 		ft_spr_init(all, x);
 		ft_draw_spr(all);

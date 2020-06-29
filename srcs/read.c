@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/29 18:34:12 by afreire-          #+#    #+#             */
+/*   Updated: 2020/06/29 18:35:45 by afreire-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/cub3d_lib.h"
 
 void	trueread(t_all *all)
 {
-    int		x;
-    int		y;
-    int		i;
-	int 	j;
+	int		x;
+	int		y;
+	int		i;
+	int		j;
 
-    all->tex.spritey[all->tex.spritenb] = -42;
-    i = 0;
-    y = -1;
+	all->tex.spritey[all->tex.spritenb] = -42;
+	i = 0;
+	y = -1;
 	j = 0;
-    while (all->map.map[0][++y] != -42)
-    {
-        x = -1;
-        while (all->map.map[++x][0] != -42)
-        {
+	while (all->map.map[0][++y] != -42)
+	{
+		x = -1;
+		while (all->map.map[++x][0] != -42)
+		{
 			if (all->map.map[x][y] == 2 || all->map.map[x][y] == 3)
 			{
 				all->tex.spritex[i] = y + 0.5;
@@ -28,8 +40,8 @@ void	trueread(t_all *all)
 				all->tp.coord[1][j] = x + 0.5;
 				j++;
 			}
-        }
-    }
+		}
+	}
 }
 
 void	revread(t_all *all)
