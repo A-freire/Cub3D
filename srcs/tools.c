@@ -6,19 +6,20 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 16:04:08 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 16:39:19 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:57:46 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
 #include <math.h>
 
-t_vec   init_vec(double x, double y)
+t_vec	init_vec(double x, double y)
 {
 	t_vec vec;
+
 	vec.x = x;
 	vec.y = y;
-	return(vec);
+	return (vec);
 }
 
 double	val_abs(double t)
@@ -30,7 +31,7 @@ double	val_abs(double t)
 
 int		power_of(t_vec pos, float spr_x, float spr_y)
 {
-	return((pos.x - spr_x) * (pos.x - spr_x) +
+	return ((pos.x - spr_x) * (pos.x - spr_x) +
 	(pos.y - spr_y) * (pos.y - spr_y));
 }
 
