@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:20:35 by robriard          #+#    #+#             */
-/*   Updated: 2020/03/20 09:34:48 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:20:58 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_init(int fd, char **buffer, char **content)
 	{
 		if (!(buffer[0] = malloc(sizeof(char) * BUFFER_SIZE + 1)))
 			return (0);
-		check = read(fd,buffer[0], BUFFER_SIZE);
+		check = read(fd, buffer[0], BUFFER_SIZE);
 		buffer[0][check] = '\0';
 	}
 	else
@@ -40,7 +40,6 @@ static int	ft_check(char *content)
 			return (1);
 		i++;
 	}
-
 	return (0);
 }
 
@@ -52,7 +51,7 @@ static char	*ft_fill_line(char *content)
 	i = 0;
 	while (content[i] && content[i] != '\n')
 		i++;
-	if (!(line = malloc(sizeof(char) * i +1)))
+	if (!(line = malloc(sizeof(char) * i + 1)))
 		return (NULL);
 	i = 0;
 	while (content[i] && content[i] != '\n')
@@ -111,10 +110,10 @@ int			get_next_line(int fd, char **line)
 	}
 	line[0] = ft_fill_line(content);
 	buffer = ft_clearbuffer(content, &buffer);
-	free (content);
+	free(content);
 	if (check == 0)
 	{
-		free (buffer);
+		free(buffer);
 		buffer = NULL;
 		return (0);
 	}

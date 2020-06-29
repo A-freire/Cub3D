@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_reader.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 10:58:07 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/22 13:46:02 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:23:45 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../ft_parsing.h"
 
 t_all		*ft_map(t_all *ret, char *line, int x)
 {
-	int     i;
-	
+	int		i;
+
 	i = 0;
 	while (line[i])
 		i++;
@@ -27,7 +26,7 @@ t_all		*ft_map(t_all *ret, char *line, int x)
 	while (line[i])
 	{
 		if (line[i] == ' ')
-			ret->map.map[x][i] = 0; 
+			ret->map.map[x][i] = 0;
 		else if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E' ||
 			line[i] == 'W')
 			ret->map.map[x][i] = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:20:36 by robriard          #+#    #+#             */
-/*   Updated: 2020/02/12 16:53:43 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:22:08 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-char		*ft_strdup(char *str)
+char	*ft_strdup(char *str)
 {
 	char	*dst;
 	int		size;
