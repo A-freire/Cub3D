@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checktp.c                                          :+:      :+:    :+:   */
+/*   norme.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/08 10:38:59 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 17:47:22 by afreire-         ###   ########.fr       */
+/*   Created: 2020/06/29 18:03:08 by afreire-          #+#    #+#             */
+/*   Updated: 2020/06/29 18:07:49 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_parsing.h"
+#include "../header/cub3d_lib.h"
 
-int		ft_checktp(t_all *all)
+void    ft_ncheckpar(t_all a, int **copy)
 {
-	if (all->tp.tpnb == 0 && !(all->tp.tpway))
-		return (0);
-	if (all->tp.tpnb == 0 && all->tp.tpway[0] != '\0')
-		ft_error(8);
-	if (all->tp.tpnb != 0 && all->tp.tpnb != 2)
-		ft_error(9);
-	if (!(all->tp.tpway))
-		ft_error(10);
-	return (ft_checktexture(all->tp.tpway));
+	int		i;
+
+    	i = 0;
+	while (i < a.tp.tpnb)
+	{
+		if (copy[(int)a.tp.coord[1][i]][(int)a.tp.coord[0][i]] == -2)
+		{
+			ft_clear_copy(&copy);
+			ft_error(2);
+		}
+		i++;
+	}
+	ft_clear_copy(&copy);
+
 }

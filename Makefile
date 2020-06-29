@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
+#    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/06/17 13:43:27 by robriard         ###   ########.fr        #
+#    Updated: 2020/06/29 18:07:04 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS =	cub3d.c							\
 	parsing/srcs/parsing_reader.c				\
 	srcs/read.c						\
 	srcs/order.c						\
-	srcs/bonus.c
+	srcs/bonus.c					\
+	srcs/norme.c
 
 
 OBJS = ${SRCS:.c=.o}

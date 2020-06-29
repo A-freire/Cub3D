@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkparsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/18 11:34:22 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:09:10 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_checkres(t_all *all)
 {
 	mlx_get_screen_size(all->mlx.mlx_ptr, &all->res.xmax, &all->res.ymax);
-	if (all->res.x < 100|| all->res.y < 100)
+	if (all->res.x < 100 || all->res.y < 100)
 		ft_error(1);
 	if (all->res.x > all->res.xmax)
 		all->res.x = all->res.xmax;
@@ -28,7 +28,6 @@ static int	ft_checkmap(t_all a)
 {
 	int		**copy;
 	int		bool;
-	int		i;
 
 	copy = ft_initcopy(a.map.map, &copy);
 	copy = ft_initcheck(copy);
@@ -38,23 +37,13 @@ static int	ft_checkmap(t_all a)
 		bool = ft_lifegame(copy);
 	}
 	if (a.start.pos.x <= 0 || a.start.pos.y <= 0)
-		ft_error (5);
+		ft_error(5);
 	if (copy[(int)a.start.pos.x][(int)a.start.pos.y] == -2)
 	{
 		ft_clear_copy(&copy);
-		ft_error (2);
+		ft_error(2);
 	}
-	i = 0;
-	while (i < a.tp.tpnb)
-	{
-		if (copy[(int)a.tp.coord[1][i]][(int)a.tp.coord[0][i]] == -2)
-		{
-			ft_clear_copy(&copy);
-			ft_error(2);
-		}
-		i++;
-	}
-	ft_clear_copy(&copy);
+	ft_checkpar(a, copy);
 	return (0);
 }
 
@@ -77,7 +66,8 @@ int			ft_checktexture(char *texture)
 	i = 0;
 	while (texture[i + 4])
 		i++;
-	if (!(fd = open(texture, O_RDONLY)) || ft_strcmp(texture + i, ".xpm", 4) != 0)
+	if (!(fd = open(texture, O_RDONLY)) ||
+	ft_strcmp(texture + i, ".xpm", 4) != 0)
 		ft_error(6);
 	while (texture[i] != '/' && i >= 0)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_lib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/22 13:45:37 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:07:44 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,9 @@ void	ft_reset(t_all *all);
 void	sprint(t_all *all);
 void	sneack(t_all *all);
 void	ft_tp(t_all *all);
+
+//norme.c
+void    ft_ncheckpar(t_all a, int **copy)
+
 
 #endif
