@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/15 16:01:07 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:44:00 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	write_sprites(t_all *all)
 	while (y < all->spr.drawendy)
 	{
 		d = (y) * 256 - all->res.y * 128 + all->sprheight * 128;
-
 		all->spr.spry = ((d * all->texwidth) / all->sprheight) / 256;
 		if ((all->color[64 * all->spr.spry + all->spr.sprx]) != 0
 		&& all->spr.transy < all->spr.buff[all->spr.stripe])
@@ -55,8 +54,10 @@ void	ft_draw_spr(t_all *all)
 
 void	ft_spr_init(t_all *all, int x)
 {
-	if ((all->tp.coord[0][0] == all->tex.spritex[x] && all->tp.coord[1][0] == all->tex.spritey[x])
-	|| (all->tp.coord[0][1] == all->tex.spritex[x] && all->tp.coord[1][1] == all->tex.spritey[x]))
+	if ((all->tp.coord[0][0] == all->tex.spritex[x] && all->tp.coord[1][0]
+	== all->tex.spritey[x])
+	|| (all->tp.coord[0][1] == all->tex.spritex[x] && all->tp.coord[1][1]
+	== all->tex.spritey[x]))
 		all->color = (int *)all->tp.tex;
 	else
 		all->color = (int *)all->spr.tex;
@@ -77,7 +78,8 @@ void	ft_sprites(t_all *all)
 {
 	if (all->start.dir.x > 0.7)
 		spr_south(all);
-	else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 && all->start.dir.y < -0.7)
+	else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 &&
+	all->start.dir.y < -0.7)
 		spr_west(all);
 	else if (all->start.dir.x < -0.7)
 		spr_north(all);
