@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 18:55:42 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/29 19:04:40 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	    ft_finish(void *param);
 void	ft_init(t_all *all, char *windowname);
 
 //display.c
-void	putPixelr(unsigned char r, char *img_data, int x, int y, int res);
-void	putPixelg(unsigned char g, char *img_data, int x, int y, int res);
-void	putPixelb(unsigned char b, char *img_data, int x, int y, int res);
+void	putpixelr(unsigned char r, int x, int y, t_all *all);
+void	putpixelg(unsigned char g, int x, int y, t_all *all);
+void	putpixelb(unsigned char b, int x, int y, t_all *all);
 void	display(int x, t_all *all);
 void	clear_image(t_all *all);
 

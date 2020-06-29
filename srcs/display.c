@@ -6,30 +6,32 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/01 16:57:33 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/29 19:04:24 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
 
-void putPixelr(unsigned char r, char *img_data, int x, int y, int res)
-{	
-	img_data[(x + y * res) * 4 + 2] = (char)r;
-}
-
-void putPixelg(unsigned char g, char *img_data, int x, int y, int res)
-{	
-	img_data[(x + y * res) * 4 + 1] = (char)g;
-}
-
-void putPixelb(unsigned char b, char *img_data, int x, int y, int res)
-{	
-	img_data[(x + y * res) * 4] = (char)b;
-}
-
-void    display(int x, t_all *all)
+void	putpixelr(unsigned char r, int x, int y, t_all all)
 {
-	int i = all->drawStart;
+	all->mlx.img_data[(x + y * (int)all->res.x) * 4 + 2] = (char)r;
+}
+
+void	putpixelg(unsigned char g, int x, int y, t_all all)
+{
+	all->mlx.img_data[(x + y * (int)all->res.x) * 4 + 1] = (char)g;
+}
+
+void	putpixelb(unsigned char b, int x, int y, t_all all)
+{
+	all->mlx.img_data[(x + y * (int)all->res.x) * 4] = (char)b;
+}
+
+void	display(int x, t_all *all)
+{
+	int i;
+
+	i = all->drawStart;
 	while (i < all->drawEnd)
 	{
 		all->tex.y = (int)all->tex.pos & (all->texheight - 1);
@@ -44,7 +46,7 @@ void	clear_image(t_all *all)
 {
 	int x;
 	int y;
-	
+
 	x = -1;
 	while (++x < all->res.x)
 	{
@@ -53,17 +55,16 @@ void	clear_image(t_all *all)
 		{
 			if (y < all->res.y / 2)
 			{
-				putPixelr(all->ceiling.r, all->mlx.img_data, x, y, all->res.x);
-				putPixelg(all->ceiling.g, all->mlx.img_data, x, y, all->res.x);
-				putPixelb(all->ceiling.b, all->mlx.img_data, x, y, all->res.x);
+				putpixelr(all->ceiling.r, x, y, all);
+				putpixelg(all->ceiling.g, x, y, all);
+				putpixelb(all->ceiling.b, x, y, all);
 			}
 			else
-			{	
-				putPixelr(all->floor.r, all->mlx.img_data, x, y, all->res.x);
-				putPixelg(all->floor.g, all->mlx.img_data, x, y, all->res.x);
-				putPixelb(all->floor.b, all->mlx.img_data, x, y, all->res.x);
+			{
+				putpixelr(all->floor.r, x, y, all);
+				putpixelg(all->floor.g, x, y, all);
+				putpixelb(all->floor.b, x, y, all);
 			}
 		}
 	}
 }
-
