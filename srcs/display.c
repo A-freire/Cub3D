@@ -6,23 +6,23 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 19:04:24 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/29 19:05:30 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
 
-void	putpixelr(unsigned char r, int x, int y, t_all all)
+void	putpixelr(unsigned char r, int x, int y, t_all *all)
 {
 	all->mlx.img_data[(x + y * (int)all->res.x) * 4 + 2] = (char)r;
 }
 
-void	putpixelg(unsigned char g, int x, int y, t_all all)
+void	putpixelg(unsigned char g, int x, int y, t_all *all)
 {
 	all->mlx.img_data[(x + y * (int)all->res.x) * 4 + 1] = (char)g;
 }
 
-void	putpixelb(unsigned char b, int x, int y, t_all all)
+void	putpixelb(unsigned char b, int x, int y, t_all *all)
 {
 	all->mlx.img_data[(x + y * (int)all->res.x) * 4] = (char)b;
 }
