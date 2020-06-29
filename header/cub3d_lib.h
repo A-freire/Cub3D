@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 18:07:44 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:55:42 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,11 @@ void	sneack(t_all *all);
 void	ft_tp(t_all *all);
 
 //norme.c
-void    ft_ncheckpar(t_all a, int **copy)
-
+void    ft_ncheckpar(t_all a, int **copy);
+void    ft_ase(t_all *all);
+void	ft_asse(t_all *all);
+void	ft_assse(t_all *all);
+void	ft_asssse(t_all *all);
+void	ft_assssse(t_all *all);
 
 #endif
