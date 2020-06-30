@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_lib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 19:04:40 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/30 09:53:49 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,8 @@ void	trueread(t_all *all);
 void	revread(t_all *all);
 
 //shift.c
-void	ft_shiftN(t_all *all, int i);
-void    ft_otherN(t_all *all, int i);
-void	ft_shiftS(t_all *all, int i);
-void    ft_otherS(t_all *all, int i);
+void	ft_shiftn(t_all *all, int i);
+void    ft_others(t_all *all, int i);
 
 //move.c
 void	ft_turn(t_all *all, int i);
