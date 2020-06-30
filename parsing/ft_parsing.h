@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:59:39 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:22:27 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/30 11:06:06 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_all		ft_fillstruct(int i, char *line,t_all *a);
 t_color		ft_color(char *line);
 t_res		ft_res(char *line);
 int		    ft_checktp(t_all *all);
+void        ft_checkpar(t_all all, int **copy);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 11:43:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/30 09:53:49 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/30 12:36:16 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	revread(t_all *all);
 
 //shift.c
 void	ft_shiftn(t_all *all, int i);
+void    ft_othern(t_all *all, int i);
+void	ft_shifts(t_all *all, int i);
 void    ft_others(t_all *all, int i);
 
 //move.c
