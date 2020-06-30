@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 18:44:00 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/30 13:02:20 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ void	ft_spr_init(t_all *all, int x)
 
 void	ft_sprites(t_all *all)
 {
-	if (all->start.dir.x > 0.7)
+	if (all->start.dir.y > 0.7)
 		spr_south(all);
-	else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 &&
-	all->start.dir.y < -0.7)
+	else if (all->start.dir.y < 0.7 && all->start.dir.y > -0.7 &&
+	all->start.dir.x < -0.7)
 		spr_west(all);
-	else if (all->start.dir.x < -0.7)
+	else if (all->start.dir.y < -0.7)
 		spr_north(all);
 	else
 		spr_east(all);
