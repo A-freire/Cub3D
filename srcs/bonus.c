@@ -141,23 +141,23 @@ void	ft_tp(t_all *all)
 		{
 			if (all->map.map[(int)all->tp.coord[1][1] + 1][(int)all->tp.coord[0][1]] == 0)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][1] + 1.5;
+				all->start.pos.x = (double)all->tp.coord[1][1] + 1;
 				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
 			else if (all->map.map[(int)all->tp.coord[1][1] - 1][(int)all->tp.coord[0][1]] == 0)
 			{
-				all->start.pos.x = (double)all->tp.coord[1][1] - 0.5;
+				all->start.pos.x = (double)all->tp.coord[1][1] - 1;
 				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
 			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] - 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][1];
-				all->start.pos.y = (double)all->tp.coord[0][1] - 0.5;
+				all->start.pos.y = (double)all->tp.coord[0][1] - 1;
 			}
 			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] + 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][1];
-				all->start.pos.y = (double)all->tp.coord[0][1] + 1.5;
+				all->start.pos.y = (double)all->tp.coord[0][1] + 1;
 			}
 			else
 			{
