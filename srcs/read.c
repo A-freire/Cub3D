@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:34:12 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/01 15:39:25 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/01 15:41:46 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_if(t_all *all, int x, int y)
 	{
 		all->tex.spritex[i] = y + 0.5;
 		all->tex.spritey[i] = x + 0.5;
+		i++;
 	}
 	if (all->map.map[x][y] == 3 && j < 2)
 	{
