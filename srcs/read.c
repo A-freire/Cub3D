@@ -6,22 +6,11 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:34:12 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/01 17:30:54 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:35:45 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
-
-int		ft_tlp(t_all *all, int x, int y, int j)
-{
-	if (all->map.map[x][y] == 3 && j < 2)
-	{
-		all->tp.coord[0][j] = y + 0.5;
-		all->tp.coord[1][j] = y + 0.5;
-		return (1);
-	}
-	return (0);
-}
 
 void	trueread(t_all *all)
 {
@@ -48,7 +37,7 @@ void	trueread(t_all *all)
 			if (all->map.map[x][y] == 3 && j < 2)
 			{
 				all->tp.coord[0][j] = y + 0.5;
-				all->tp.coord[1][j] = y + 0.5;
+				all->tp.coord[1][j] = x + 0.5;
 				j++;
 			}
 		}
@@ -80,11 +69,11 @@ void	revread(t_all *all)
 			if (all->map.map[x][y] == 3 && j < 2)
 			{
 				all->tp.coord[0][j] = y + 0.5;
-				all->tp.coord[1][j] = y + 0.5;
+				all->tp.coord[1][j] = x + 0.5;
 				j++;
 			}
 			y++;
 		}
+		x++;
 	}
-	x++;
 }
