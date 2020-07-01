@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/23 13:34:33 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/30 13:51:09 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		game_on(t_all *all)
 		ft_draw(all);
 		ft_tex(all);
 		display(x, all);
-		all->spr.buff[x] = (float)all->perpWallDist;
+		all->spr.buff[x] = (float)all->perpwalldist;
 		x++;
 	}
 	ft_sprites(all);
@@ -74,8 +74,8 @@ void		ft_init(t_all *all, char *windowname)
 	all->bmp = 0;
 	all->start.pos.x += 0.5;
 	all->start.pos.y += 0.5;
-	all->moveSpeed = 0.2;
-	all->rotSpeed = 0.1;
+	all->movespeed = 0.2;
+	all->rotspeed = 0.1;
 	all->texwidth = 64;
 	all->texheight = 64;
 	all->sprwidth = 0;

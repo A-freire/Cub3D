@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:21:01 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 19:05:30 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/06/30 13:47:47 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	display(int x, t_all *all)
 {
 	int i;
 
-	i = all->drawStart;
-	while (i < all->drawEnd)
+	i = all->drawstart;
+	while (i < all->drawend)
 	{
 		all->tex.y = (int)all->tex.pos & (all->texheight - 1);
 		all->tex.pos += all->tex.step;

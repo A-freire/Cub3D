@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:12:04 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/26 14:55:55 by robriard         ###   ########.fr       */
+/*   Updated: 2020/06/30 13:42:39 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,22 @@ typedef struct	s_health
 	void	*tex3;
 	void	*tex2;
 	void	*tex1;
-	int	*color;
-	int	width;
-	int	heigth;
-	int	startx;
-	int	starty;
-	int	endx;
-	int	endy;
+	int		*color;
+	int		width;
+	int		heigth;
+	int		startx;
+	int		starty;
+	int		endx;
+	int		endy;
 }				t_health;
 
 typedef struct	s_tp
 {
-	int	tpnb;
+	int		tpnb;
 	char	*tpway;
 	float	**coord;
 	void	*tex;
 }				t_tp;
-
 
 typedef struct	s_tf
 {
@@ -53,10 +52,9 @@ typedef struct	s_res
 {
 	double	x;
 	double	y;
-	int	xmax;
-	int	ymax;
-	int	folder;
-
+	int		xmax;
+	int		ymax;
+	int		folder;
 }				t_res;
 
 typedef struct	s_cam
@@ -94,7 +92,6 @@ typedef struct	s_color
 	float	b;
 }				t_color;
 
-
 typedef struct	s_start
 {
 	t_vec	pos;
@@ -102,7 +99,7 @@ typedef struct	s_start
 	t_vec	fov;
 }				t_start;
 
-typedef struct		s_bmp
+typedef struct	s_bmp
 {
 	int				size;
 	char			*img;
@@ -111,7 +108,7 @@ typedef struct		s_bmp
 	unsigned char	pad[3];
 	int				color;
 	int				fd;
-}					t_bmp;
+}				t_bmp;
 
 typedef struct	s_sprite
 {
@@ -171,16 +168,16 @@ typedef struct	s_all
 	t_texture	tex;
 	t_sprite	spr;
 	t_res		res;
-	t_vec		sideDist;
-	t_vec		deltaDist;
+	t_vec		sidedist;
+	t_vec		deltadist;
 	int			bmp;
 	int			side;
 	int			lineheight;
-	int			drawStart;
-	int			drawEnd;
-	double		moveSpeed;
-	double		rotSpeed;
-	double		perpWallDist;
+	int			drawstart;
+	int			drawend;
+	double		movespeed;
+	double		rotspeed;
+	double		perpwalldist;
 	int			texwidth;
 	int			texheight;
 	int			sprwidth;
@@ -189,7 +186,7 @@ typedef struct	s_all
 	int			line_length;
 	int			endian;
 	t_start		save;
-	int 		life;
+	int			life;
 	int			*color;
 }				t_all;
 #endif
