@@ -168,22 +168,22 @@ void	ft_tp(t_all *all)
 		}
 		else
 		{
-			if (all->map.map[(int)all->tp.coord[1][0] + 1][(int)all->tp.coord[0][0]] != 1)
+			if (all->map.map[(int)all->tp.coord[1][0] + 1][(int)all->tp.coord[0][0]] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0] + 1;
 				all->start.pos.y = (double)all->tp.coord[0][0];
 			}
-			else if(all->map.map[(int)all->tp.coord[1][0] - 1][(int)all->tp.coord[0][0]] != 1)
+			else if(all->map.map[(int)all->tp.coord[1][0] - 1][(int)all->tp.coord[0][0]] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0] - 1;
 				all->start.pos.y = (double)all->tp.coord[0][0];
 			}
-			else if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] + 1] != 1)
+			else if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] + 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0];
 				all->start.pos.y = (double)all->tp.coord[0][0] + 1;
 			}
-			else if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] - 1] != 1)
+			else if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] - 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0];
 				all->start.pos.y = (double)all->tp.coord[0][0] - 1;
