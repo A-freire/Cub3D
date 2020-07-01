@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:35:56 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:09:10 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/01 11:49:26 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	ft_checkmap(t_all a)
 		ft_clear_copy(&copy);
 		ft_error(2);
 	}
-	ft_checkpar(a, copy);
+	ft_ncheckpar(a, copy);
 	return (0);
 }
 

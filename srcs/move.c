@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 18:39:15 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/01 11:46:54 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_shift(int key, t_all *all)
 {
 	if (key == 97)
 	{
-		if (all->start.dir.x > 0)
+				if (all->start.dir.x > 0)
 			ft_shifts(all, 1);
 		else
 			ft_shiftn(all, 1);

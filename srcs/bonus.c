@@ -4,9 +4,9 @@
 
 void	colors(t_all *all, int x, int y)
 {
-	putPixelr(255, all->mlx.img_data, x, y, all->res.x);
-	putPixelg(0, all->mlx.img_data, x, y, all->res.x);
-	putPixelb(0, all->mlx.img_data, x, y, all->res.x);
+	putpixelr(255, x, y, all);
+	putpixelg(0, x, y, all);
+	putpixelb(0, x, y, all);
 }
 
 void	heal(t_all *all)

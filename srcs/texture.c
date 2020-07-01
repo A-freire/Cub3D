@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 15:53:03 by afreire-          #+#    #+#             */
-/*   Updated: 2020/06/29 18:56:09 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/01 11:48:44 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 void	ft_healthtexture(t_all *all)
 {
-	char	*way4;
-	char	*way3;
-	char	*way2;
-	char	*way1;
-
 	if (all->res.x < 550)
 		ft_ase(all);
 	else if (all->res.x < 1000)
