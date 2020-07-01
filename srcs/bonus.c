@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bonus.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: robriard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/01 17:14:15 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/01 17:22:36 by robriard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
 
@@ -16,7 +26,7 @@ void	heal(t_all *all)
 	int	buf;
 
 	if (all->life == 0)
-		ft_error (42);
+		ft_error(42);
 	if (all->life == 1)
 		all->health.color = (int *)all->health.tex1;
 	if (all->life == 2)
@@ -36,8 +46,9 @@ void	heal(t_all *all)
 		while (x < all->health.width)
 		{
 			if (all->health.color[(all->health.width * y) + x] != 0)
-				all->mlx.addr[(int)all->res.x * all->health.starty + all->health.startx] = 
-					all->health.color[(all->health.width * y) + x];
+				all->mlx.addr
+				[(int)all->res.x * all->health.starty + all->health.startx] =
+				all->health.color[(all->health.width * y) + x];
 			all->health.startx++;
 			x++;
 		}
@@ -45,7 +56,6 @@ void	heal(t_all *all)
 		y++;
 	}
 }
-
 
 void	ft_reset(t_all *all)
 {
@@ -57,7 +67,7 @@ void	ft_reset(t_all *all)
 void	sprint(t_all *all)
 {
 	if (all->moveSpeed == 0.3)
-	{	
+	{
 		all->moveSpeed = 0.2;
 		if (all->start.fov.x != 0)
 		{
@@ -73,7 +83,8 @@ void	sprint(t_all *all)
 			else
 				all->start.fov.y = 0.66;
 		}
-	}else
+	}
+	else
 	{
 		all->moveSpeed = 0.3;
 		if (all->start.fov.x != 0)
@@ -93,11 +104,10 @@ void	sprint(t_all *all)
 	}
 }
 
-
 void	sneack(t_all *all)
 {
 	if (all->moveSpeed == 0.1)
-	{	
+	{
 		all->moveSpeed = 0.2;
 		if (all->start.fov.x != 0)
 		{
@@ -113,7 +123,8 @@ void	sneack(t_all *all)
 			else
 				all->start.fov.y = 0.66;
 		}
-	}else
+	}
+	else
 	{
 		all->moveSpeed = 0.1;
 		if (all->start.fov.x != 0)
@@ -137,24 +148,29 @@ void	ft_tp(t_all *all)
 {
 	if (all->map.map[(int)all->start.pos.x][(int)all->start.pos.y] == 3)
 	{
-		if ((int)all->start.pos.x == (int)all->tp.coord[1][0] && (int)all->start.pos.y == (int)all->tp.coord[0][0])
+		if ((int)all->start.pos.x == (int)all->tp.coord[1][0]
+			&& (int)all->start.pos.y == (int)all->tp.coord[0][0])
 		{
-			if (all->map.map[(int)all->tp.coord[1][1] + 1][(int)all->tp.coord[0][1]] == 0)
+			if (all->map.map[(int)all->tp.coord[1][1] + 1]
+					[(int)all->tp.coord[0][1]] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][1] + 1;
 				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
-			else if (all->map.map[(int)all->tp.coord[1][1] - 1][(int)all->tp.coord[0][1]] == 0)
+			else if (all->map.map[(int)all->tp.coord[1][1] - 1]
+					[(int)all->tp.coord[0][1]] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][1] - 1;
 				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
-			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] - 1] == 0)
+			else if (all->map.map[(int)all->tp.coord[1][1]]
+					[(int)all->tp.coord[0][1] - 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][1];
 				all->start.pos.y = (double)all->tp.coord[0][1] - 1;
 			}
-			else if (all->map.map[(int)all->tp.coord[1][1]][(int)all->tp.coord[0][1] + 1] == 0)
+			else if (all->map.map[(int)all->tp.coord[1][1]]
+					[(int)all->tp.coord[0][1] + 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][1];
 				all->start.pos.y = (double)all->tp.coord[0][1] + 1;
@@ -164,26 +180,29 @@ void	ft_tp(t_all *all)
 				all->start.pos.x = (double)all->tp.coord[1][1];
 				all->start.pos.y = (double)all->tp.coord[0][1];
 			}
-
 		}
 		else
 		{
-			if (all->map.map[(int)all->tp.coord[1][0] + 1][(int)all->tp.coord[0][0]] == 0)
+			if (all->map.map[(int)all->tp.coord[1][0] + 1]
+					[(int)all->tp.coord[0][0]] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0] + 1;
 				all->start.pos.y = (double)all->tp.coord[0][0];
 			}
-			else if(all->map.map[(int)all->tp.coord[1][0] - 1][(int)all->tp.coord[0][0]] == 0)
+			else if (all->map.map[(int)all->tp.coord[1][0] - 1]
+					[(int)all->tp.coord[0][0]] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0] - 1;
 				all->start.pos.y = (double)all->tp.coord[0][0];
 			}
-			else if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] + 1] == 0)
+			else if (all->map.map[(int)all->tp.coord[1][0]]
+					[(int)all->tp.coord[0][0] + 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0];
 				all->start.pos.y = (double)all->tp.coord[0][0] + 1;
 			}
-			else if (all->map.map[(int)all->tp.coord[1][0]][(int)all->tp.coord[0][0] - 1] == 0)
+			else if (all->map.map[(int)all->tp.coord[1][0]]
+					[(int)all->tp.coord[0][0] - 1] == 0)
 			{
 				all->start.pos.x = (double)all->tp.coord[1][0];
 				all->start.pos.y = (double)all->tp.coord[0][0] - 1;
