@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:34:12 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/01 17:45:19 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/02 15:05:22 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	revread(t_all *all)
 		while (all->map.map[x][++y] != -42)
 		{
 			i += ft_spr(all, x, y, i);
-			j += ft_tlp(all, x, y, i);
+			j += ft_tlp(all, x, y, j);
 		}
 	}
 }
