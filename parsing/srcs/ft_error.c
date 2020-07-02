@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:22:22 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/02 10:36:58 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		ft_printf(char *str)
 	int		i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		write(1, &str[i], 1);
 		i++;
@@ -31,7 +31,6 @@ void			ft_error(int error)
 		ft_printf("\033[31;01mError\033[00m\n");
 	if (error == 404)
 		ft_printf("\033[33;05mNo .cub file input\033[00m\n");
-	
 	if (error == -1)
 		ft_printf("\033[33;05mA pointer has bad allocate");
 	if (error == 1)

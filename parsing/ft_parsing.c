@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:22:26 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/02 10:30:21 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,28 +64,28 @@ int			ft_ismap(char *line)
 
 t_all		ft_indexnull(char *line, t_all *ret)
 {
-	if (line[0] == 'N' && line[1]== 'O')
+	if (line[0] == 'N' && line[1] == 'O')
 		ret->tex.north = ft_way(line);
-	if (line[0] == 'S' && line[1]== 'O')
+	if (line[0] == 'S' && line[1] == 'O')
 		ret->tex.south = ft_way(line);
-	if (line[0] == 'E' && line[1]== 'A')
+	if (line[0] == 'E' && line[1] == 'A')
 		ret->tex.east = ft_way(line);
-	if (line[0] == 'W' && line[1]== 'E')
+	if (line[0] == 'W' && line[1] == 'E')
 		ret->tex.west = ft_way(line);
-	if (line[0] == 'S' && line[1]== ' ')
+	if (line[0] == 'S' && line[1] == ' ')
 		ret->tex.sprite = ft_way(line);
-	if (line[0] == 'T' && line[1]== ' ')
+	if (line[0] == 'T' && line[1] == ' ')
 		ret->tp.tpway = ft_way(line);
-	if (line[0] == 'R' && line[1]== ' ')
+	if (line[0] == 'R' && line[1] == ' ')
 		ret->res = ft_res(line);
-	if (line[0] == 'F' && line[1]== ' ')
+	if (line[0] == 'F' && line[1] == ' ')
 		ret->floor = ft_color(line);
-	if (line[0] == 'C' && line[1]== ' ')
+	if (line[0] == 'C' && line[1] == ' ')
 		ret->ceiling = ft_color(line);
 	return (*ret);
 }
 
-t_all		ft_fillstruct(int n,char *line, t_all *a)
+t_all		ft_fillstruct(int n, char *line, t_all *a)
 {
 	static int	index;
 	int			i;
@@ -124,7 +124,7 @@ t_all		ft_fillstruct(int n,char *line, t_all *a)
 				a->start.fov.y = 0;
 				if (line[i] == 'N')
 				{
-					a->start.dir.x = -1; 
+					a->start.dir.x = -1;
 					a->start.fov.y = 0.66;
 				}
 				if (line[i] == 'S')
@@ -149,8 +149,8 @@ t_all		ft_fillstruct(int n,char *line, t_all *a)
 		a = ft_map(a, line, index);
 		index++;
 		if (!(a->map.map[index] = malloc(sizeof(int))))
-			exit (0);
-		a->map.map[index][0] = -42;;
+			exit(0);
+		a->map.map[index][0] = -42;
 	}
 	return (*a);
 }
@@ -166,7 +166,7 @@ int			ft_parsing(char *file, t_all *a)
 	while (file[i + 4] != '\0')
 		i++;
 	if ((fd = open(file, O_RDONLY)) < 0 || ft_strcmp(file + i, ".cub", 4) != 0)
-		ft_error (404);
+		ft_error(404);
 	fd2 = open(file, O_RDONLY);
 	i = 0;
 	while (get_next_line(fd2, &line) != 0)
@@ -178,7 +178,7 @@ int			ft_parsing(char *file, t_all *a)
 	free(line);
 	while (get_next_line(fd, &line) != 0)
 	{
-		*a = ft_fillstruct(i, line , &(*a));
+		*a = ft_fillstruct(i, line, &(*a));
 		free(line);
 	}
 	*a = ft_fillstruct(i, line, &(*a));

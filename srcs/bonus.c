@@ -6,11 +6,44 @@
 /*   By: robriard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 17:14:15 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/01 17:22:36 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/01 18:29:39 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
+
+void	ft_teleport(t_all *all, int i)
+{
+	if (all->map.map[(int)all->tp.coord[1][i] + 1]
+			[(int)all->tp.coord[0][i]] == 0)
+	{
+		all->start.pos.x = (double)all->tp.coord[1][i] + 1;
+		all->start.pos.y = (double)all->tp.coord[0][i];
+	}
+	else if (all->map.map[(int)all->tp.coord[1][i] - 1]
+			[(int)all->tp.coord[0][i]] == 0)
+	{
+		all->start.pos.x = (double)all->tp.coord[1][i] - 1;
+		all->start.pos.y = (double)all->tp.coord[0][i];
+	}
+	else if (all->map.map[(int)all->tp.coord[1][i]]
+			[(int)all->tp.coord[0][i] - 1] == 0)
+	{
+		all->start.pos.x = (double)all->tp.coord[1][i];
+		all->start.pos.y = (double)all->tp.coord[0][i] - 1;
+	}
+	else if (all->map.map[(int)all->tp.coord[1][i]]
+			[(int)all->tp.coord[0][i] + 1] == 0)
+	{
+		all->start.pos.x = (double)all->tp.coord[1][i];
+		all->start.pos.y = (double)all->tp.coord[0][i] + 1;
+	}
+	else
+	{
+		all->start.pos.x = (double)all->tp.coord[1][i];
+		all->start.pos.y = (double)all->tp.coord[0][i];
+	}
+}
 
 void	colors(t_all *all, int x, int y)
 {
@@ -47,8 +80,8 @@ void	heal(t_all *all)
 		{
 			if (all->health.color[(all->health.width * y) + x] != 0)
 				all->mlx.addr
-				[(int)all->res.x * all->health.starty + all->health.startx] =
-				all->health.color[(all->health.width * y) + x];
+					[(int)all->res.x * all->health.starty + all->health.startx] =
+					all->health.color[(all->health.width * y) + x];
 			all->health.startx++;
 			x++;
 		}
@@ -149,69 +182,9 @@ void	ft_tp(t_all *all)
 	if (all->map.map[(int)all->start.pos.x][(int)all->start.pos.y] == 3)
 	{
 		if ((int)all->start.pos.x == (int)all->tp.coord[1][0]
-			&& (int)all->start.pos.y == (int)all->tp.coord[0][0])
-		{
-			if (all->map.map[(int)all->tp.coord[1][1] + 1]
-					[(int)all->tp.coord[0][1]] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][1] + 1;
-				all->start.pos.y = (double)all->tp.coord[0][1];
-			}
-			else if (all->map.map[(int)all->tp.coord[1][1] - 1]
-					[(int)all->tp.coord[0][1]] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][1] - 1;
-				all->start.pos.y = (double)all->tp.coord[0][1];
-			}
-			else if (all->map.map[(int)all->tp.coord[1][1]]
-					[(int)all->tp.coord[0][1] - 1] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][1];
-				all->start.pos.y = (double)all->tp.coord[0][1] - 1;
-			}
-			else if (all->map.map[(int)all->tp.coord[1][1]]
-					[(int)all->tp.coord[0][1] + 1] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][1];
-				all->start.pos.y = (double)all->tp.coord[0][1] + 1;
-			}
-			else
-			{
-				all->start.pos.x = (double)all->tp.coord[1][1];
-				all->start.pos.y = (double)all->tp.coord[0][1];
-			}
-		}
+				&& (int)all->start.pos.y == (int)all->tp.coord[0][0])
+			ft_teleport(all, 1);
 		else
-		{
-			if (all->map.map[(int)all->tp.coord[1][0] + 1]
-					[(int)all->tp.coord[0][0]] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][0] + 1;
-				all->start.pos.y = (double)all->tp.coord[0][0];
-			}
-			else if (all->map.map[(int)all->tp.coord[1][0] - 1]
-					[(int)all->tp.coord[0][0]] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][0] - 1;
-				all->start.pos.y = (double)all->tp.coord[0][0];
-			}
-			else if (all->map.map[(int)all->tp.coord[1][0]]
-					[(int)all->tp.coord[0][0] + 1] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][0];
-				all->start.pos.y = (double)all->tp.coord[0][0] + 1;
-			}
-			else if (all->map.map[(int)all->tp.coord[1][0]]
-					[(int)all->tp.coord[0][0] - 1] == 0)
-			{
-				all->start.pos.x = (double)all->tp.coord[1][0];
-				all->start.pos.y = (double)all->tp.coord[0][0] - 1;
-			}
-			else
-			{
-				all->start.pos.x = (double)all->tp.coord[1][0];
-				all->start.pos.y = (double)all->tp.coord[0][0];
-			}
-		}
+			ft_teleport(all, 0);
 	}
 }

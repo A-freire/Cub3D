@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:25:55 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/02 11:28:55 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,20 @@ t_all	*ft_spritecoord(t_all *all)
 	int		i;
 	int		j;
 
-	if (!(all->tex.spritex = malloc(sizeof(float) * all->tex.spritenb + all->tp.tpnb + 1)))
+	if (!(all->tex.spritex = malloc(sizeof(float) *
+					all->tex.spritenb + all->tp.tpnb + 1)))
 		ft_error(-1);
 	all->tex.spritex[all->tex.spritenb] = -42;
-	if (!(all->tex.spritey = malloc(sizeof(float) * all->tex.spritenb + all->tp.tpnb + 1)))
-		ft_error (-1);
+	if (!(all->tex.spritey = malloc(sizeof(float) *
+					all->tex.spritenb + all->tp.tpnb + 1)))
+		ft_error(-1);
 	all->tex.spritey[all->tex.spritenb] = -42;
 	if (!(all->tp.coord = malloc(sizeof(float *) * 2)))
-		ft_error (-1);
+		ft_error(-1);
 	if (!(all->tp.coord[0] = malloc(sizeof(float) * all->tp.tpnb)))
-		ft_error (-1);
+		ft_error(-1);
 	if (!(all->tp.coord[1] = malloc(sizeof(float) * all->tp.tpnb)))
-		ft_error (-1);
+		ft_error(-1);
 	i = 0;
 	x = 0;
 	j = 0;
@@ -70,7 +72,7 @@ int		**ft_squaremap(int **map)
 	i = 0;
 	while (copy[i][0] != -42)
 		i++;
-	if (!(map = malloc (sizeof(int *) * (i + 1))))
+	if (!(map = malloc(sizeof(int *) * (i + 1))))
 		ft_error(-1);
 	if (!(map[i] = malloc(sizeof(int))))
 		ft_error(-1);
@@ -86,13 +88,12 @@ int		**ft_squaremap(int **map)
 			buf = j;
 	}
 	i = -1;
-	while(copy[++i][0] != -42)
+	while (copy[++i][0] != -42)
 	{
 		if (!(map[i] = malloc(sizeof(int) * (buf + 1))))
 			ft_error(-1);
 		map[i][buf] = -42;
 	}
-
 	i = -1;
 	while (copy[++i][0] != -42)
 	{
