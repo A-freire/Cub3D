@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 14:20:36 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:22:08 by afreire-         ###   ########.fr       */
+/*   Created: 2020/02/14 11:24:24 by robriard          #+#    #+#             */
+/*   Updated: 2020/02/14 15:10:31 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ char	*ft_strdup(char *str)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dst;
+	int		fix;
 	int		i;
 	int		j;
 
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
+	fix = j;
 	if (!(dst = malloc(sizeof(char) * (1 + i + j))))
 		return (NULL);
 	i = 0;
@@ -57,11 +59,29 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	j = 0;
-	while (s2[j])
+	while (j < fix)
 	{
 		dst[i + j] = s2[j];
 		j++;
 	}
 	dst[i + j] = '\0';
 	return (dst);
+}
+
+int		ft_reader(int fd, char **buffer, char **content)
+{
+	char	*tmp;
+	int		check;
+
+	if ((check = read(fd, *buffer, BUFFER_SIZE)) < 0)
+		return (-1);
+	(*buffer)[check] = '\0';
+	tmp = ft_strdup(*content);
+	free(*content);
+	if (*buffer[0] == 0)
+		*content = ft_strjoin(tmp, "\n");
+	else
+		*content = ft_strjoin(tmp, *buffer);
+	free(tmp);
+	return (check);
 }

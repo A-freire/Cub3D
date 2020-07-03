@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 14:20:32 by robriard          #+#    #+#             */
-/*   Updated: 2020/06/29 18:20:28 by afreire-         ###   ########.fr       */
+/*   Created: 2020/02/14 11:24:11 by robriard          #+#    #+#             */
+/*   Updated: 2020/02/14 15:10:16 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 
 int		get_next_line(int fd, char **line);
 int		ft_strlen(char *str);
+int		ft_reader(int fd, char **buffer, char **content);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *str);
 
