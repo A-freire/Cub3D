@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 11:26:59 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 11:33:28 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,32 +169,38 @@ t_all		ft_fillstruct(int n, char *line, t_all *a)
 	return (*a);
 }
 
+int			ft_mapheigth(char *file)
+{
+	int		fd;
+	int		ret;
+	char	*line;
+
+	ret = 0;
+	fd = open(file, O_RDONLY);
+	while (get_next_line(fd, &line) != 0)
+	{
+		ret += ft_ismap(line);
+		free(line);
+	}
+	ret += ft_ismap(line);
+	free(line);
+	return (ret);
+}
+
 int			ft_parsing(char *file, t_all *a)
 {
 	int		i;
 	int		fd;
-	int		fd2;
 	char	*line;
 
-	printf("%s\n", file);
 	i = 0;
 	while (file[i + 4] != '\0')
 		i++;
 	if ((fd = open(file, O_RDONLY)) < 0 || ft_strcmp(file + i, ".cub", 4) != 0)
 		ft_error(404);
-	i = 0;
-	fd2 = open(file, O_RDONLY);
+	i = ft_mapheigth(file);
 	while (get_next_line(fd, &line) != 0)
 	{
-		i += ft_ismap(line);
-		free(line);
-	}
-	i += ft_ismap(line);
-	free(line);
-	fd2 = open(file, O_RDONLY);
-	while (get_next_line(fd2, &line) != 0)
-	{
-		printf("test\n");
 		*a = ft_fillstruct(i, line, &(*a));
 		free(line);
 	}
