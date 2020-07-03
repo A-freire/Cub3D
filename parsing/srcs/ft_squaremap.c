@@ -6,19 +6,15 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/02 11:28:55 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 13:52:34 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_parsing.h"
 
+
 t_all	*ft_spritecoord(t_all *all)
 {
-	int		x;
-	int		y;
-	int		i;
-	int		j;
-
 	if (!(all->tex.spritex = malloc(sizeof(float) *
 					all->tex.spritenb + all->tp.tpnb + 1)))
 		ft_error(-1);
@@ -33,30 +29,6 @@ t_all	*ft_spritecoord(t_all *all)
 		ft_error(-1);
 	if (!(all->tp.coord[1] = malloc(sizeof(float) * all->tp.tpnb)))
 		ft_error(-1);
-	i = 0;
-	x = 0;
-	j = 0;
-	while (all->map.map[x][0] != -42)
-	{
-		y = 0;
-		while (all->map.map[x][y] != -42)
-		{
-			if (all->map.map[x][y] == 2 || all->map.map[x][y] == 3)
-			{
-				all->tex.spritex[i] = y + 0.5;
-				all->tex.spritey[i] = x + 0.5;
-				i++;
-			}
-			if (all->map.map[x][y] == 3 && j < 2)
-			{
-				all->tp.coord[0][j] = y + 0.5;
-				all->tp.coord[1][j] = x + 0.5;
-				j++;
-			}
-			y++;
-		}
-		x++;
-	}
 	return (all);
 }
 
