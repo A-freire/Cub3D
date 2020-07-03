@@ -3,15 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_squaremap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 13:52:34 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:00:59 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_parsing.h"
 
+t_all	*ft_maprunner(t_all *all)
+{
+	int	i;
+	int	x;
+	int	y;
+
+	i = 0;
+	x = -1;
+	while (all->map.map[++x][0] != -42)
+	{
+		y = -1;
+		while (all->map.map[x][++y] != -42)
+		{
+			if (all->map.map[x][y] == 3)
+			{
+				all->tp.coord[0][i] = x;
+				all->tp.coord[1][i] = y;
+				i++;
+			}
+		}
+	}
+	return (all);
+}
 
 t_all	*ft_spritecoord(t_all *all)
 {
@@ -29,6 +52,7 @@ t_all	*ft_spritecoord(t_all *all)
 		ft_error(-1);
 	if (!(all->tp.coord[1] = malloc(sizeof(float) * all->tp.tpnb)))
 		ft_error(-1);
+	ft_maprunner(all);
 	return (all);
 }
 
