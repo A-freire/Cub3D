@@ -6,7 +6,7 @@
 #    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/03 14:30:43 by robriard         ###   ########.fr        #
+#    Updated: 2020/07/03 15:44:45 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRCS =	cub3d.c									\
 	srcs/sprites.c								\
 	srcs/shift.c								\
 	srcs/ft_bmp.c								\
+	srcs/health.c								\
+	srcs/speed.c								\
 	parsing/ft_parsing.c						\
 	parsing/checkers/checkmap.c					\
 	parsing/checkers/checkparsing.c				\
