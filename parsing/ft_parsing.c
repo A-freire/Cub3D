@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 09:51:26 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 09:59:09 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,34 @@ t_all		*ft_spawn(t_all *a, char c)
 	return (a);
 }
 
+t_all		*ft_index(t_all *a, char *line, int index)
+{
+	int	i;
+
+	if (index == -1)
+		index = 0;
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == '3')
+			a->tp.tpnb++;
+		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
+				|| line[i] == 'W')
+		{
+			a->start.pos.x = index;
+			a->start.pos.y = i;
+			a = ft_spawn(a, line[i]);
+		}
+		i++;
+	}
+	free(a->map.map[index]);
+	a = ft_map(a, line, index);
+	index++;
+	if (!(a->map.map[index] = malloc(sizeof(int))))
+		exit(0);
+	a->map.map[index][0] = -42;
+}
+
 t_all		ft_fillstruct(int n, char *line, t_all *a)
 {
 	static int	index;
@@ -135,28 +163,7 @@ t_all		ft_fillstruct(int n, char *line, t_all *a)
 	}
 	else
 	{
-		if (index == -1)
-			index = 0;
-		i = 0;
-		while (line[i])
-		{
-			if (line[i] == '3')
-				a->tp.tpnb++;
-			if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
-					|| line[i] == 'W')
-			{
-				a->start.pos.x = index;
-				a->start.pos.y = i;
-				a = ft_spawn(a, line[i]);
-			}
-			i++;
-		}
-		free(a->map.map[index]);
-		a = ft_map(a, line, index);
-		index++;
-		if (!(a->map.map[index] = malloc(sizeof(int))))
-			exit(0);
-		a->map.map[index][0] = -42;
+		a = ft_index(a, line, index);
 	}
 	return (*a);
 }
