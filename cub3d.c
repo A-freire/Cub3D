@@ -6,39 +6,11 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 14:32:48 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/03 16:05:12 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 16:16:27 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./header/cub3d_lib.h"
-
-void		game_on(t_all *all)
-{
-	int x;
-
-	x = 0;
-	if (all->map.map[(int)all->start.pos.x][(int)all->start.pos.y] == 2)
-		all->life--;
-	ft_tp(all);
-	clear_image(all);
-	while (x < all->res.x)
-	{
-		ft_start(all, x);
-		ft_dist(all);
-		ft_hit(all);
-		ft_draw(all);
-		ft_tex(all);
-		display(x, all);
-		all->spr.buff[x] = (float)all->perpwalldist;
-		x++;
-	}
-	ft_sprites(all);
-	heal(all);
-	if (all->bmp == 1)
-		ft_bmp(all);
-	mlx_clear_window(all->mlx.mlx_ptr, all->mlx.win_ptr);
-	mlx_put_image_to_window(all->mlx.mlx_ptr, all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
-}
 
 char		*ft_windowname(char *file)
 {
@@ -66,11 +38,8 @@ int			ft_finish(void *param)
 	exit(0);
 }
 
-void		ft_init(t_all *all, char *windowname)
+void		ft_init2(t_all *all)
 {
-	int osef;
-
-	osef = 250;
 	all->bmp = 0;
 	all->start.pos.x += 0.5;
 	all->start.pos.y += 0.5;
@@ -86,6 +55,14 @@ void		ft_init(t_all *all, char *windowname)
 	all->life = 4;
 	all->health.width = 64;
 	all->health.heigth = 17;
+}
+
+void		ft_init(t_all *all, char *windowname)
+{
+	int osef;
+
+	osef = 250;
+	ft_init2(all);
 	ft_texture(all);
 	all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y,
 			windowname);
@@ -107,11 +84,7 @@ int			main(int ac, char **av)
 		ft_error(404);
 		return (0);
 	}
-	if ((windowname = ft_windowname(av[1])) == NULL)
-        {
-                ft_error(404);
-                return (0);
-        }
+	windowname = ft_windowname(av[1]);
 	all.mlx.mlx_ptr = mlx_init();
 	if (ft_parsing(av[1], &all) != 0)
 		return (0);
