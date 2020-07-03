@@ -6,7 +6,7 @@
 #    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/03 15:44:45 by robriard         ###   ########.fr        #
+#    Updated: 2020/07/03 15:47:59 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ CFLAGS =  -Wall -Wextra -Werror
 RM  = rm -f
 
 BLACK		:= $(shell tput -Txterm setaf 0)
-RED		:= $(shell tput -Txterm setaf 1)
+RED			:= $(shell tput -Txterm setaf 1)
 GREEN		:= $(shell tput -Txterm setaf 2)
 YELLOW		:= $(shell tput -Txterm setaf 3)
 LIGHTPURPLE	:= $(shell tput -Txterm setaf 4)

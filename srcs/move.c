@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/01 15:57:33 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 16:04:14 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	ft_turn(t_all *all, int i)
 	double opx;
 
 	odx = all->start.dir.x;
-	all->start.dir.x = all->start.dir.x * cos(all->rotSpeed * i)
-		- all->start.dir.y * sin(all->rotSpeed * i);
-	all->start.dir.y = odx * sin(all->rotSpeed * i) +
-		all->start.dir.y * cos(all->rotSpeed * i);
+	all->start.dir.x = all->start.dir.x * cos(all->rotspeed * i)
+		- all->start.dir.y * sin(all->rotspeed * i);
+	all->start.dir.y = odx * sin(all->rotspeed * i) +
+		all->start.dir.y * cos(all->rotspeed * i);
 	opx = all->start.fov.x;
-	all->start.fov.x = all->start.fov.x * cos(all->rotSpeed * i)
-		- all->start.fov.y * sin(all->rotSpeed * i);
-	all->start.fov.y = opx * sin(all->rotSpeed * i)
-		+ all->start.fov.y * cos(all->rotSpeed * i);
+	all->start.fov.x = all->start.fov.x * cos(all->rotspeed * i)
+		- all->start.fov.y * sin(all->rotspeed * i);
+	all->start.fov.y = opx * sin(all->rotspeed * i)
+		+ all->start.fov.y * cos(all->rotspeed * i);
 }
 
 void	ft_foward(t_all *all, int i)
@@ -41,12 +41,12 @@ void	ft_foward(t_all *all, int i)
 	posy = all->start.pos.y;
 	dirx = all->start.dir.x;
 	diry = all->start.dir.y;
-	if (all->map.map[(int)(posx + (dirx * ((all->moveSpeed + 0.2) * i)))]
+	if (all->map.map[(int)(posx + (dirx * ((all->movespeed + 0.2) * i)))]
 			[(int)posy] != 1)
-		all->start.pos.x += dirx * all->moveSpeed * i;
+		all->start.pos.x += dirx * all->movespeed * i;
 	if (all->map.map[(int)(posx)]
-			[(int)(posy + (diry * ((all->moveSpeed + 0.2) * i)))] != 1)
-		all->start.pos.y += diry * all->moveSpeed * i;
+			[(int)(posy + (diry * ((all->movespeed + 0.2) * i)))] != 1)
+		all->start.pos.y += diry * all->movespeed * i;
 }
 
 void	ft_shift(int key, t_all *all)

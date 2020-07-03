@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spead.c                                            :+:      :+:    :+:   */
+/*   speed.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 15:40:19 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 15:41:28 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 16:02:29 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	normalspeed(t_all *all)
 {
-	all->moveSpeed = 0.2;
+	all->movespeed = 0.2;
 	if (all->start.fov.x != 0)
 	{
 		if (all->start.fov.x < 0)
@@ -33,11 +33,11 @@ void	normalspeed(t_all *all)
 
 void	sneack(t_all *all)
 {
-	if (all->moveSpeed == 0.3)
+	if (all->movespeed == 0.3)
 		normalspeed(all);
 	else
 	{
-		all->moveSpeed = 0.1;
+		all->movespeed = 0.1;
 		if (all->start.fov.x != 0)
 		{
 			if (all->start.fov.x < 0)
@@ -57,11 +57,11 @@ void	sneack(t_all *all)
 
 void	sprint(t_all *all)
 {
-	if (all->moveSpeed == 0.1)
+	if (all->movespeed == 0.1)
 		normalspeed(all);
 	else
 	{
-		all->moveSpeed = 0.3;
+		all->movespeed = 0.3;
 		if (all->start.fov.x != 0)
 		{
 			if (all->start.fov.x < 0)
