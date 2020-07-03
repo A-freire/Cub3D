@@ -6,7 +6,7 @@
 /*   By: robriard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 17:14:15 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/01 18:29:39 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:34:47 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	heal(t_all *all)
 		while (x < all->health.width)
 		{
 			if (all->health.color[(all->health.width * y) + x] != 0)
-				all->mlx.addr
-					[(int)all->res.x * all->health.starty + all->health.startx] =
+				all->mlx.addr[(int)all->res.x * all->health.starty 
+					+ all->health.startx] =
 					all->health.color[(all->health.width * y) + x];
 			all->health.startx++;
 			x++;
