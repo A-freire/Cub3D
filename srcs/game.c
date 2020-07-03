@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:27:54 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/03 16:01:04 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 16:07:06 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	ft_tex(t_all *all)
 	float	wallx;
 
 	if (all->side == 0)
-		wallx = all->start.pos.y + all->perpWallDist * all->cam.dir.y;
+		wallx = all->start.pos.y + all->perpwalldist * all->cam.dir.y;
 	else
-		wallx = all->start.pos.x + all->perpWallDist * all->cam.dir.x;
+		wallx = all->start.pos.x + all->perpwalldist * all->cam.dir.x;
 	wallx -= floor(wallx);
 	all->tex.x = (int)(wallx * all->texheight);
 	if (all->side == 0 && all->cam.dir.x > 0)
@@ -43,14 +43,14 @@ void	ft_tex(t_all *all)
 void	ft_draw(t_all *all)
 {
 	if (all->side == 0)
-		all->perpWallDist = (all->map.pos.x - all->start.pos.x +
+		all->perpwalldist = (all->map.pos.x - all->start.pos.x +
 		(1 - all->step.x) / 2) / all->cam.dir.x;
 	else
-		all->perpWallDist = (all->map.pos.y - all->start.pos.y +
+		all->perpwalldist = (all->map.pos.y - all->start.pos.y +
 		(1 - all->step.y) / 2) / all->cam.dir.y;
-	if (all->perpWallDist == 0)
-		all->perpWallDist = 0.1;
-	all->lineheight = (int)(all->res.y / all->perpWallDist);
+	if (all->perpwalldist == 0)
+		all->perpwalldist = 0.1;
+	all->lineheight = (int)(all->res.y / all->perpwalldist);
 	all->drawstart = -all->lineheight / 2 + all->res.y / 2;
 	if (all->drawstart < 0)
 		all->drawstart = 0;
