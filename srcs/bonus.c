@@ -3,30 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 17:14:15 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 14:34:47 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 15:24:42 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub3d_lib.h"
 
-void	ft_teleport(t_all *all, int i)
+void	ft_teleport2(t_all *all, int i)
 {
-	if (all->map.map[(int)all->tp.coord[1][i] + 1]
-			[(int)all->tp.coord[0][i]] == 0)
-	{
-		all->start.pos.x = (double)all->tp.coord[1][i] + 1;
-		all->start.pos.y = (double)all->tp.coord[0][i];
-	}
-	else if (all->map.map[(int)all->tp.coord[1][i] - 1]
-			[(int)all->tp.coord[0][i]] == 0)
-	{
-		all->start.pos.x = (double)all->tp.coord[1][i] - 1;
-		all->start.pos.y = (double)all->tp.coord[0][i];
-	}
-	else if (all->map.map[(int)all->tp.coord[1][i]]
+	if (all->map.map[(int)all->tp.coord[1][i]]
 			[(int)all->tp.coord[0][i] - 1] == 0)
 	{
 		all->start.pos.x = (double)all->tp.coord[1][i];
@@ -42,6 +30,26 @@ void	ft_teleport(t_all *all, int i)
 	{
 		all->start.pos.x = (double)all->tp.coord[1][i];
 		all->start.pos.y = (double)all->tp.coord[0][i];
+	}
+}
+
+void	ft_teleport(t_all *all, int i)
+{
+	if (all->map.map[(int)all->tp.coord[1][i] + 1]
+			[(int)all->tp.coord[0][i]] == 0)
+	{
+		all->start.pos.x = (double)all->tp.coord[1][i] + 1;
+		all->start.pos.y = (double)all->tp.coord[0][i];
+	}
+	else if (all->map.map[(int)all->tp.coord[1][i] - 1]
+			[(int)all->tp.coord[0][i]] == 0)
+	{
+		all->start.pos.x = (double)all->tp.coord[1][i] - 1;
+		all->start.pos.y = (double)all->tp.coord[0][i];
+	}
+	else
+	{
+		ft_teleport2(all, i);
 	}
 }
 
@@ -79,7 +87,7 @@ void	heal(t_all *all)
 		while (x < all->health.width)
 		{
 			if (all->health.color[(all->health.width * y) + x] != 0)
-				all->mlx.addr[(int)all->res.x * all->health.starty 
+				all->mlx.addr[(int)all->res.x * all->health.starty
 					+ all->health.startx] =
 					all->health.color[(all->health.width * y) + x];
 			all->health.startx++;
