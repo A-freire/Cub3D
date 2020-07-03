@@ -6,7 +6,7 @@
 #    By: robriard <robriard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/03 10:51:36 by robriard         ###   ########.fr        #
+#    Updated: 2020/07/03 14:30:43 by robriard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,29 +14,30 @@ NAME = cub3d
 
 CUB = test.cub
 
-SRCS =	cub3d.c							\
-	srcs/tools.c						\
-	srcs/display.c						\
-	srcs/move.c						\
-	srcs/texture.c						\
-	srcs/game.c						\
-	srcs/sprites.c						\
-	srcs/shift.c						\
-	srcs/ft_bmp.c						\
-	parsing/ft_parsing.c					\
-	parsing/checkers/checkmap.c				\
+SRCS =	cub3d.c									\
+	srcs/tools.c								\
+	srcs/display.c								\
+	srcs/move.c									\
+	srcs/texture.c								\
+	srcs/game.c									\
+	srcs/sprites.c								\
+	srcs/shift.c								\
+	srcs/ft_bmp.c								\
+	parsing/ft_parsing.c						\
+	parsing/checkers/checkmap.c					\
 	parsing/checkers/checkparsing.c				\
-	parsing/checkers/checktp.c				\
-	parsing/Get-Next-Line/get_next_line.c			\
-	parsing/Get-Next-Line/get_next_line_utils.c		\
-	parsing/srcs/ft_error.c					\
-	parsing/srcs/ft_squaremap.c				\
-	parsing/srcs/ft_strcmp.c				\
+	parsing/checkers/checktp.c					\
+	parsing/Get-Next-Line/get_next_line.c		\
+	parsing/Get-Next-Line/get_next_line_utils.c	\
+	parsing/srcs/ft_error.c						\
+	parsing/srcs/ft_squaremap.c					\
+	parsing/srcs/ft_strcmp.c					\
 	parsing/srcs/parsing_reader.c				\
-	srcs/read.c						\
-	srcs/order.c						\
-	srcs/bonus.c					\
-	srcs/norme.c					\
+	parsing/srcs/ft_parsinginit.c				\
+	srcs/read.c									\
+	srcs/order.c								\
+	srcs/bonus.c								\
+	srcs/norme.c								\
 	srcs/ft_asset.c
 
 
