@@ -6,13 +6,13 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 11:23:33 by robriard          #+#    #+#             */
-/*   Updated: 2020/02/14 15:09:57 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 11:42:57 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_init(int fd, char **buffer, char **content)
+int		ft_gnlinit(int fd, char **buffer, char **content)
 {
 	char	*tmp;
 	int		check;
@@ -101,7 +101,7 @@ int		get_next_line(int fd, char **line)
 
 	if (BUFFER_SIZE < 1 || fd < 0 || line == 0)
 		return (-1);
-	check = ft_init(fd, &buffer, &content);
+	check = ft_gnlinit(fd, &buffer, &content);
 	while (ft_check(content) && check != 0)
 	{
 		if ((check = ft_reader(fd, &buffer, &content)) == -1)
