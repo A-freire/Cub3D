@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 14:00:59 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:03:06 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ t_all	*ft_maprunner(t_all *all)
 		{
 			if (all->map.map[x][y] == 3)
 			{
-				all->tp.coord[0][i] = x;
-				all->tp.coord[1][i] = y;
+				all->tp.coord[0][i] = y + 0.5;
+				all->tp.coord[1][i] = x + 0.5;
 				i++;
 			}
 		}
