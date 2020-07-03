@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 10:03:12 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:17:10 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,18 @@ t_all		ft_fillstruct(int n, char *line, t_all *a)
 	else
 	{
 		a = ft_index(a, line, index);
+	}
+
+	int i = -1;
+	int j;
+	while (a->map.map[++i][0] != -42)
+	{
+		j = -1;
+		while (a->map.map[i][++j] != -42)
+		{
+			printf("[%d]", a->map.map[i][j]);
+		}
+		printf("\n");
 	}
 	return (*a);
 }
