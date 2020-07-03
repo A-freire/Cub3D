@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 17:14:15 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 15:30:18 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 15:32:30 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	colors(t_all *all, int x, int y)
 	putpixelb(0, x, y, all);
 }
 
-t_all	*ft_healthtexture(t_all *all)
+t_all	*ft_healthselect(t_all *all)
 {
 	all->health.startx = all->res.x / 100;
 	all->health.starty = all->res.y - (10 + all->res.folder);
@@ -83,7 +83,7 @@ void	heal(t_all *all)
 
 	if (all->life == 0)
 		ft_error(42);
-	all = ft_healthtexture(all);
+	all = ft_healthselect(all);
 	y = 0;
 	buf = all->health.startx;
 	while (y < all->health.heigth)
