@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/02 15:42:40 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 09:51:26 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,64 +62,6 @@ int			ft_ismap(char *line)
 	return (check);
 }
 
-t_all		ft_orient(t_all *a, char spawn)
-{
-	a->start.dir.x = 0;
-	a->start.dir.y = 0;
-	a->start.fov.x = 0;
-	a->start.fov.y = 0;
-	if (spawn == 'N')
-	{
-		a->start.dir.x = -1;
-		a->start.fov.y = 0.66;
-	}
-	if (spawn == 'S')
-	{
-		a->start.dir.x = 1;
-		a->start.fov.y = -0.66;
-	}
-	if (spawn == 'W')
-	{
-		a->start.dir.y = -1;
-		a->start.fov.x = -0.66;
-	}
-	if (spawn == 'E')
-	{
-		a->start.dir.y = 1;
-		a->start.fov.x = 0.66;
-	}
-	return (*a);
-}
-
-t_all		ft_index(char *line, t_all *a, int index)
-{
-	int	i;
-
-	if (index == -1)
-		index = 0;
-	i = 0;
-	while (line[i])
-	{
-		if (line[i] == '3')
-			a->tp.tpnb++;
-		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
-				|| line[i] == 'W')
-		{
-			a->start.pos.x = index;
-			a->start.pos.y = i;
-			*a = ft_orient(*&a, line[i]);
-		}
-		i++;
-	}
-	free(a->map.map[index]);
-	a = ft_map(a, line, index);
-	index++;
-	if (!(a->map.map[index] = malloc(sizeof(int))))
-		exit(0);
-	a->map.map[index][0] = -42;
-	return (*a);
-}
-
 t_all		ft_indexnull(char *line, t_all *ret)
 {
 	if (line[0] == 'N' && line[1] == 'O')
@@ -143,6 +85,35 @@ t_all		ft_indexnull(char *line, t_all *ret)
 	return (*ret);
 }
 
+t_all		*ft_spawn(t_all *a, char c)
+{
+	a->start.dir.x = 0;
+	a->start.dir.y = 0;
+	a->start.fov.x = 0;
+	a->start.fov.y = 0;
+	if (c == 'N')
+	{
+		a->start.dir.x = -1;
+		a->start.fov.y = 0.66;
+	}
+	if (c == 'S')
+	{
+		a->start.dir.x = 1;
+		a->start.fov.y = -0.66;
+	}
+	if (c == 'W')
+	{
+		a->start.dir.y = -1;
+		a->start.fov.x = -0.66;
+	}
+	if (c == 'E')
+	{
+		a->start.dir.y = 1;
+		a->start.fov.x = 0.66;
+	}
+	return (a);
+}
+
 t_all		ft_fillstruct(int n, char *line, t_all *a)
 {
 	static int	index;
@@ -159,9 +130,34 @@ t_all		ft_fillstruct(int n, char *line, t_all *a)
 		ft_init_parsing(*&a);
 	}
 	if (ft_ismap(line) == 0 && index == -1)
+	{
 		*a = ft_indexnull(line, *&a);
+	}
 	else
-		*a = ft_index(line, *&a, index);
+	{
+		if (index == -1)
+			index = 0;
+		i = 0;
+		while (line[i])
+		{
+			if (line[i] == '3')
+				a->tp.tpnb++;
+			if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
+					|| line[i] == 'W')
+			{
+				a->start.pos.x = index;
+				a->start.pos.y = i;
+				a = ft_spawn(a, line[i]);
+			}
+			i++;
+		}
+		free(a->map.map[index]);
+		a = ft_map(a, line, index);
+		index++;
+		if (!(a->map.map[index] = malloc(sizeof(int))))
+			exit(0);
+		a->map.map[index][0] = -42;
+	}
 	return (*a);
 }
 
