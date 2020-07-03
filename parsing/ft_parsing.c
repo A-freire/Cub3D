@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 10:01:02 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:03:12 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,6 @@ t_all		*ft_index(t_all *a, char *line, int index)
 t_all		ft_fillstruct(int n, char *line, t_all *a)
 {
 	static int	index;
-	int			i;
 
 	if (!index)
 	{
