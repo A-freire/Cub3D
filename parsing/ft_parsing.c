@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 10:17:10 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:47:16 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,6 @@ t_all		*ft_index(t_all *a, char *line, int index)
 {
 	int	i;
 
-	if (index == -1)
-		index = 0;
 	i = 0;
 	while (line[i])
 	{
@@ -163,19 +161,10 @@ t_all		ft_fillstruct(int n, char *line, t_all *a)
 	}
 	else
 	{
+		if (index == -1)
+			index = 0;
 		a = ft_index(a, line, index);
-	}
-
-	int i = -1;
-	int j;
-	while (a->map.map[++i][0] != -42)
-	{
-		j = -1;
-		while (a->map.map[i][++j] != -42)
-		{
-			printf("[%d]", a->map.map[i][j]);
-		}
-		printf("\n");
+		index++;
 	}
 	return (*a);
 }
@@ -184,7 +173,6 @@ int			ft_parsing(char *file, t_all *a)
 {
 	int		i;
 	int		fd;
-	int		fd2;
 	char	*line;
 
 	i = 0;
@@ -192,9 +180,8 @@ int			ft_parsing(char *file, t_all *a)
 		i++;
 	if ((fd = open(file, O_RDONLY)) < 0 || ft_strcmp(file + i, ".cub", 4) != 0)
 		ft_error(404);
-	fd2 = open(file, O_RDONLY);
 	i = 0;
-	while (get_next_line(fd2, &line) != 0)
+	while (get_next_line(fd, &line) != 0)
 	{
 		i += ft_ismap(line);
 		free(line);
