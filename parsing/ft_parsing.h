@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:59:39 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/02 10:34:39 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:26:57 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@
 
 void		ft_clear_copy(int ***copy);
 void		ft_error(int error);
+void		ft_init_parsing(t_all *a);
 int			ft_lifegame(int	**copy);
 char		*ft_way(char *line);
 int			ft_checkparsing(t_all *a);
+int			ft_ismap(char *line);
+int			ft_mapheigth(char *file);
 int			**ft_initcopy(int **map, int ***copy);
 int			**ft_initcheck(int **copy);
 int			**ft_squaremap(int **map);
