@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 10:58:16 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 11:10:15 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,7 @@ int			ft_parsing(char *file, t_all *a)
 {
 	int		i;
 	int		fd;
+	int		fd2;
 	char	*line;
 
 	i = 0;
@@ -181,16 +182,15 @@ int			ft_parsing(char *file, t_all *a)
 	if ((fd = open(file, O_RDONLY)) < 0 || ft_strcmp(file + i, ".cub", 4) != 0)
 		ft_error(404);
 	i = 0;
-	close(fd);
-	fd = open(file, O_RDONLY);
-	while (get_next_line(fd, &line) != 0)
+	fd2 = open(file, O_RDONLY);
+	while (get_next_line(fd2, &line) != 0)
 	{
 		i += ft_ismap(line);
 		free(line);
 	}
 	i += ft_ismap(line);
 	free(line);
-	while (get_next_line(fd, &line) != 0)
+	while (get_next_line(fd2, &line) != 0)
 	{
 		*a = ft_fillstruct(i, line, &(*a));
 		free(line);
