@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 14:20:30 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:21:59 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int		ft_bufsize(int **copy)
 int		**ft_createsquare(int **map, int **copy)
 {
 	int	i;
-	int	j;
 	int	buf;
 
 	i = 0;
