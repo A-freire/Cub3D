@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 14:03:06 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:20:30 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,31 @@ t_all	*ft_spritecoord(t_all *all)
 	return (all);
 }
 
-int		**ft_squaremap(int **map)
+int		ft_bufsize(int **copy)
 {
-	int		**copy;
-	int		buf;
-	int		i;
-	int		j;
+	int	i;
+	int	j;
+	int	ret;
 
-	copy = ft_initcopy(map, &copy);
-	ft_clear_copy(&map);
+	i = -1;
+	ret = 0;
+	while (copy[++i][0] != -42)
+	{
+		j = 0;
+		while (copy[i][j] != -42)
+			j++;
+		if (j > ret)
+			ret = j;
+	}
+	return (ret);
+}
+
+int		**ft_createsquare(int **map, int **copy)
+{
+	int	i;
+	int	j;
+	int	buf;
+
 	i = 0;
 	while (copy[i][0] != -42)
 		i++;
@@ -75,14 +91,7 @@ int		**ft_squaremap(int **map)
 	map[i][0] = -42;
 	buf = 0;
 	i = -1;
-	while (copy[++i][0] != -42)
-	{
-		j = 0;
-		while (copy[i][j] != -42)
-			j++;
-		if (j > buf)
-			buf = j;
-	}
+	buf = ft_bufsize(copy);
 	i = -1;
 	while (copy[++i][0] != -42)
 	{
@@ -90,6 +99,20 @@ int		**ft_squaremap(int **map)
 			ft_error(-1);
 		map[i][buf] = -42;
 	}
+	return (map);
+}
+
+int		**ft_squaremap(int **map)
+{
+	int		**copy;
+	int		buf;
+	int		i;
+	int		j;
+
+	copy = ft_initcopy(map, &copy);
+	ft_clear_copy(&map);
+	map = ft_createsquare(map, copy);
+	buf = ft_bufsize(copy);
 	i = -1;
 	while (copy[++i][0] != -42)
 	{
