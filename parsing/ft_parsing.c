@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 11:13:05 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 11:26:59 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,7 @@ int			ft_parsing(char *file, t_all *a)
 	int		fd2;
 	char	*line;
 
+	printf("%s\n", file);
 	i = 0;
 	while (file[i + 4] != '\0')
 		i++;
@@ -183,13 +184,14 @@ int			ft_parsing(char *file, t_all *a)
 		ft_error(404);
 	i = 0;
 	fd2 = open(file, O_RDONLY);
-	while (get_next_line(fd2, &line) != 0)
+	while (get_next_line(fd, &line) != 0)
 	{
 		i += ft_ismap(line);
 		free(line);
 	}
 	i += ft_ismap(line);
 	free(line);
+	fd2 = open(file, O_RDONLY);
 	while (get_next_line(fd2, &line) != 0)
 	{
 		printf("test\n");
