@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 09:59:09 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:01:02 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ t_all		*ft_index(t_all *a, char *line, int index)
 	if (!(a->map.map[index] = malloc(sizeof(int))))
 		exit(0);
 	a->map.map[index][0] = -42;
+	return (a);
 }
 
 t_all		ft_fillstruct(int n, char *line, t_all *a)
