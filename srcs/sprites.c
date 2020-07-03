@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/03 16:36:09 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 16:57:25 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,24 @@ void	ft_spr_init(t_all *all, int x)
 void	ft_sprites(t_all *all)
 {
 	if (all->start.dir.x > 0.7)
+	{
+		printf("SOUTH\n");
 		spr_south(all);
-	else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 &&
+	}
+		else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 &&
 	all->start.dir.y < -0.7)
+	{
+		printf("WEST\n");
 		spr_west(all);
+	}
 	else if (all->start.dir.x < -0.7)
+	{
+		printf("NORTH\n");
 		spr_north(all);
+	}
 	else
+	{
+		printf("EAST\n");
 		spr_east(all);
+	}
 }
