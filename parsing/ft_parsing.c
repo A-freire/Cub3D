@@ -6,7 +6,7 @@
 /*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 11:10:15 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/03 11:13:05 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,7 @@ int			ft_parsing(char *file, t_all *a)
 	free(line);
 	while (get_next_line(fd2, &line) != 0)
 	{
+		printf("test\n");
 		*a = ft_fillstruct(i, line, &(*a));
 		free(line);
 	}
