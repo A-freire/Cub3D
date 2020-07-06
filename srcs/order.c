@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:32:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/06 10:12:08 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/06 10:37:27 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	spr_north(t_all *all)
 {
 	int x;
 
-	revread(all);
+	trueread(all);
 	x = 0;
 	while (x <= all->tex.spritenb)
 	{
