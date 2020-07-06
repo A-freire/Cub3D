@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkparsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: henriquetafreireeleuterio <henriquetafr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 16:33:26 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 16:33:36 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/06 16:11:55 by henriquetaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	ft_checkres(t_all *all)
 		ft_error(1);
 	if (all->res.x > all->res.xmax)
 		all->res.x = all->res.xmax;
-	if (all->res.y > all->res.ymax)
-		all->res.y = all->res.ymax;
+	if (all->res.y > all->res.ymax - 50)
+		all->res.y = all->res.ymax - 50;
 	return (0);
 }
 
