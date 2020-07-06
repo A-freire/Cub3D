@@ -82,5 +82,7 @@ void	ft_asssse(t_all *all);
 void	ft_assssse(t_all *all);
 int		ft_len(t_all *all);
 int		ft_lex(t_all *all);
+int		ft_tlp(t_all *all, int x, int y, int j);
+int		ft_spr(t_all *all, int x, int y, int i);
 
 #endif
