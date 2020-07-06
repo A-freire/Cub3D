@@ -84,6 +84,8 @@ int		deal_key(int key, t_all *all)
 	if (key == 114)
 		sprint(all);
 	ft_shift(key, all);
+	if (key == 40)
+		ft_reset(all);
 	game_on(all);
 	return (key);
 }

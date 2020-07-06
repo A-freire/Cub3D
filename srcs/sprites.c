@@ -76,21 +76,24 @@ void	ft_spr_init(t_all *all, int x)
 
 void	ft_sprites(t_all *all)
 {
-	if (all->start.dir.x > 0.7)
-	{
-		spr_south(all);
-	}
-		else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 &&
-	all->start.dir.y < -0.7)
-	{
-		spr_west(all);
-	}
-	else if (all->start.dir.x < -0.7)
-	{
-		spr_north(all);
-	}
-	else
-	{
-		spr_east(all);
-	}
+	if (all->start.dir.x < -0.7)
+		if (all->start.dir.y <= 0)
+			spr_northg(all);
+		else
+			spr_northd(all);
+	else if (all->start.dir.y > 0.7)
+		if (all->start.dir.x < 0)
+			spr_eastg(all);
+		else
+			spr_eastd(all);
+	else if (all->start.dir.x > 0.7)
+		if (all->start.dir.y < 0)
+			spr_southd(all);
+		else
+			spr_southg(all);
+	else if (all->start.dir.y < -0.7)
+		if (all->start.dir.x >= 0)
+			spr_westd(all);
+		else
+			spr_westg(all);
 }

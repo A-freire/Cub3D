@@ -38,7 +38,8 @@ SRCS =	cub3d.c									\
 	parsing/srcs/parsing_reader.c				\
 	parsing/srcs/ft_parsinginit.c				\
 	srcs/read.c									\
-	srcs/order.c								\
+	srcs/orderd.c								\
+	srcs/orderg.c								\
 	srcs/bonus.c								\
 	srcs/norme.c								\
 	srcs/ft_asset.c

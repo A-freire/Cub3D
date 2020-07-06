@@ -12,11 +12,11 @@
 
 #include "../header/cub3d_lib.h"
 
-void	spr_south(t_all *all)
+void	spr_southd(t_all *all)
 {
 	int x;
 
-	revread(all);
+	verread(all);
 	x = all->tex.spritenb;
 	while (x >= 0)
 	{
@@ -37,11 +37,11 @@ void	spr_south(t_all *all)
 	}
 }
 
-void	spr_west(t_all *all)
+void	spr_westd(t_all *all)
 {
 	int x;
 
-	trueread(all);
+	eurtread(all);
 	x = 0;
 	while (x <= all->tex.spritenb)
 	{
@@ -62,11 +62,11 @@ void	spr_west(t_all *all)
 	}
 }
 
-void	spr_north(t_all *all)
+void	spr_northd(t_all *all)
 {
 	int x;
 
-	revread(all);
+	verread(all);
 	x = 0;
 	while (x <= all->tex.spritenb)
 	{
@@ -87,7 +87,7 @@ void	spr_north(t_all *all)
 	}
 }
 
-void	spr_east(t_all *all)
+void	spr_eastd(t_all *all)
 {
 	int x;
 
