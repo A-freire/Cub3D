@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:32:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/06 10:37:27 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/06 10:38:34 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	spr_north(t_all *all)
 {
 	int x;
 
-	trueread(all);
+	revread(all);
 	x = 0;
 	while (x <= all->tex.spritenb)
 	{
