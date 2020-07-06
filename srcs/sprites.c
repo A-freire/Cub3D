@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 16:00:15 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/06 10:31:20 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/06 10:33:03 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_sprites(t_all *all)
 {
 	if (all->start.dir.x > 0.7)
 	{
-		spr_north(all);
+		spr_south(all);
 	}
 		else if (all->start.dir.x < 0.7 && all->start.dir.x > -0.7 &&
 	all->start.dir.y < -0.7)
@@ -87,7 +87,7 @@ void	ft_sprites(t_all *all)
 	}
 	else if (all->start.dir.x < -0.7)
 	{
-		spr_south(all);
+		spr_north(all);
 	}
 	else
 	{
