@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkparsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henriquetafreireeleuterio <henriquetafr    +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 16:33:26 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/06 16:11:55 by henriquetaf      ###   ########.fr       */
+/*   Created: 2020/07/07 14:51:47 by afreire-          #+#    #+#             */
+/*   Updated: 2020/07/07 14:51:53 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/22 14:07:51 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/03 16:35:40 by robriard         ###   ########.fr       */
+/*   Created: 2020/07/07 14:53:42 by afreire-          #+#    #+#             */
+/*   Updated: 2020/07/07 14:53:43 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void		ft_bmp(t_all *all)
 
 	imgsize = 3 * all->res.x * all->res.y;
 	bmp.size = 54 + imgsize;
-	bmp.img = malloc((sizeof(char) * imgsize));
+	if (!(bmp.img = malloc((sizeof(char) * imgsize))))
+		return ;
 	ft_memset(bmp.img, 0, imgsize);
 	bmp.fd = open("img.bmp", O_CREAT | O_WRONLY, S_IRWXU);
 	ft_header(all, &bmp);

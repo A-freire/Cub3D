@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 14:50:07 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/03 16:35:51 by robriard         ###   ########.fr       */
+/*   Created: 2020/07/07 14:54:53 by afreire-          #+#    #+#             */
+/*   Updated: 2020/07/07 14:54:54 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int		deal_key(int key, t_all *all)
 	if (key == 114)
 		sprint(all);
 	ft_shift(key, all);
-	if (key == 40)
+	if (key == 107)
 		ft_reset(all);
 	game_on(all);
 	return (key);
