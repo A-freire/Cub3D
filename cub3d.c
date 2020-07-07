@@ -89,6 +89,7 @@ int			main(int ac, char **av)
 	if (ft_parsing(av[1], &all) != 0)
 		return (0);
 	ft_init(&all, windowname);
+	free(windowname);
 	if (ac == 3 && ft_strcmp(av[2], "--save", 6) == 0)
 		all.bmp = 1;
 	else if (ac == 3 && ft_strcmp(av[2], "--save", 6) != 0)
@@ -97,6 +98,6 @@ int			main(int ac, char **av)
 		return (0);
 	game_on(&all);
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 0, deal_key, &all);
-	mlx_hook(all.mlx.win_ptr, 17, 0, ft_finish, &all);
+	mlx_hook(all.mlx.win_ptr, 17, 1L << 17, ft_finish, &all);
 	mlx_loop(all.mlx.mlx_ptr);
 }

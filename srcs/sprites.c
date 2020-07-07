@@ -19,7 +19,7 @@ void	write_sprites(t_all *all)
 
 	d = 0;
 	y = all->spr.drawstarty;
-	while (y < all->spr.drawendy)
+	while (y <= all->spr.drawendy)
 	{
 		d = (y) * 256 - all->res.y * 128 + all->sprheight * 128;
 		all->spr.spry = ((d * all->texwidth) / all->sprheight) / 256;

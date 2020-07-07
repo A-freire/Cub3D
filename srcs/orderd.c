@@ -23,12 +23,12 @@ void	spr_southd(t_all *all)
 		ft_spr_init(all, x);
 		ft_draw_spr(all);
 		all->spr.stripe = all->spr.drawstartx;
-		while (all->spr.stripe < all->spr.drawendx)
+		while (all->spr.stripe <= all->spr.drawendx)
 		{
 			all->spr.sprx = (int)(256 * (all->spr.stripe -
 			(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
 			all->sprwidth) / 256;
-			if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+			if (all->spr.transy >= 0 && all->spr.stripe >= 0 &&
 			all->spr.stripe < all->res.x && all->spr.sprx < 64)
 				write_sprites(all);
 			all->spr.stripe++;
@@ -48,12 +48,12 @@ void	spr_westd(t_all *all)
 		ft_spr_init(all, x);
 		ft_draw_spr(all);
 		all->spr.stripe = all->spr.drawstartx;
-		while (all->spr.stripe < all->spr.drawendx)
+		while (all->spr.stripe <= all->spr.drawendx)
 		{
 			all->spr.sprx = (int)(256 * (all->spr.stripe -
 			(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
 			all->sprwidth) / 256;
-			if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+			if (all->spr.transy >= 0 && all->spr.stripe >= 0 &&
 			all->spr.stripe < all->res.x && all->spr.sprx < 64)
 				write_sprites(all);
 			all->spr.stripe++;
@@ -73,12 +73,12 @@ void	spr_northd(t_all *all)
 		ft_spr_init(all, x);
 		ft_draw_spr(all);
 		all->spr.stripe = all->spr.drawstartx;
-		while (all->spr.stripe < all->spr.drawendx)
+		while (all->spr.stripe <= all->spr.drawendx)
 		{
 			all->spr.sprx = (int)(256 * (all->spr.stripe -
 			(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
 			all->sprwidth) / 256;
-			if (all->spr.transy > 0 && all->spr.stripe > 0 &&
+			if (all->spr.transy >= 0 && all->spr.stripe >= 0 &&
 			all->spr.stripe < all->res.x && all->spr.sprx < 64)
 				write_sprites(all);
 			all->spr.stripe++;
@@ -98,7 +98,7 @@ void	spr_eastd(t_all *all)
 		ft_spr_init(all, x);
 		ft_draw_spr(all);
 		all->spr.stripe = all->spr.drawstartx;
-		while (all->spr.stripe < all->spr.drawendx)
+		while (all->spr.stripe <= all->spr.drawendx)
 		{
 			all->spr.sprx = (int)(256 * (all->spr.stripe -
 			(-all->sprwidth / 2 + all->spr.screen)) * all->texwidth /
