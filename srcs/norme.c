@@ -63,7 +63,7 @@ void	eurtread(t_all *all)
 	while (all->map.map[0][++y] != -42)
 	{
 		x = ft_lex(all);
-		while (x != 0)
+		while (x >= 0)
 		{
 			i += ft_spr(all, x, y, i);
 			j += ft_tlp(all, x, y, i);
@@ -86,7 +86,7 @@ void	verread(t_all *all)
 	while (all->map.map[++x][0] != -42)
 	{
 		y = ft_len(all);
-		while (y != 0)
+		while (y >= 0)
 		{
 			i += ft_spr(all, x, y, i);
 			j += ft_tlp(all, x, y, j);

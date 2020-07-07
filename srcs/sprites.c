@@ -92,8 +92,10 @@ void	ft_sprites(t_all *all)
 		else
 			spr_southg(all);
 	else
+	{
 		if (all->start.dir.x >= 0)
 			spr_westd(all);
 		else
 			spr_westg(all);
+	}
 }
