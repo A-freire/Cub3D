@@ -6,7 +6,7 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/07 15:01:38 by afreire-         ###   ########.fr        #
+#    Updated: 2020/07/07 15:10:17 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,14 @@ exe: re
 	@(./${NAME} ${CUB})
 	@echo "${GREEN}Programm Closed${RESET}"
 	@(rm ${NAME})
+
+screen: re
+	@echo "${YELLOW}Execution${RESET}"
+	@(./${NAME} ${CUB} --save)
+	@echo "${GREEN}Programm Closed${RESET}"
+	@(rm ${NAME})
+
+bonus: re
 
 help:
 	@echo "${RED}===MAKFILE of Cub3D 42 project===${RESET}\n"
