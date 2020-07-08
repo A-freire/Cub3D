@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: henriquetafreireeleuterio <henriquetafr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:53:42 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:53:43 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/08 16:23:51 by henriquetaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,5 @@ void		ft_bmp(t_all *all)
 	free(bmp.img);
 	close(bmp.fd);
 	all->bmp = 0;
+	ft_finish(all);
 }
