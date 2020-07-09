@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henriquetafreireeleuterio <henriquetafr    +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 16:35:04 by henriquetaf       #+#    #+#             */
-/*   Updated: 2020/07/08 16:35:14 by henriquetaf      ###   ########.fr       */
+/*   Created: 2020/07/09 10:38:29 by afreire-          #+#    #+#             */
+/*   Updated: 2020/07/09 10:38:30 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
