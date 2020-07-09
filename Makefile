@@ -6,11 +6,11 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/07 15:10:17 by afreire-         ###   ########.fr        #
+#    Updated: 2020/07/09 14:25:47 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 
 CUB = test.cub
 

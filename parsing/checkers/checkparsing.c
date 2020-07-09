@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:51:47 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:51:53 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/09 15:20:38 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int			ft_checktexture(char *texture)
 	int	fd;
 
 	i = 0;
+	if (texture == NULL)
+		ft_error(6);
 	while (texture[i + 4])
 		i++;
 	if (!(fd = open(texture, O_RDONLY)) ||
