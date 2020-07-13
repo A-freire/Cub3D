@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:54:37 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:54:38 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/13 14:48:40 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void		game_on(t_all *all)
 	heal(all);
 	if (all->bmp == 1)
 		ft_bmp(all);
-	mlx_clear_window(all->mlx.mlx_ptr, all->mlx.win_ptr);
-	mlx_put_image_to_window(all->mlx.mlx_ptr,
-	all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
+	else
+	{
+		mlx_clear_window(all->mlx.mlx_ptr, all->mlx.win_ptr);
+		mlx_put_image_to_window(all->mlx.mlx_ptr,
+		all->mlx.win_ptr, all->mlx.img_ptr, 0, 0);
+	}
 }
