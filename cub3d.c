@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 15:00:31 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/13 14:54:34 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/13 15:13:52 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int			ft_finish(void *param)
 
 void		ft_init2(t_all *all)
 {
-	all->bmp = 0;
 	all->start.pos.x += 0.5;
 	all->start.pos.y += 0.5;
 	all->movespeed = 0.2;
@@ -64,9 +63,9 @@ void		ft_init(t_all *all, char *windowname)
 	osef = 250;
 	ft_init2(all);
 	ft_texture(all);
-	if (all->bmp != 1)
-		all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x, all->res.y,
-			windowname);
+	if (all->bmp == 0)
+		all->mlx.win_ptr = mlx_new_window(all->mlx.mlx_ptr, all->res.x,
+		all->res.y, windowname);
 	all->mlx.img_ptr = mlx_new_image(all->mlx.mlx_ptr, all->res.x, all->res.y);
 	all->mlx.img_data = mlx_get_data_addr(all->mlx.img_ptr, &osef, &osef,
 			&osef);
@@ -87,16 +86,17 @@ int			main(int ac, char **av)
 	}
 	windowname = ft_windowname(av[1]);
 	all.mlx.mlx_ptr = mlx_init();
+	all.bmp = 0;
 	if (ft_parsing(av[1], &all) != 0)
 		return (0);
 	if (ac == 3 && ft_strcmp(av[2], "--save", 6) == 0)
 		all.bmp = 1;
 	else if (ac == 3 && ft_strcmp(av[2], "--save", 6) != 0)
 		ft_error(0);
-	if (!(all.spr.buff = malloc(sizeof(float *) * all.res.x + 1)))
-		return (0);
 	ft_init(&all, windowname);
 	free(windowname);
+	if (!(all.spr.buff = malloc(sizeof(float *) * all.res.x + 1)))
+		return (0);
 	game_on(&all);
 	mlx_hook(all.mlx.win_ptr, 2, 1L << 0, deal_key, &all);
 	mlx_hook(all.mlx.win_ptr, 17, 1L << 17, ft_finish, &all);
