@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:53:34 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:53:35 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/13 14:28:27 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@ void	ft_crea_tex(t_all *all)
 	if (!(all->spr.tex = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
 					all->tex.sprite, &all->sprwidth, &all->sprheight)))
 		ft_error(0);
-	if (!(all->tp.tex = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
-					all->tp.tpway, &all->sprwidth, &all->sprheight)))
-		ft_error(0);
+	if (all->tp.tpnb != 0)
+	{
+		if (!(all->tp.tex = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
+						all->tp.tpway, &all->sprwidth, &all->sprheight)))
+			ft_error(0);
+	}
 	ft_healthtexture(all);
 }
 
@@ -62,8 +65,11 @@ void	ft_texture(t_all *all)
 			&all->bits_per_pixel, &all->line_length, &all->endian);
 	all->spr.tex = mlx_get_data_addr(all->spr.tex,
 			&all->bits_per_pixel, &all->line_length, &all->endian);
-	all->tp.tex = mlx_get_data_addr(all->tp.tex,
+	if (all->tp.tpnb != 0)
+	{
+		all->tp.tex = mlx_get_data_addr(all->tp.tex,
 			&all->bits_per_pixel, &all->line_length, &all->endian);
+	}
 	all->health.tex4 = mlx_get_data_addr(all->health.tex4,
 			&all->bits_per_pixel, &all->line_length, &all->endian);
 	all->health.tex3 = mlx_get_data_addr(all->health.tex3,
