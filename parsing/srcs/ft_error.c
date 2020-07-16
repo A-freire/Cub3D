@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/16 14:20:41 by afreire-         ###   ########.fr       */
+/*   Created: 2020/07/16 16:34:24 by afreire-          #+#    #+#             */
+/*   Updated: 2020/07/16 16:34:25 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		ft_lessoften(int error)
 	if (error == 3)
 		ft_printf("Unknow way texture\n");
 	if (error == 4)
-		ft_printf("Back screen incorrect colors\n");
+		ft_printf("Back Screen incorrect colors\n");
 	if (error == 5)
 		ft_printf("Can't spawn\n");
 	if (error == 6)
@@ -56,7 +56,7 @@ void		ft_moreoften(int error)
 	if (error == 15)
 		ft_printf("No map\n");
 	if (error == 42)
-		ft_printf("\033[33:05mYou die!!!!!\nTry Again\n");
+		ft_printf("You die!!!!!\nTry Again\n");
 	if (error == 69)
 		ft_printf("A key as been given two time\n");
 	if (error == 100)

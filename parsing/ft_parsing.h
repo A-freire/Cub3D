@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 15:59:39 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/13 14:33:29 by robriard         ###   ########.fr       */
+/*   Created: 2020/07/16 16:32:09 by afreire-          #+#    #+#             */
+/*   Updated: 2020/07/16 16:32:10 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			ft_parsing(char *file, t_all *a);
 int			ft_checktexture(char *texture);
 t_all		*ft_map(t_all *ret, char *line, int x);
 t_all		*ft_spritecoord(t_all *all);
-t_all		*ft_index(t_all *a, char *line, int index);
+t_all		*ft_index(t_all *a, char *line, int *index);
 t_all		*ft_spawn(t_all *a, char c);
 int			**ft_finalmap(int **map);
 t_all		ft_fillstruct(int i, char *line, t_all *a);

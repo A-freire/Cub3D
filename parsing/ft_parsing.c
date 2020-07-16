@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/16 14:27:47 by afreire-         ###   ########.fr       */
+/*   Created: 2020/07/16 16:31:52 by afreire-          #+#    #+#             */
+/*   Updated: 2020/07/16 16:31:53 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,16 @@ t_all		ft_fillstruct(int n, char *line, t_all *a)
 		a->map.map[0][0] = -42;
 		ft_init_parsing(*&a);
 	}
-	if (ft_ismap(line) == 0 && index == -1)
+	if (ft_ismap(line) == 0)
 	{
+		if (index != -1)
+			return (*a);
 		*a = ft_indexnull(line, *&a);
 	}
 	else
 	{
-		if (index == -1)
-			index = 0;
-		a = ft_index(a, line, index);
-		index++;
+		index = index == -1 ? 0 : index;
+		a = ft_index(a, line, &index);
 	}
 	return (*a);
 }
