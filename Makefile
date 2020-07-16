@@ -6,13 +6,13 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/09 14:25:47 by afreire-         ###   ########.fr        #
+#    Updated: 2020/07/16 13:11:30 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-CUB = test.cub
+CUB = cub3D.cub
 
 SRCS =	cub3d.c									\
 	srcs/tools.c								\
@@ -37,6 +37,7 @@ SRCS =	cub3d.c									\
 	parsing/srcs/ft_strcmp.c					\
 	parsing/srcs/parsing_reader.c				\
 	parsing/srcs/ft_parsinginit.c				\
+	parsing/srcs/ft_index.c						\
 	srcs/read.c									\
 	srcs/orderd.c								\
 	srcs/orderg.c								\
@@ -85,14 +86,6 @@ exe: re
 	@(./${NAME} ${CUB})
 	@echo "${GREEN}Programm Closed${RESET}"
 	@(rm ${NAME})
-
-screen: re
-	@echo "${YELLOW}Execution${RESET}"
-	@(./${NAME} ${CUB} --save)
-	@echo "${GREEN}Programm Closed${RESET}"
-	@(rm ${NAME})
-
-bonus: re
 
 help:
 	@echo "${RED}===MAKFILE of Cub3D 42 project===${RESET}\n"

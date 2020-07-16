@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 14:54:53 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:54:54 by afreire-         ###   ########.fr       */
+/*   Created: 2020/03/02 14:50:07 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/13 14:41:55 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,6 @@ int		deal_key(int key, t_all *all)
 		ft_turn(all, 1);
 	if (key == 101 || key == 65363)
 		ft_turn(all, -1);
-	if (key == 65507)
-		sneack(all);
-	if (key == 114)
-		sprint(all);
 	ft_shift(key, all);
 	if (key == 107)
 		ft_reset(all);

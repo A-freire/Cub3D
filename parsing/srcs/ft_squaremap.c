@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_squaremap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 14:56:46 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:56:47 by afreire-         ###   ########.fr       */
+/*   Created: 2020/04/27 11:01:25 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/15 11:51:30 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ t_all	*ft_maprunner(t_all *all)
 t_all	*ft_spritecoord(t_all *all)
 {
 	if (!(all->tex.spritex = malloc(sizeof(float) *
-					all->tex.spritenb + all->tp.tpnb + 1)))
+					(all->tex.spritenb + all->tp.tpnb + 1))))
 		ft_error(-1);
 	all->tex.spritex[all->tex.spritenb] = -42;
 	if (!(all->tex.spritey = malloc(sizeof(float) *
-					all->tex.spritenb + all->tp.tpnb + 1)))
+					(all->tex.spritenb + all->tp.tpnb + 1))))
 		ft_error(-1);
 	all->tex.spritey[all->tex.spritenb] = -42;
 	if (!(all->tp.coord = malloc(sizeof(float *) * 2)))

@@ -3,92 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 14:56:20 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:56:21 by afreire-         ###   ########.fr       */
+/*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/13 15:35:13 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parsing.h"
 
-t_all		ft_indexnull(char *line, t_all *ret)
+t_all		ft_indexnull2(char *line, t_all *ret)
 {
-	if (line[0] == 'N' && line[1] == 'O')
-		ret->tex.north = ft_way(line);
-	if (line[0] == 'S' && line[1] == 'O')
-		ret->tex.south = ft_way(line);
-	if (line[0] == 'E' && line[1] == 'A')
-		ret->tex.east = ft_way(line);
-	if (line[0] == 'W' && line[1] == 'E')
-		ret->tex.west = ft_way(line);
-	if (line[0] == 'S' && line[1] == ' ')
+	if (line[0] == 'S' && line[1] == ' ' && ret->tex.sprite == NULL)
 		ret->tex.sprite = ft_way(line);
-	if (line[0] == 'T' && line[1] == ' ')
+	else if (line[0] == 'S' && line[1] == ' ' && ret->tex.sprite != NULL)
+		ft_error(69);
+	if (line[0] == 'T' && line[1] == ' ' && ret->tp.tpway == NULL)
 		ret->tp.tpway = ft_way(line);
-	if (line[0] == 'R' && line[1] == ' ')
+	else if (line[0] == 'T' && line[1] == ' ' && ret->tp.tpway != NULL)
+		ft_error(69);
+	if (line[0] == 'R' && line[1] == ' ' && ret->res.x == 0)
 		ret->res = ft_res(line);
-	if (line[0] == 'F' && line[1] == ' ')
+	else if (line[0] == 'R' && line[1] == ' ' && ret->res.x != 0)
+		ft_error(69);
+	if (line[0] == 'F' && line[1] == ' ' && ret->floor.r == -1)
 		ret->floor = ft_color(line);
-	if (line[0] == 'C' && line[1] == ' ')
+	else if (line[0] == 'F' && line[1] == ' ' && ret->floor.r != -1)
+		ft_error(69);
+	if (line[0] == 'C' && line[1] == ' ' && ret->ceiling.r == -1)
 		ret->ceiling = ft_color(line);
+	else if (line[0] == 'C' && line[1] == ' ' && ret->ceiling.r != -1)
+		ft_error(69);
 	return (*ret);
 }
 
-t_all		*ft_spawn(t_all *a, char c)
+t_all		ft_indexnull(char *line, t_all *ret)
 {
-	a->start.dir.x = 0;
-	a->start.dir.y = 0;
-	a->start.fov.x = 0;
-	a->start.fov.y = 0;
-	if (c == 'N')
-	{
-		a->start.dir.x = -1;
-		a->start.fov.y = 0.66;
-	}
-	if (c == 'S')
-	{
-		a->start.dir.x = 1;
-		a->start.fov.y = -0.66;
-	}
-	if (c == 'W')
-	{
-		a->start.dir.y = -1;
-		a->start.fov.x = -0.66;
-	}
-	if (c == 'E')
-	{
-		a->start.dir.y = 1;
-		a->start.fov.x = 0.66;
-	}
-	return (a);
-}
-
-t_all		*ft_index(t_all *a, char *line, int index)
-{
-	int	i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (line[i] == '3')
-			a->tp.tpnb++;
-		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
-				|| line[i] == 'W')
-		{
-			a->start.pos.x = index;
-			a->start.pos.y = i;
-			a = ft_spawn(a, line[i]);
-		}
-		i++;
-	}
-	free(a->map.map[index]);
-	a = ft_map(a, line, index);
-	index++;
-	if (!(a->map.map[index] = malloc(sizeof(int))))
-		exit(0);
-	a->map.map[index][0] = -42;
-	return (a);
+	if (line[0] == 'N' && line[1] == 'O' && ret->tex.north == NULL)
+		ret->tex.north = ft_way(line);
+	else if (line[0] == 'N' && line[1] == 'O' && ret->tex.north != NULL)
+		ft_error(69);
+	if (line[0] == 'S' && line[1] == 'O' && ret->tex.south == NULL)
+		ret->tex.south = ft_way(line);
+	else if (line[0] == 'S' && line[1] == 'O' && ret->tex.south != NULL)
+		ft_error(69);
+	if (line[0] == 'E' && line[1] == 'A' && ret->tex.east == NULL)
+		ret->tex.east = ft_way(line);
+	else if (line[0] == 'E' && line[1] == 'A' && ret->tex.east != NULL)
+		ft_error(69);
+	if (line[0] == 'W' && line[1] == 'E' && ret->tex.west == NULL)
+		ret->tex.west = ft_way(line);
+	else if (line[0] == 'W' && line[1] == 'E' && ret->tex.west != NULL)
+		ft_error(69);
+	*ret = ft_indexnull2(line, ret);
+	return (*ret);
 }
 
 t_all		ft_fillstruct(int n, char *line, t_all *a)

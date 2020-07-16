@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_reader.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 14:57:06 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:58:21 by afreire-         ###   ########.fr       */
+/*   Created: 2020/03/02 10:58:07 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/13 15:27:41 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_all		*ft_map(t_all *ret, char *line, int x)
 	i = 0;
 	while (line[i])
 		i++;
-	if (!(ret->map.map[x] = malloc(sizeof(int) * i + 1)))
+	if (!(ret->map.map[x] = malloc(sizeof(int) * (i + 1))))
 		return (NULL);
 	ret->map.map[x][i] = -42;
 	i = 0;

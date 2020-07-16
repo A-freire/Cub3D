@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 14:58:27 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:58:28 by afreire-         ###   ########.fr       */
+/*   Created: 2020/07/01 17:14:15 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/03 15:43:04 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ void	ft_reset(t_all *all)
 	all->start.dir = all->save.dir;
 	all->start.fov = all->save.fov;
 	all->start.pos = all->save.pos;
+	all->life = 4;
 }

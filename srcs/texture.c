@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 14:53:34 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/13 14:28:27 by afreire-         ###   ########.fr       */
+/*   Created: 2020/05/20 15:53:03 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/13 14:43:11 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_crea_tex(t_all *all)
 	if (all->tp.tpnb != 0)
 	{
 		if (!(all->tp.tex = mlx_xpm_file_to_image(all->mlx.mlx_ptr,
-						all->tp.tpway, &all->sprwidth, &all->sprheight)))
+				all->tp.tpway, &all->sprwidth, &all->sprheight)))
 			ft_error(0);
 	}
 	ft_healthtexture(all);

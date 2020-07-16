@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 14:56:30 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/07 14:56:32 by afreire-         ###   ########.fr       */
+/*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
+/*   Updated: 2020/07/13 14:58:16 by robriard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void		ft_moreoften(int error)
 		ft_printf("You don't give an acces way for tp texture\n");
 	if (error == 42)
 		ft_printf("\033[33:05mYou die!!!!!\nTry Again\n");
+	if (error == 69)
+		ft_printf("A key as been given two time\n");
+	if (error == 100)
+		ft_printf("Two spawn as been given\n");
 	if (error == 404)
 		ft_printf("No .cub file input\n");
 }
