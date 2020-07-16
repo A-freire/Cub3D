@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:09:00 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/13 14:58:16 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/16 14:20:41 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void		ft_moreoften(int error)
 {
 	if (error == 10)
 		ft_printf("You don't give an acces way for tp texture\n");
+	if (error == 15)
+		ft_printf("No map\n");
 	if (error == 42)
 		ft_printf("\033[33:05mYou die!!!!!\nTry Again\n");
 	if (error == 69)

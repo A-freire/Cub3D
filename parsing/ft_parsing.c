@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robriard <robriard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:56:45 by robriard          #+#    #+#             */
-/*   Updated: 2020/07/13 15:35:13 by robriard         ###   ########.fr       */
+/*   Updated: 2020/07/16 14:27:47 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_all		ft_fillstruct(int n, char *line, t_all *a)
 
 	if (!index)
 	{
+		n == 0 ? ft_error(15) : n;
 		index = -1;
 		if (!(a->map.map = malloc(sizeof(int *) * (n + 1))))
 			ft_error(-1);
