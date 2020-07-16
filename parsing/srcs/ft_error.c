@@ -36,9 +36,9 @@ void		ft_lessoften(int error)
 	if (error == 3)
 		ft_printf("Unknow way texture\n");
 	if (error == 4)
-		ft_printf("Back Screen incorrect colors\n");
+		ft_printf("Back screen incorrect colors\n");
 	if (error == 5)
-		ft_printf("Spawn Uninitialized\n");
+		ft_printf("Can't spawn\n");
 	if (error == 6)
 		ft_printf("A way doesn't exist\n");
 	if (error == 7)

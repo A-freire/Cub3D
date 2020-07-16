@@ -89,10 +89,10 @@ int		ft_lifegame(int **copy)
 	int		j;
 
 	bool = 0;
-	i = 1;
+	i = 0;
 	while (copy[i + 1][0] != -42)
 	{
-		j = 1;
+		j = 0;
 		while (copy[i][j + 1] != -42)
 		{
 			if (copy[i][j] != 1 && copy[i][j] != -2)
