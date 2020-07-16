@@ -87,6 +87,14 @@ exe: re
 	@echo "${GREEN}Programm Closed${RESET}"
 	@(rm ${NAME})
 
+screen: re
+	@echo "${YELLOW}Execution${RESET}"
+	@(./${NAME} ${CUB} --save)
+	@echo "${GREEN}Programm Closed${RESET}"
+	@(rm ${NAME})
+
+bonus: re
+
 help:
 	@echo "${RED}===MAKFILE of Cub3D 42 project===${RESET}\n"
 	@echo "${BLUE}all :${RESET} be the default value. Just compile SRCS in NAME."
