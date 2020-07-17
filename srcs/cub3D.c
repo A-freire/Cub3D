@@ -6,7 +6,7 @@
 /*   By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 16:30:58 by afreire-          #+#    #+#             */
-/*   Updated: 2020/07/16 20:28:21 by afreire-         ###   ########.fr       */
+/*   Updated: 2020/07/17 13:27:34 by afreire-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int			main(int ac, char **av)
 	all.mlx.mlx_ptr = mlx_init();
 	if (ft_parsing(av[1], &all) != 0)
 		return (0);
-	all.bmp = ac == 3 && ft_strcmp(av[2], "--save", 6) == 0 ? 1 : 0;
-	if (ac == 3 && ft_strcmp(av[2], "--save", 6) != 0)
+	all.bmp = ac == 3 && ft_strcmp(av[2], "--save\0", 7) == 0 ? 1 : 0;
+	if (ac == 3 && ft_strcmp(av[2], "--save\0", 7) != 0)
 		ft_error(0);
 	ft_init(&all, windowname);
 	free(windowname);
