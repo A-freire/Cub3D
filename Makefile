@@ -6,7 +6,7 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/16 16:27:08 by afreire-         ###   ########.fr        #
+#    Updated: 2020/07/16 20:27:57 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 CUB = cub3D.cub
 
-SRCS =	cub3d.c									\
+SRCS =	srcs/cub3d.c							\
 	srcs/tools.c								\
 	srcs/display.c								\
 	srcs/move.c									\
