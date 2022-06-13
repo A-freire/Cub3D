@@ -6,7 +6,7 @@
 #    By: afreire- <afreire-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 11:06:38 by afreire-          #+#    #+#              #
-#    Updated: 2020/07/17 13:35:55 by afreire-         ###   ########.fr        #
+#    Updated: 2022/06/02 17:42:20 by afreire-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ OBJS = ${SRCS:.c=.o}
 CC  = gcc
 
 FLAGS =   -L includes/minilibx -lmlx_Linux -lXext -lX11 -lm -lbsd -lmlx
-CFLAGS =  -Wall -Wextra -Werror
+CFLAGS =  
 RM  = rm -f
 
 BLACK		:= $(shell tput -Txterm setaf 0)
